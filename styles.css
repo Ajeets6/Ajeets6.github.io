@@ -1,0 +1,78 @@
+/* css styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+
+
+  }
+
+
+  .main-container {
+    max-width: 960px;
+    padding: 1rem;
+  }
+
+
+
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+    color: #ffffff;
+}
+
+.sidebar-navigation a {
+  color: #ffffff;
+}
+.thumbnail-image.card-img{
+  border-radius: 5%;
+}
+
+div.quarto-grid-item.card.h-100.card-left{
+  border-radius: 5%;
+}
+
+
+div.quarto-grid-item.card.h-100.card-left{
+
+
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+div.quarto-grid-item.card.h-100.card-left:hover {
+  border-color: #00bc8c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-image.card-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+div.quarto-grid-item.card.h-100.card-left:hover .thumbnail-image.card-img{
+  transform: scale(1.05);
+}
+
+.sidebar-navigation a {
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-navigation a:hover {
+  color: #00bc8c;
+  transform: scale(1.05);
+  font-weight: bold;
+}
+
+footer.footer .nav-footer, #quarto-header>nav {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.navbar {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n#include&lt;iostream&gt;\nint main(){\n    int a;\n    cin&gt;&gt;a;\n    cout&lt;&lt;a;\n    return 0;\n}",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Welcome To My Blog"
+    ]
+  },
+  {
+    "objectID": "posts/mango/index.html",
+    "href": "posts/mango/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "Mango mAn",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Post With Code"
+    ]
+  },
+  {
+    "objectID": "posts/Code/index.html#knn",
+    "href": "posts/Code/index.html#knn",
+    "title": "ML AI",
+    "section": "kNN",
+    "text": "kNN\n\nerror=[]\nmax_accu=0\nk_max=0\nfor k in range(1,32): #looping till sqrt(1000)\n    knn = KNeighborsClassifier(n_neighbors=k)\n    knn.fit(X_train, y_train.values.flatten())\n    y_pred_knn = knn.predict(X_test)\n    accuracy_knn = accuracy_score(y_test, y_pred_knn)\n    error.append(accuracy_knn)\n    if(max_accu&lt;accuracy_knn):\n        k_max=k\n    max_accu=max(accuracy_knn,max_accu)\nprint(\"Max accuracy is:\",max_accu,\"For k=\",k_max)\n#plotting the score vs k\nplt.figure(figsize=(10,6))\nplt.plot(range(1,32),error,linestyle='dashed')\nticks=np.arange(0, 32, 3)\nplt.xticks(ticks)\nplt.ylabel('Accuracy Score:', fontsize=12)\nplt.xlabel('K', fontsize=12)\nplt.title('KNN')\nplt.show()\n\nMax accuracy is: 0.4875 For k= 2\n\n\n\n\n\n\n\n\n\n\nknn = KNeighborsClassifier(n_neighbors=k_max) #chossing the best k\nknn.fit(X_train, y_train.values.flatten())\ny_pred_knn = knn.predict(X_test)\naccuracy_knn = accuracy_score(y_test, y_pred_knn)\nprint(f\"Accuracy of kNN classifier: {accuracy_knn:.4f}\")\nprint(\"\\nClassification Report for kNN:\")\nprint(classification_report(y_test, y_pred_knn,zero_division=0))\n\n# Confusion Matrix\nconf_matrix_knn = confusion_matrix(y_test, y_pred_knn)\nprint(\"Confusion Matrix for kNN:\")\nprint(conf_matrix_knn)\n\nAccuracy of kNN classifier: 0.4875\n\nClassification Report for kNN:\n              precision    recall  f1-score   support\n\n           3       0.00      0.00      0.00         1\n           4       0.00      0.00      0.00         3\n           5       0.59      0.75      0.66        32\n           6       0.40      0.50      0.44        28\n           7       1.00      0.08      0.15        12\n           8       0.00      0.00      0.00         4\n\n    accuracy                           0.49        80\n   macro avg       0.33      0.22      0.21        80\nweighted avg       0.52      0.49      0.44        80\n\nConfusion Matrix for kNN:\n[[ 0  0  1  0  0  0]\n [ 0  0  2  1  0  0]\n [ 0  1 24  7  0  0]\n [ 0  2 12 14  0  0]\n [ 0  0  2  9  1  0]\n [ 0  0  0  4  0  0]]",
+    "crumbs": [
+      "About",
+      "Posts",
+      "ML AI"
+    ]
+  },
+  {
+    "objectID": "posts/Code/index.html#modified-knn",
+    "href": "posts/Code/index.html#modified-knn",
+    "title": "ML AI",
+    "section": "modified kNN",
+    "text": "modified kNN\n\nscaler = StandardScaler()\nX_train = scaler.fit_transform(X_train)\nX_test = scaler.transform(X_test)\n\n\nerror=[]\nmax_accu=0\nk_max=0\nfor k in range(1,32):\n    knn_modified = KNeighborsClassifier(n_neighbors=k,weights='distance',p=1)\n    knn_modified.fit(X_train, y_train.values.flatten())\n    y_pred_knn = knn_modified.predict(X_test)\n    accuracy_knn_modified = accuracy_score(y_test, y_pred_knn)\n    if(max_accu&lt;accuracy_knn_modified):\n        k_max=k\n    max_accu=max(accuracy_knn_modified,max_accu)\n    error.append(accuracy_knn_modified)\nprint(\"Max accuracy is:\",max_accu,\"For k=\",k_max)\n\nplt.figure(figsize=(10,6))\nplt.plot(range(1,32),error,linestyle='dashed')\nticks=np.arange(0, 32, 3)\nplt.xticks(ticks)\nplt.ylabel('Accuracy Score:', fontsize=12)\nplt.xlabel('K', fontsize=12)\nplt.title('Modified KNN')\n\nplt.show()\n\n\nMax accuracy is: 0.525 For k= 13\n\n\n\n\n\n\n\n\n\n\n\nknn_modified = KNeighborsClassifier(n_neighbors=k_max,weights='distance',p=1)\nknn_modified.fit(X_train, y_train.values.flatten())\ny_pred_knn_modified = knn_modified.predict(X_test)\naccuracy_knn_modified = accuracy_score(y_test, y_pred_knn_modified)\nprint(f\"Accuracy of kNN classifier: {accuracy_knn_modified:.4f}\")\nprint(\"\\nClassification Report for modified kNN:\")\nprint(classification_report(y_test, y_pred_knn_modified,zero_division=0))\n\n# Confusion Matrix\nconf_matrix_knn = confusion_matrix(y_test, y_pred_knn_modified)\nprint(\"Confusion Matrix for modified kNN:\")\nprint(conf_matrix_knn)\n\nAccuracy of kNN classifier: 0.5250\n\nClassification Report for modified kNN:\n              precision    recall  f1-score   support\n\n           3       0.00      0.00      0.00         1\n           4       0.00      0.00      0.00         3\n           5       0.71      0.53      0.61        32\n           6       0.44      0.75      0.55        28\n           7       0.50      0.33      0.40        12\n           8       0.00      0.00      0.00         4\n\n    accuracy                           0.53        80\n   macro avg       0.27      0.27      0.26        80\nweighted avg       0.51      0.53      0.50        80\n\nConfusion Matrix for modified kNN:\n[[ 0  0  1  0  0  0]\n [ 0  0  2  1  0  0]\n [ 0  0 17 14  1  0]\n [ 0  0  4 21  3  0]\n [ 0  0  0  8  4  0]\n [ 0  0  0  4  0  0]]",
+    "crumbs": [
+      "About",
+      "Posts",
+      "ML AI"
+    ]
+  },
+  {
+    "objectID": "posts/Code/index.html#decision-tree-comparison",
+    "href": "posts/Code/index.html#decision-tree-comparison",
+    "title": "ML AI",
+    "section": "Decision Tree & comparison",
+    "text": "Decision Tree & comparison\n\nX = pd.DataFrame(sample2.drop(columns=['quality']))\ny = pd.DataFrame(sample2['quality'])\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n\nerror=[]\nmax_accu=0\nk_max=0\nfor k in range(1,20):\n    dtc = DecisionTreeClassifier(max_depth=k,min_samples_leaf= 5, min_samples_split=20,max_leaf_nodes= 50,splitter='random')\n    dtc.fit(X_train, y_train)\n    y_pred_dtc = dtc.predict(X_test)\n    accuracy_dtc = accuracy_score(y_test, y_pred_dtc)\n    if(max_accu&lt;accuracy_dtc):\n        k_max=k\n    max_accu=max(accuracy_dtc,max_accu)\n    error.append(accuracy_dtc)\nprint(\"Max accuracy is:\",max_accu,\"For depth=\",k_max)\nplt.figure(figsize=(10,6))\nplt.plot(range(1,20),error,linestyle='dashed')\nticks=np.arange(0, 20, 3)\nplt.xticks(ticks)\nplt.ylabel('Accuracy Score:', fontsize=12)\nplt.xlabel('Depth', fontsize=12)\nplt.title('Decision Tree')\nplt.show()\n\n\nMax accuracy is: 0.5125 For depth= 5\n\n\n\n\n\n\n\n\n\n\naccuracy_dtc=max_accu\ndtc = DecisionTreeClassifier(max_depth=k_max,min_samples_leaf= 5, min_samples_split=20,max_leaf_nodes= 50,splitter='random')\ndtc.fit(X_train, y_train)\ny_pred_dtc = dtc.predict(X_test)\nconf_matrix_dtc = confusion_matrix(y_test, y_pred_dtc)\nprint(classification_report(y_test, y_pred_dtc,zero_division=0))\nprint(\"Confusion Matrix for modified kNN:\")\nprint(conf_matrix_knn)\n\n              precision    recall  f1-score   support\n\n           3       0.00      0.00      0.00         1\n           4       0.00      0.00      0.00         3\n           5       0.45      0.36      0.40        25\n           6       0.44      0.59      0.51        34\n           7       0.27      0.29      0.28        14\n           8       0.00      0.00      0.00         3\n\n    accuracy                           0.41        80\n   macro avg       0.19      0.21      0.20        80\nweighted avg       0.38      0.41      0.39        80\n\nConfusion Matrix for modified kNN:\n[[ 0  0  1  0  0  0]\n [ 0  0  2  1  0  0]\n [ 0  0 17 14  1  0]\n [ 0  0  4 21  3  0]\n [ 0  0  0  8  4  0]\n [ 0  0  0  4  0  0]]\n\n\n\n# Ploting the decision tree\n\nplt.figure(figsize=(15, 18))\nclass_names = [str(cls) for cls in dtc.classes_]\n\nplot_tree(dtc, feature_names=X.columns, class_names=class_names, filled=True, rounded=True)\nplt.title('Decision Tree Visualization')\nplt.savefig('tree.pdf')\n\n\n\n\n\n\n\n\n\n#comparing using box plot\nmodels = ['kNN','Decision Tree']\naccuracies = [accuracy_knn, accuracy_dtc]\n\nplt.figure(figsize=(8, 6))\nplt.barh(models, accuracies, color='skyblue')\nplt.xlabel('Accuracy')\nplt.title('Comparison of Model Accuracies')\nplt.xlim([0.1, 1.0])\nplt.show()",
+    "crumbs": [
+      "About",
+      "Posts",
+      "ML AI"
+    ]
+  },
+  {
+    "objectID": "posts/Code/index.html#k-means",
+    "href": "posts/Code/index.html#k-means",
+    "title": "ML AI",
+    "section": "k-Means",
+    "text": "k-Means\n\ndist=[]\nsilhouette_scores = []\nfor k in range(2, 11):\n    kmeans = KMeans(n_clusters = k, random_state = 42)\n    kmeans.fit(X_scaled)\n    cluster_labels = kmeans.labels_\n    silhouette_avg = silhouette_score(X_scaled, cluster_labels)\n    dist.append(kmeans.inertia_)\n    silhouette_scores.append(silhouette_avg)\n#plotting wss vs k and silhouette score vs k\nfig = plt.figure(figsize=(14,7))\nfig.add_subplot(121)\nplt.plot(range(2,11), dist)\nticks=np.arange(2, 11, 1)\nplt.ylabel('Disance:', fontsize=12)\nplt.xlabel('k', fontsize=12)\nplt.xticks(ticks)\nfig.add_subplot(122)\nplt.plot(range(2,11),silhouette_scores)\nplt.ylabel('silhouette Score:', fontsize=12)\nplt.xlabel('K', fontsize=12)\nplt.show()\n\n\n\n\n\n\n\n\n\nkmeans = KMeans(n_clusters=2, random_state=42)\nkmeans.fit(X_scaled)\ncluster_labels = kmeans.labels_\n# Calculate metrics\nkmeans_silhouette = silhouette_score(X_scaled, cluster_labels)\nkmeans_ch = calinski_harabasz_score(X_scaled, cluster_labels)\nkmeans_db = davies_bouldin_score(X_scaled, cluster_labels)\nprint(\"silhouette_score:\",kmeans_silhouette)\nprint(\"calinski_harabasz_score:\",kmeans_ch)\nprint(\"davies_bouldin_score:\",kmeans_db)\n\nsilhouette_score: 0.21645081487959894\ncalinski_harabasz_score: 164.80127507573837\ndavies_bouldin_score: 1.7747196112762174",
+    "crumbs": [
+      "About",
+      "Posts",
+      "ML AI"
+    ]
+  },
+  {
+    "objectID": "posts/Code/index.html#dbscan-comparison",
+    "href": "posts/Code/index.html#dbscan-comparison",
+    "title": "ML AI",
+    "section": "DBSCAN & comparison",
+    "text": "DBSCAN & comparison\n\neps_values = np.linspace(0.01, 5, num=20)\nmin_samples_values = np.arange(2, 10, step=1)\ndbscan_scores = {min_samples: [] for min_samples in min_samples_values}\n\n\n\n# To find the best value\nmax_score = -1\nbest_eps = None\nbest_min_samples = None\n\ncombination = list(itertools.product(eps_values, min_samples_values))\n\n# Loop through each combination of eps and min_samples\nfor eps, min_samples in combination:\n    dbscan = DBSCAN(eps=eps, min_samples=min_samples)\n    dbscan.fit(X_scaled)\n    cluster_labels = dbscan.labels_\n\n    # Calculate Silhouette Score for DBSCAN if more than 1 cluster is formed\n    if len(set(cluster_labels)) &gt; 1:  # Check if there is more than 1 cluster\n        silhouette_avg = silhouette_score(X_scaled, cluster_labels)\n        dbscan_scores[min_samples].append(silhouette_avg)\n\n\n        if silhouette_avg &gt; max_score:\n            max_score = silhouette_avg\n            best_eps = eps\n            best_min_samples = min_samples\n    else:\n        dbscan_scores[min_samples].append(-1)  # Append -1 for cases with only 1 cluster\n\n# Plotting the results using a line plot\nplt.figure(figsize=(10, 6))\n\nfor min_samples, scores in dbscan_scores.items():\n    sns.lineplot(x=eps_values, y=scores, marker='o', label=f'min_samples={min_samples}')\nprint(f\"Maximum Silhouette Score: {max_score}\")\nprint(f\"Best epsilon (eps): {best_eps}\")\nprint(f\"Best min_samples: {best_min_samples}\")\nplt.xlabel('Epsilon (eps)')\nplt.ylabel('Silhouette Score')\nplt.title('DBSCAN Clustering Performance Across eps and min_samples')\nplt.legend(title='Min Samples')\nplt.show()\n\n\nMaximum Silhouette Score: 0.5156629555602997\nBest epsilon (eps): 4.212105263157895\nBest min_samples: 2\n\n\n\n\n\n\n\n\n\n\n#using the best paramaters\ndbscan = DBSCAN(eps=best_eps, min_samples=best_min_samples)\ndbscan.fit(X_scaled)\ncluster_labels = dbscan.labels_\ndbscan_silhouette = silhouette_score(X_scaled, cluster_labels)\ndbscan_ch = calinski_harabasz_score(X_scaled, cluster_labels)\ndbscan_db = davies_bouldin_score(X_scaled, cluster_labels)\nprint(\"silhouette_score:\",dbscan_silhouette)\nprint(\"calinski_harabasz_score:\",dbscan_ch)\nprint(\"davies_bouldin_score:\",dbscan_db)\n\nsilhouette_score: 0.5156629555602997\ncalinski_harabasz_score: 7.332429925012768\ndavies_bouldin_score: 1.4388362874914498\n\n\n\n#comparison of kmeans and dbscans\nmetrics = ['Silhouette Score', 'Calinski-Harabasz Index', 'Davies-Bouldin Index']\nkmeans_scores = [kmeans_silhouette, kmeans_ch, kmeans_db]\ndbscan_scores = [dbscan_silhouette, dbscan_ch, dbscan_db]\n\nx = np.arange(len(metrics))  # label locations\nwidth = 0.35  # width of the bars\n\nfig, ax = plt.subplots(figsize=(10, 6))\nbars1 = ax.bar(x - width/2, kmeans_scores, width, label='k-Means', color='b')\nbars2 = ax.bar(x + width/2, dbscan_scores, width, label='DBSCAN', color='g')\n\nax.set_xlabel('Metric')\nax.set_ylabel('Score')\nax.set_title('Comparison of k-Means and DBSCAN Clustering Performance')\nax.set_xticks(x)\nax.set_xticklabels(metrics)\nax.legend()\n\ndef add_labels(bars):\n    for bar in bars:\n        yval = bar.get_height()\n        ax.text(bar.get_x() + bar.get_width()/2, yval, f'{yval:.2f}', ha='center', va='bottom')\n\nadd_labels(bars1)\nadd_labels(bars2)\nplt.tight_layout()\nplt.show()",
+    "crumbs": [
+      "About",
+      "Posts",
+      "ML AI"
+    ]
+  },
+  {
+    "objectID": "Notes/Home/index.html",
+    "href": "Notes/Home/index.html",
+    "title": "LLMs",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nHello Material!\n",
+    "section": "",
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#evals",
+    "href": "index.html#evals",
+    "title": "\nHello Material!\n",
+    "section": "",
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#rag",
+    "href": "index.html#rag",
+    "title": "\nHello Material!\n",
+    "section": "RAG",
+    "text": "RAG\n\nHello Material!\n\nRetrieval Augmented Generation\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#building-applications",
+    "href": "index.html#building-applications",
+    "title": "\nHello Material!\n",
+    "section": "Building Applications",
+    "text": "Building Applications\nExamples and best practices of building applications with LLMs\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Notes/index.html",
+    "href": "Notes/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Hello\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nLLMs\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/From_scratch/NN_scratch.html",
+    "href": "posts/From_scratch/NN_scratch.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "import math\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\n\n\ndef f(x):\n    return 3*x**2 -4*x +2\n\n\nx=np.arange(-10,20,0.2)\ny=f(x)\nplt.plot(x,y)\n\n\n\n\n\n\n\n\n\nh=0.00001\nx=4\nprint(f(x+h))\n(f(x+h)-f(x))/h\n\n34.000200000299984\n\n\n20.00002999835715\n\n\n\nclass Value:\n    def __init__(self,data,_children=(),_op='',label=''):\n\n        self.data=data\n        self._prev=set(_children)\n        self._op=_op\n        self.label=label\n    def __repr__(self):\n        return f\"Value: {self.data}\"\n    def __add__(self,other):\n        return Value(self.data+other.data,(self,other),'+')\n    def __mul__(self,other):\n        return Value(self.data*other.data,(self,other),'*')\n    def __sub__(self,other):\n        return Value(self.data-other.data,(self,other),'-') \na=Value(2.0)\nb=Value(3.0)\nd=a-b\nd._op\n\n\n'-'\n\n\n\nf=np.arange(-3,10,1)\nprint(f)\nprint(np.clip(f,0,None))\n\n[-3 -2 -1  0  1  2  3  4  5  6  7  8  9]\n[0 0 0 0 1 2 3 4 5 6 7 8 9]",
+    "crumbs": [
+      "About",
+      "Posts",
+      "From Scratch",
+      "Post With Code"
+    ]
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#a",
+    "href": "posts/post-with-code/index.html#a",
+    "title": "Post With Code",
+    "section": "A",
+    "text": "A",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Post With Code"
+    ]
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#b",
+    "href": "posts/post-with-code/index.html#b",
+    "title": "Post With Code",
+    "section": "B",
+    "text": "B",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Post With Code"
+    ]
+  }
+]
