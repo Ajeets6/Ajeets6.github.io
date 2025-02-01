@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+$color-scheme: light;
+$body-color: #000000;
+$body-bg: #DEE4E7;
+$gray-300:#000000;
+$breadcrumb-bg: #FAF9F6;
+$breadcrumb-divider-color: #ffffff;
+
+$navbar-bg: $body-bg;
+$navbar-color: lighten($body-color, 30%);
+
+.navbar {
+    background-color: $navbar-bg;
+    color: $navbar-color;
+}

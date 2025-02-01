@@ -1,0 +1,40 @@
+project:
+  type: website
+
+website:
+  title: "Projects"
+  navbar:
+    background: secondary
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/Ajeets6
+      - icon: linkedin
+        href: https://www.linkedin.com/in/ajeetsingh6
+    pinned: true
+    collapse: false
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+    search: true
+
+    alignment: center
+    contents:
+    - auto: posts
+
+format:
+  html:
+
+    page-layout: article
+    theme:
+      light: [darkly,dark.scss]
+
+
+    grid:
+      sidebar-width: 300px
+      body-width: 1000px
+      margin-width: 300px
+    css: styles.css
+
+
+

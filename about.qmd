@@ -1,0 +1,23 @@
+---
+title: "About"
+image: profile.png
+sidebar: false
+
+toc: false
+
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ajeetsingh6
+    - icon: github
+      text: Github
+      href: https://github.com/Ajeets6
+    - icon: linkedin
+      text: mango
+      href: Notes/mango
+
+---
+
+About this blog
