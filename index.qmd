@@ -59,8 +59,6 @@ Measuring the performance of LLM products
 
 ## RAG
 
-<h1 class="md-typescale-display-medium">Hello Material!</h1>
-Retrieval Augmented Generation
 
 :::{#talks-a}
 :::

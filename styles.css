@@ -1,12 +1,13 @@
 /* css styles */
+*{
+    font-weight: 400;
+}
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-
-
 
   }
 
@@ -75,4 +76,8 @@ footer.footer .nav-footer, #quarto-header>nav {
 }
 .navbar {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+h1, .h1, h2, .h2{
+  font-weight: 400;
 }

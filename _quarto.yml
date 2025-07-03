@@ -24,11 +24,15 @@ website:
 
 format:
   html:
-
+    mainfont: "'Roboto Flex'"
+    
+    embed-resources: true
     page-layout: article
     theme:
-      light: [darkly,dark.scss]
-
+      dark: [darkly,dark.scss]
+      light: [darkly]
+    include-in-header:
+      file: header.html
 
     grid:
       sidebar-width: 300px
