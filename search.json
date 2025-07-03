@@ -1,27 +1,37 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/From_scratch/NN_scratch.html",
+    "href": "posts/From_scratch/NN_scratch.html",
+    "title": "From scratch",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n#include&lt;iostream&gt;\nint main(){\n    int a;\n    cin&gt;&gt;a;\n    cout&lt;&lt;a;\n    return 0;\n}",
+    "text": "import math\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\n\n\ndef f(x):\n    return 3*x**2 -4*x +2\n\n\nx=np.arange(-10,20,0.2)\ny=f(x)\nplt.plot(x,y)\n\n\n\n\n\n\n\n\n\nh=0.00001\nx=4\nprint(f(x+h))\n(f(x+h)-f(x))/h\n\n34.000200000299984\n\n\n20.00002999835715\n\n\n\nclass Value:\n    def __init__(self,data,_children=(),_op='',label=''):\n\n        self.data=data\n        self._prev=set(_children)\n        self._op=_op\n        self.label=label\n    def __repr__(self):\n        return f\"Value: {self.data}\"\n    def __add__(self,other):\n        return Value(self.data+other.data,(self,other),'+')\n    def __mul__(self,other):\n        return Value(self.data*other.data,(self,other),'*')\n    def __sub__(self,other):\n        return Value(self.data-other.data,(self,other),'-')\na=Value(2.0)\nb=Value(3.0)\nd=a-b\nd._op\n\n\n'-'",
     "crumbs": [
       "About",
       "Posts",
-      "Welcome To My Blog"
+      "From Scratch",
+      "From scratch"
     ]
   },
   {
-    "objectID": "posts/mango/index.html",
-    "href": "posts/mango/index.html",
-    "title": "Post With Code",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Projects",
     "section": "",
-    "text": "Mango mAn",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Post With Code"
-    ]
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#evals",
+    "href": "index.html#evals",
+    "title": "Projects",
+    "section": "",
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
   },
   {
     "objectID": "posts/Code/index.html#knn",
@@ -81,92 +91,6 @@
       "About",
       "Posts",
       "ML AI"
-    ]
-  },
-  {
-    "objectID": "Notes/Home/index.html",
-    "href": "Notes/Home/index.html",
-    "title": "LLMs",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nHello Material!\n",
-    "section": "",
-    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#evals",
-    "href": "index.html#evals",
-    "title": "\nHello Material!\n",
-    "section": "",
-    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#rag",
-    "href": "index.html#rag",
-    "title": "\nHello Material!\n",
-    "section": "RAG",
-    "text": "RAG\n\nHello Material!\n\nRetrieval Augmented Generation\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#building-applications",
-    "href": "index.html#building-applications",
-    "title": "\nHello Material!\n",
-    "section": "Building Applications",
-    "text": "Building Applications\nExamples and best practices of building applications with LLMs\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "Notes/index.html",
-    "href": "Notes/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Hello\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nLLMs\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/From_scratch/NN_scratch.html",
-    "href": "posts/From_scratch/NN_scratch.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "import math\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\n\n\ndef f(x):\n    return 3*x**2 -4*x +2\n\n\nx=np.arange(-10,20,0.2)\ny=f(x)\nplt.plot(x,y)\n\n\n\n\n\n\n\n\n\nh=0.00001\nx=4\nprint(f(x+h))\n(f(x+h)-f(x))/h\n\n34.000200000299984\n\n\n20.00002999835715\n\n\n\nclass Value:\n    def __init__(self,data,_children=(),_op='',label=''):\n\n        self.data=data\n        self._prev=set(_children)\n        self._op=_op\n        self.label=label\n    def __repr__(self):\n        return f\"Value: {self.data}\"\n    def __add__(self,other):\n        return Value(self.data+other.data,(self,other),'+')\n    def __mul__(self,other):\n        return Value(self.data*other.data,(self,other),'*')\n    def __sub__(self,other):\n        return Value(self.data-other.data,(self,other),'-') \na=Value(2.0)\nb=Value(3.0)\nd=a-b\nd._op\n\n\n'-'\n\n\n\nf=np.arange(-3,10,1)\nprint(f)\nprint(np.clip(f,0,None))\n\n[-3 -2 -1  0  1  2  3  4  5  6  7  8  9]\n[0 0 0 0 1 2 3 4 5 6 7 8 9]",
-    "crumbs": [
-      "About",
-      "Posts",
-      "From Scratch",
-      "Post With Code"
-    ]
-  },
-  {
-    "objectID": "posts/post-with-code/index.html#a",
-    "href": "posts/post-with-code/index.html#a",
-    "title": "Post With Code",
-    "section": "A",
-    "text": "A",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Post With Code"
-    ]
-  },
-  {
-    "objectID": "posts/post-with-code/index.html#b",
-    "href": "posts/post-with-code/index.html#b",
-    "title": "Post With Code",
-    "section": "B",
-    "text": "B",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Post With Code"
     ]
   }
 ]
