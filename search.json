@@ -1,32 +1,5 @@
 [
   {
-    "objectID": "posts/From_scratch/NN_scratch.html",
-    "href": "posts/From_scratch/NN_scratch.html",
-    "title": "From scratch",
-    "section": "",
-    "text": "import math\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\n\n\ndef f(x):\n    return 3*x**2 -4*x +2\n\n\nx=np.arange(-10,20,0.2)\ny=f(x)\nplt.plot(x,y)\n\n\n\n\n\n\n\n\n\nh=0.00001\nx=4\nprint(f(x+h))\n(f(x+h)-f(x))/h\n\n34.000200000299984\n\n\n20.00002999835715\n\n\n\nclass Value:\n    def __init__(self,data,_children=(),_op='',label=''):\n\n        self.data=data\n        self._prev=set(_children)\n        self._op=_op\n        self.label=label\n    def __repr__(self):\n        return f\"Value: {self.data}\"\n    def __add__(self,other):\n        return Value(self.data+other.data,(self,other),'+')\n    def __mul__(self,other):\n        return Value(self.data*other.data,(self,other),'*')\n    def __sub__(self,other):\n        return Value(self.data-other.data,(self,other),'-')\na=Value(2.0)\nb=Value(3.0)\nd=a-b\nd._op\n\n\n'-'",
-    "crumbs": [
-      "About",
-      "Posts",
-      "From Scratch",
-      "From scratch"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#evals",
-    "href": "index.html#evals",
-    "title": "Projects",
-    "section": "",
-    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -92,5 +65,32 @@
       "Posts",
       "ML AI"
     ]
+  },
+  {
+    "objectID": "posts/From_scratch/NN_scratch.html",
+    "href": "posts/From_scratch/NN_scratch.html",
+    "title": "From scratch",
+    "section": "",
+    "text": "import math\nimport numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n\n\n\ndef f(x):\n    return 3*x**2 -4*x +2\n\n\nx=np.arange(-10,20,0.2)\ny=f(x)\nplt.plot(x,y)\n\n\n\n\n\n\n\n\n\nh=0.00001\nx=4\nprint(f(x+h))\n(f(x+h)-f(x))/h\n\n34.000200000299984\n\n\n20.00002999835715\n\n\n\nclass Value:\n    def __init__(self,data,_children=(),_op='',label=''):\n\n        self.data=data\n        self._prev=set(_children)\n        self._op=_op\n        self.label=label\n    def __repr__(self):\n        return f\"Value: {self.data}\"\n    def __add__(self,other):\n        return Value(self.data+other.data,(self,other),'+')\n    def __mul__(self,other):\n        return Value(self.data*other.data,(self,other),'*')\n    def __sub__(self,other):\n        return Value(self.data-other.data,(self,other),'-')\na=Value(2.0)\nb=Value(3.0)\nd=a-b\nd._op\n\n\n'-'",
+    "crumbs": [
+      "About",
+      "Posts",
+      "From Scratch",
+      "From scratch"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#evals",
+    "href": "index.html#evals",
+    "title": "Projects",
+    "section": "",
+    "text": "Measuring the performance of LLM products\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLM\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotes on LLMs\n\n\n\n\n\nNo matching items"
   }
 ]
