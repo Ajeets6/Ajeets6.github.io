@@ -1,5 +1,6 @@
 project:
   type: website
+  execute-dir: project
 
 website:
   title: "Projects"
@@ -25,8 +26,8 @@ website:
 format:
   html:
     mainfont: "'Roboto Flex'"
-    
-    embed-resources: true
+
+    embed-resources: false
     page-layout: article
     theme:
       dark: [darkly,dark.scss]

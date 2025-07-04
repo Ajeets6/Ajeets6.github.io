@@ -14,33 +14,14 @@ listing:
   - id: talks-evals
     contents:
       - posts/Code/*.ipynb
-      - posts/welcome/*.qmd
-      - posts/post-with-code/*.qmd
-      - posts/mango/*.qmd
+      - posts/From_scratch/*.ipynb
     type: grid
     sort: order
-    fields: ["image","title", "description"]
+    fields: ["image","title","description"]
     sort-ui: false
     filter-ui: false
     max-description-length: 75
-  - id: talks-a
-    contents:
-      - posts/welcome/*.qmd
-    type: grid
-    sort: order
-    fields: ["image","title", "description"]
-    sort-ui: false
-    filter-ui: false
-    max-description-length: 75
-  - id: talks-b
-    contents:
-      - posts/post-with-code/*.qmd
-    type: grid
-    sort: order
-    fields: ["image","title", "description"]
-    sort-ui: false
-    filter-ui: false
-    max-description-length: 75
+
 page-layout: article
 sidebar: false
 title-block-banner: true
@@ -55,24 +36,7 @@ Measuring the performance of LLM products
 :::{#talks-evals}
 :::
 
----
 
-## RAG
-
-
-:::{#talks-a}
-:::
-
-
-
----
-
-## Building Applications
-
-Examples and best practices of building applications with LLMs
-
-:::{#talks-b}
-:::
 
 ---
 

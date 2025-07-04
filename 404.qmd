@@ -1,9 +1,8 @@
 ---
 title: "404"
-pagetitle: Page Not Found
+pagetitle: "Page Not Found"
 sidebar: false
 title-block-banner: false
-
 toc: false
 ---
 
