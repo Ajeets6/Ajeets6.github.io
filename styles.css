@@ -19,13 +19,8 @@ body {
 
 
 
-.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
-    color: #ffffff;
-}
 
-.sidebar-navigation a {
-  color: #ffffff;
-}
+
 .thumbnail-image.card-img{
   border-radius: 5%;
 }

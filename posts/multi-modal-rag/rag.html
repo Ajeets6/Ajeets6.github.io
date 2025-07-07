@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-11-22">
-<meta name="description" content="Notes on LLMs">
+<meta name="dcterms.date" content="2024-06-30">
+<meta name="description" content="PDF Chatbot">
 
-<title>From scratch – Projects</title>
+<title>Multimodal Chatbot – Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/Code/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,8 +76,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b19cc7519ba7bb7aa29ce1712850443b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d9dca74431350b47a33c5cc5bb4daae8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-1e0d44869a7b6cf3d754c21a7d278847.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e45e74d7fa2e9751f2a97164302e628b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -311,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/Code/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/From_scratch/NN_scratch.html">From Scratch</a></li><li class="breadcrumb-item"><a href="../../posts/From_scratch/NN_scratch.html">From scratch</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Multimodal Chatbot</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -331,60 +330,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Posts</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Code/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML AI</span></a>
+  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Multimodal Chatbot</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">From Scratch</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/From_scratch/NN_scratch.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">From scratch</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#multimodal-pdf-rag-chatbot" id="toc-multimodal-pdf-rag-chatbot" class="nav-link active" data-scroll-target="#multimodal-pdf-rag-chatbot">Multimodal PDF RAG Chatbot</a>
+  <ul class="collapse">
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
+  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#setup-and-installation" id="toc-setup-and-installation" class="nav-link" data-scroll-target="#setup-and-installation">Setup and Installation</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/Code/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/From_scratch/NN_scratch.html">From Scratch</a></li><li class="breadcrumb-item"><a href="../../posts/From_scratch/NN_scratch.html">From scratch</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">From scratch</h1>
+<h1 class="title">Multimodal Chatbot</h1>
 </div>
 
 <div>
   <div class="description">
-    Notes on LLMs
+    PDF Chatbot
   </div>
 </div>
 
@@ -395,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 22, 2024</p>
+      <p class="date">June 30, 2024</p>
     </div>
   </div>
   
@@ -407,68 +391,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-2" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="dv">4</span><span class="op">*</span>x <span class="op">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-3" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>np.arange(<span class="op">-</span><span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.2</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>f(x)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
+<section id="multimodal-pdf-rag-chatbot" class="level1">
+<h1>Multimodal PDF RAG Chatbot</h1>
+<p>Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="NN_scratch_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="demo.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<div id="cell-4" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span><span class="fl">0.00001</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span><span class="dv">4</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(x<span class="op">+</span>h))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(f(x<span class="op">+</span>h)<span class="op">-</span>f(x))<span class="op">/</span>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>34.000200000299984</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>20.00002999835715</code></pre>
-</div>
-</div>
-<div id="cell-5" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Value:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,data,_children<span class="op">=</span>(),_op<span class="op">=</span><span class="st">''</span>,label<span class="op">=</span><span class="st">''</span>):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data<span class="op">=</span>data</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._prev<span class="op">=</span><span class="bu">set</span>(_children)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._op<span class="op">=</span>_op</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.label<span class="op">=</span>label</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Value: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>data<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>,other):</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Value(<span class="va">self</span>.data<span class="op">+</span>other.data,(<span class="va">self</span>,other),<span class="st">'+'</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Value(<span class="va">self</span>.data<span class="op">*</span>other.data,(<span class="va">self</span>,other),<span class="st">'*'</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__sub__</span>(<span class="va">self</span>,other):</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Value(<span class="va">self</span>.data<span class="op">-</span>other.data,(<span class="va">self</span>,other),<span class="st">'-'</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>Value(<span class="fl">2.0</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>Value(<span class="fl">3.0</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>a<span class="op">-</span>b</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>d._op</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>'-'</code></pre>
-</div>
-</div>
+<section id="key-features" class="level2">
+<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
+<ul>
+<li><strong>Multimodal Processing:</strong> Extracts and understands both text and images from PDF files.</li>
+<li><strong>Image Understanding:</strong> Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.</li>
+<li><strong>Retrieval-Augmented Generation (RAG):</strong> Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.</li>
+<li><strong>Local LLMs:</strong> Powered by local language models via Ollama, ensuring privacy and control over the models used.</li>
+<li><strong>Interactive UI:</strong> A user-friendly and responsive chat interface built with Streamlit.</li>
+</ul>
+</section>
+<section id="tech-stack" class="level2">
+<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
+<ul>
+<li><strong>Backend &amp; Orchestration:</strong> Python, LangChain</li>
+<li><strong>Frontend:</strong> Streamlit</li>
+<li><strong>LLM Serving:</strong> Ollama</li>
+<li><strong>Models:</strong>
+<ul>
+<li><strong>Generation:</strong> <code>gemma3:latest</code> (or any other powerful chat model)</li>
+<li><strong>Vision:</strong> <code>gemma3:latest</code> (for image description)</li>
+<li><strong>Embeddings:</strong> <code>granite-embedding:latest</code></li>
+</ul></li>
+<li><strong>Vector Database:</strong> ChromaDB</li>
+<li><strong>PDF Processing:</strong> PyMuPDF (<code>fitz</code>)</li>
+</ul>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<p>The application follows a two-stage RAG pipeline:</p>
+<section id="ingestion-pipeline" class="level4">
+<h4 class="anchored" data-anchor-id="ingestion-pipeline">1. Ingestion Pipeline</h4>
+<p>When a user uploads a PDF: 1. <strong>Content Extraction:</strong> Text and images are extracted from each page using PyMuPDF. 2. <strong>Image Description:</strong> Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. <strong>Chunking:</strong> The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. <strong>Embedding &amp; Storage:</strong> These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.</p>
+</section>
+<section id="retrieval-and-generation-pipeline" class="level4">
+<h4 class="anchored" data-anchor-id="retrieval-and-generation-pipeline">2. Retrieval and Generation Pipeline</h4>
+<p>When a user asks a question: 1. <strong>Query Embedding:</strong> The user’s query is converted into a vector embedding. 2. <strong>Similarity Search:</strong> The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. <strong>Context-Aware Prompting:</strong> The retrieved context is combined with the original query into a prompt for the final generation model. 4. <strong>Answer Generation:</strong> The language model (Gemma) generates a human-like answer based on the provided context. 5. <strong>Display:</strong> The answer is streamed back to the user in the chat interface.</p>
+</section>
+</section>
+<section id="setup-and-installation" class="level2">
+<h2 class="anchored" data-anchor-id="setup-and-installation">Setup and Installation</h2>
+<ol type="1">
+<li><strong>Clone the repository:</strong></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> clone https://github.com/Ajeets6/multi-modal-RAG.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">cd</span> multi-modal-RAG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Install Python dependencies:</strong></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Install and Run Ollama:</strong>
+<ul>
+<li>Pull the required models from the command line:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ollama</span> pull gemma3:latest</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ollama</span> pull granite-embedding:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Ensure Ollama is running</strong> in the background.</li>
+</ol>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>Run the Streamlit application from your terminal:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run src/main.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -883,15 +881,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../posts/Code/index.html" class="pagination-link" aria-label="ML AI">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ML AI</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
