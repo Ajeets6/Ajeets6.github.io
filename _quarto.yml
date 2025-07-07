@@ -21,17 +21,17 @@ website:
 
     alignment: center
     contents:
-    - auto: posts
+    - file: posts/multi-modal-rag/rag.md
 
 format:
   html:
     mainfont: "'Roboto Flex'"
-
+    code-blocks: true
     embed-resources: false
     page-layout: article
     theme:
       dark: [darkly,dark.scss]
-      light: [darkly]
+      light: [darkly,light.scss]
     include-in-header:
       file: header.html
 

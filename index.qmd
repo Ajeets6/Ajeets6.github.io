@@ -13,8 +13,7 @@ listing:
 
   - id: talks-evals
     contents:
-      - posts/Code/*.ipynb
-      - posts/From_scratch/*.ipynb
+      - posts/multi-modal-rag/*.md
     type: grid
     sort: order
     fields: ["image","title","description"]
@@ -29,9 +28,9 @@ title-block-banner: true
 ---
 
 
-## Evals
+## LLM
 
-Measuring the performance of LLM products
+LLM projects
 
 :::{#talks-evals}
 :::

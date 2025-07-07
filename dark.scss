@@ -5,7 +5,6 @@ $body-bg: #1c1c1d;
 $gray-300:#F1F1F1;
 $breadcrumb-bg: #1c1c1d;
 $breadcrumb-divider-color: #F1F1F1;
-$breadcrumb-item-active-color:#3f0606;
 
 $navbar-bg: $body-bg;
 $navbar-color: $body-color;
@@ -14,4 +13,8 @@ $navbar-color: $body-color;
     background-color: $navbar-bg;
     color: $navbar-color;
 }
+
+.sidebar-navigation a {
+    color: #ffffff;
+  }
 

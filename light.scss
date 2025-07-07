@@ -1,15 +1,19 @@
 /*-- scss:defaults --*/
 $color-scheme: light;
-$body-color: #000000;
-$body-bg: #DEE4E7;
-$gray-300:#000000;
+$body-color: #1c1c1d;
+$body-bg: #F1F1F1;
+$gray-300:#1c1c1d;
 $breadcrumb-bg: #FAF9F6;
-$breadcrumb-divider-color: #ffffff;
+$breadcrumb-divider-color: #000000;
+
 
 $navbar-bg: $body-bg;
 $navbar-color: lighten($body-color, 30%);
-
+.sidebar-navigation a {
+    color: #1c1c1d;
+}
 .navbar {
     background-color: $navbar-bg;
     color: $navbar-color;
 }
+$navbar-hl: #26ad8c;
