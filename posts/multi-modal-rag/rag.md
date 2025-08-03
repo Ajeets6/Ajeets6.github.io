@@ -3,6 +3,7 @@ title: " Multimodal Chatbot"
 date: "2024-06-30"
 description: PDF Chatbot
 image: rag.png
+
 ---
 
 # Multimodal PDF RAG Chatbot
@@ -27,11 +28,11 @@ Users can upload a PDF, and the system will intelligently retrieve relevant info
 -   **Frontend:** Streamlit
 -   **LLM Serving:** Ollama
 -   **Models:**
-    -   **Generation:** `gemma3:latest` (or any other powerful chat model)
-    -   **Vision:** `gemma3:latest` (for image description)
-    -   **Embeddings:** `granite-embedding:latest`
+    -   **Generation:** ```gemma3:latest``` (or any other powerful chat model)
+    -   **Vision:** ```gemma3:latest``` (for image description)
+    -   **Embeddings:** ```granite-embedding:latest```
 -   **Vector Database:** ChromaDB
--   **PDF Processing:** PyMuPDF (`fitz`)
+-   **PDF Processing:** PyMuPDF (```fitz```)
 
 ## How It Works
 
@@ -57,20 +58,20 @@ When a user asks a question:
 1.  **Clone the repository:**
 
 ```bash
-    git clone https://github.com/Ajeets6/multi-modal-RAG.git
-    cd multi-modal-RAG
+git clone https://github.com/Ajeets6/multi-modal-RAG.git
+cd multi-modal-RAG
 ```
 
 2.  **Install Python dependencies:**
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 3.  **Install and Run Ollama:**
     -   Pull the required models from the command line:
 ```bash
-        ollama pull gemma3:latest
-        ollama pull granite-embedding:latest
+ollama pull gemma3:latest
+ollama pull granite-embedding:latest
 ```
 
 4.  **Ensure Ollama is running** in the background.

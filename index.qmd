@@ -7,7 +7,7 @@ grid:
       body-width: 1100px
       margin-width: 200px
 
-
+repo-actions: false
 
 listing:
 
