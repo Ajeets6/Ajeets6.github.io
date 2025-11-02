@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.\nRecently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\n\n\nLanguages & Core\nPython SQL Bash\n\n\nLLM & RAG\nLangChain RAG ChromaDB Embeddings Ollama\n\n\n\nApps & Ops\nStreamlit FastAPI Docker GitHub Actions\n\n\nVision & Docs\nLLaVA PyMuPDF OpenCV"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\n\n\nAI/LLM Engineer — Projects/Portfolio 2024 — Present\n\nBuilt a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.\nDesigned retrieval pipelines, prompt templates, and embedding strategies for text and visual content.\nFocused on latency, quality, and a friendly UX with clear failure modes.\n\nYour Role — Company YYYY — YYYY · Location\n\nBrief achievement or responsibility.\nImpact metric or technology used."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\n\nYour Degree — University YYYY — YYYY Area of study or relevant coursework."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Projects",
@@ -12,13 +40,6 @@
     "title": "Projects",
     "section": "",
     "text": "LLM projects\n\n\n\n\n\n\n\n\n\n\n\nPDF Chatbot\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html",
