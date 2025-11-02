@@ -24,8 +24,7 @@ website:
     - section: "Posts"
       contents:
         - file: posts/multi-modal-rag/rag.md
-  repo-url: https://github.com/Ajeets6/Ajeets6.github.io
-  repo-actions: [source]
+
 
 format:
   html:

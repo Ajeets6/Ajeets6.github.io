@@ -17,4 +17,64 @@ about:
 
 ---
 
-About this blog
+Hi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.
+
+Recently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details.
+
+## Skills
+
+::: {.columns}
+::: {.column width="50%"}
+#### Languages & Core
+
+<span class="badge rounded-pill bg-success me-1 mb-2">Python</span>
+<span class="badge rounded-pill bg-secondary me-1 mb-2">SQL</span>
+<span class="badge rounded-pill bg-secondary me-1 mb-2">Bash</span>
+
+#### LLM & RAG
+
+<span class="badge rounded-pill bg-success me-1 mb-2">LangChain</span>
+<span class="badge rounded-pill bg-success me-1 mb-2">RAG</span>
+<span class="badge rounded-pill bg-success me-1 mb-2">ChromaDB</span>
+<span class="badge rounded-pill bg-success me-1 mb-2">Embeddings</span>
+<span class="badge rounded-pill bg-success me-1 mb-2">Ollama</span>
+
+:::
+::: {.column width="50%"}
+#### Apps & Ops
+
+<span class="badge rounded-pill bg-primary me-1 mb-2">Streamlit</span>
+<span class="badge rounded-pill bg-primary me-1 mb-2">FastAPI</span>
+<span class="badge rounded-pill bg-primary me-1 mb-2">Docker</span>
+<span class="badge rounded-pill bg-primary me-1 mb-2">GitHub Actions</span>
+
+#### Vision & Docs
+
+<span class="badge rounded-pill bg-info me-1 mb-2">LLaVA</span>
+<span class="badge rounded-pill bg-info me-1 mb-2">PyMuPDF</span>
+<span class="badge rounded-pill bg-info me-1 mb-2">OpenCV</span>
+
+:::
+:::
+
+## Experience
+
+::: {.timeline}
+- **AI/LLM Engineer — Projects/Portfolio**
+  _2024 — Present_
+  - Built a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.
+  - Designed retrieval pipelines, prompt templates, and embedding strategies for text and visual content.
+  - Focused on latency, quality, and a friendly UX with clear failure modes.
+- **Your Role — Company**
+  _YYYY — YYYY · Location_
+  - Brief achievement or responsibility.
+  - Impact metric or technology used.
+:::
+
+## Education
+
+::: {.timeline}
+- **Your Degree — University**
+  _YYYY — YYYY_
+  Area of study or relevant coursework.
+:::

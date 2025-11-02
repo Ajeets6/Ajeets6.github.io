@@ -76,3 +76,41 @@ footer.footer .nav-footer, #quarto-header>nav {
 h1, .h1, h2, .h2{
   font-weight: 400;
 }
+
+/* About page enhancements */
+.badge.me-1 { margin-right: .25rem; }
+.badge.mb-2 { margin-bottom: .5rem; }
+
+.timeline {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  position: relative;
+}
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: .25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0,0,0,.2);
+}
+@media (prefers-color-scheme: dark) {
+  .timeline:before { background: rgba(255,255,255,.2); }
+}
+.timeline > ul { list-style: none; margin: 0; padding: 0; }
+.timeline > p { margin-left: 0; }
+.timeline li { list-style: none; }
+.timeline > * { position: relative; margin: 0 0 1.1rem 0; padding-left: 1rem; }
+.timeline > *:before {
+  content: "";
+  position: absolute;
+  left: -0.1rem;
+  top: .35rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background: #00bc8c;
+  box-shadow: 0 0 0 3px rgba(0,188,140,.15);
+}
+.timeline em { opacity: .8; }
