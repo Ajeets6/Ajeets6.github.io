@@ -1,14 +1,42 @@
-/*-- scss:defaults --*/
+/*-- scss:uses --*/
 $color-scheme: light;
-$body-color: #1c1c1d;
-$body-bg: #F1F1F1;
-$gray-300:#1c1c1d;
+$body-color: #1c1c1d; // strong text contrast for readability
+$body-bg: #F7F7F8;    // slightly softer background to reduce glare
+$gray-300: #1c1c1d;
 $breadcrumb-bg: #FAF9F6;
 $breadcrumb-divider-color: #000000;
 
+// Accent palette and links
+$primary: #00bc8c;
+$success: #00bc8c;
+$info: #17a2b8;
+$link-color: $primary;
+$link-hover-color: darken($primary, 8%);
+$link-decoration: none;
+$link-hover-decoration: underline;
 
-$navbar-bg: $body-bg;
-$navbar-color: lighten($body-color, 30%);
+// Typographic rhythm for readability
+$font-size-base: 1.05rem;
+$line-height-base: 1.7;
+$headings-color: #121212;
+$headings-font-weight: 600;
+
+// Navbar surface in light mode
+$navbar-bg: #ffffff;
+$navbar-color: $body-color;
+
+// Cards and borders for subtle separation
+$card-bg: #ffffff;
+$card-border-color: rgba(0,0,0,.08);
+$border-color: rgba(0,0,0,.12);
+$border-radius: .5rem;
+
+// Code blocks readability
+$code-color: #b40066;
+$code-bg: #f8f9fa;
+$pre-color: $body-color;
+$pre-bg: #f8f9fa;
+
 .sidebar-navigation a {
     color: #1c1c1d;
 }
@@ -17,3 +45,4 @@ $navbar-color: lighten($body-color, 30%);
     color: $navbar-color;
 }
 $navbar-hl: #26ad8c;
+

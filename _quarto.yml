@@ -35,6 +35,8 @@ format:
     theme:
       dark: [darkly,dark.scss]
       light: [darkly,light.scss]
+    highlight-style:
+      light: github
     include-in-header:
       file: header.html
 
