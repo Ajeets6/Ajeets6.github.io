@@ -17,64 +17,104 @@ about:
 
 ---
 
+::: {.hero}
+<h1 class="hero-title">
+  I'm <span class="highlight">Ajeet Singh</span>
+</h1>
+<p class="hero-subtitle">I craft practical <span class="highlight-soft">AI/LLM</span> apps and clean developer experiences.</p>
+:::
+
 Hi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.
 
 Recently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details.
 
 ## Skills
 
-::: {.columns}
-::: {.column width="50%"}
-#### Languages & Core
-
-<span class="badge rounded-pill bg-success me-1 mb-2">Python</span>
-<span class="badge rounded-pill bg-secondary me-1 mb-2">SQL</span>
-<span class="badge rounded-pill bg-secondary me-1 mb-2">Bash</span>
-
-#### LLM & RAG
-
-<span class="badge rounded-pill bg-success me-1 mb-2">LangChain</span>
-<span class="badge rounded-pill bg-success me-1 mb-2">RAG</span>
-<span class="badge rounded-pill bg-success me-1 mb-2">ChromaDB</span>
-<span class="badge rounded-pill bg-success me-1 mb-2">Embeddings</span>
-<span class="badge rounded-pill bg-success me-1 mb-2">Ollama</span>
-
+::: {.skills-grid}
+::: {.skill-category}
+<div class="category-icon">💻</div>
+<h3 class="category-title">Languages & Core</h3>
+<div class="skill-chips">
+<span class="skill-chip primary">Python</span>
+<span class="skill-chip">SQL</span>
+<span class="skill-chip">Bash</span>
+</div>
 :::
-::: {.column width="50%"}
-#### Apps & Ops
 
-<span class="badge rounded-pill bg-primary me-1 mb-2">Streamlit</span>
-<span class="badge rounded-pill bg-primary me-1 mb-2">FastAPI</span>
-<span class="badge rounded-pill bg-primary me-1 mb-2">Docker</span>
-<span class="badge rounded-pill bg-primary me-1 mb-2">GitHub Actions</span>
+::: {.skill-category}
+<div class="category-icon">🤖</div>
+<h3 class="category-title">LLM & RAG</h3>
+<div class="skill-chips">
+<span class="skill-chip primary">LangChain</span>
+<span class="skill-chip primary">RAG</span>
+<span class="skill-chip primary">ChromaDB</span>
+<span class="skill-chip">Embeddings</span>
+<span class="skill-chip">Ollama</span>
+</div>
+:::
 
-#### Vision & Docs
+::: {.skill-category}
+<div class="category-icon">⚡</div>
+<h3 class="category-title">Apps & Ops</h3>
+<div class="skill-chips">
+<span class="skill-chip accent">Streamlit</span>
+<span class="skill-chip accent">FastAPI</span>
+<span class="skill-chip">Docker</span>
+<span class="skill-chip">GitHub Actions</span>
+</div>
+:::
 
-<span class="badge rounded-pill bg-info me-1 mb-2">LLaVA</span>
-<span class="badge rounded-pill bg-info me-1 mb-2">PyMuPDF</span>
-<span class="badge rounded-pill bg-info me-1 mb-2">OpenCV</span>
-
+::: {.skill-category}
+<div class="category-icon">👁️</div>
+<h3 class="category-title">Vision & Docs</h3>
+<div class="skill-chips">
+<span class="skill-chip accent">LLaVA</span>
+<span class="skill-chip">PyMuPDF</span>
+<span class="skill-chip">OpenCV</span>
+</div>
 :::
 :::
 
 ## Experience
 
-::: {.timeline}
-- **AI/LLM Engineer — Projects/Portfolio**
-  _2024 — Present_
-  - Built a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.
-  - Designed retrieval pipelines, prompt templates, and embedding strategies for text and visual content.
-  - Focused on latency, quality, and a friendly UX with clear failure modes.
-- **Your Role — Company**
-  _YYYY — YYYY · Location_
-  - Brief achievement or responsibility.
-  - Impact metric or technology used.
+::: {.experience-grid}
+::: {.experience-card}
+<div class="card-header">
+<h3 class="role-title">AI/LLM Engineer</h3>
+<p class="company">Projects/Portfolio</p>
+<p class="period">2024 — Present</p>
+</div>
+<div class="card-content">
+- Built a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.
+- Designed retrieval pipelines, prompt templates, and embedding strategies for text and visual content.
+- Focused on latency, quality, and a friendly UX with clear failure modes.
+</div>
+:::
+
+::: {.experience-card}
+<div class="card-header">
+<h3 class="role-title">Your Role</h3>
+<p class="company">Company</p>
+<p class="period">YYYY — YYYY · Location</p>
+</div>
+<div class="card-content">
+- Brief achievement or responsibility.
+- Impact metric or technology used.
+</div>
+:::
 :::
 
 ## Education
 
-::: {.timeline}
-- **Your Degree — University**
-  _YYYY — YYYY_
-  Area of study or relevant coursework.
+::: {.education-grid}
+::: {.education-card}
+<div class="card-header">
+<h3 class="degree-title">Your Degree</h3>
+<p class="institution">University Name</p>
+<p class="period">YYYY — YYYY</p>
+</div>
+<div class="card-content">
+Area of study or relevant coursework.
+</div>
+:::
 :::

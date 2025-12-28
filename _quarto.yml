@@ -24,6 +24,7 @@ website:
     - section: "Posts"
       contents:
         - file: posts/multi-modal-rag/rag.md
+        - file: posts/dashboard-llm/dash.md
 
 
 format:
@@ -39,7 +40,7 @@ format:
       light: github
     include-in-header:
       file: header.html
-
+    include-after-body: three.html
     grid:
       sidebar-width: 300px
       body-width: 1000px
