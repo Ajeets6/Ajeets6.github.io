@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Ajeets6.github.io/about.html</loc>
-    <lastmod>2025-11-04T13:23:43.495Z</lastmod>
+    <lastmod>2025-12-28T04:51:09.705Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Ajeets6.github.io/posts/mango.html</loc>
+    <lastmod>2025-12-28T04:51:09.707Z</lastmod>
   </url>
   <url>
     <loc>https://Ajeets6.github.io/index.html</loc>
-    <lastmod>2025-11-04T13:23:43.495Z</lastmod>
+    <lastmod>2025-12-28T04:51:09.706Z</lastmod>
   </url>
   <url>
     <loc>https://Ajeets6.github.io/posts/multi-modal-rag/rag.html</loc>
-    <lastmod>2025-11-04T13:23:43.499Z</lastmod>
+    <lastmod>2025-12-28T04:51:09.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Ajeets6.github.io/posts/dashboard-llm/dash.html</loc>
+    <lastmod>2025-12-28T04:51:09.706Z</lastmod>
   </url>
 </urlset>

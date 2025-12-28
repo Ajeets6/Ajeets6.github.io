@@ -4,42 +4,42 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.\nRecently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details."
+    "text": "I craft practical AI/LLM apps and clean developer experiences.\nHi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.\nRecently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details."
   },
   {
     "objectID": "about.html#skills",
     "href": "about.html#skills",
     "title": "About",
     "section": "Skills",
-    "text": "Skills\n\n\n\nLanguages & Core\nPython SQL Bash\n\n\nLLM & RAG\nLangChain RAG ChromaDB Embeddings Ollama\n\n\n\nApps & Ops\nStreamlit FastAPI Docker GitHub Actions\n\n\nVision & Docs\nLLaVA PyMuPDF OpenCV"
+    "text": "Skills\n\n\n\n💻\n\n\nLanguages & Core\n\n\nPython SQL Bash\n\n\n\n\n🤖\n\n\nLLM & RAG\n\n\nLangChain RAG ChromaDB Embeddings Ollama\n\n\n\n\n⚡\n\n\nApps & Ops\n\n\nStreamlit FastAPI Docker GitHub Actions\n\n\n\n\n👁️\n\n\nVision & Docs\n\n\nLLaVA PyMuPDF OpenCV"
   },
   {
     "objectID": "about.html#experience",
     "href": "about.html#experience",
     "title": "About",
     "section": "Experience",
-    "text": "Experience\n\n\nAI/LLM Engineer — Projects/Portfolio 2024 — Present\n\nBuilt a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.\nDesigned retrieval pipelines, prompt templates, and embedding strategies for text and visual content.\nFocused on latency, quality, and a friendly UX with clear failure modes.\n\nYour Role — Company YYYY — YYYY · Location\n\nBrief achievement or responsibility.\nImpact metric or technology used."
+    "text": "Experience\n\n\n\n\nAI/LLM Engineer\n\n\nProjects/Portfolio\n\n\n2024 — Present\n\n\n\n\nBuilt a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.\nDesigned retrieval pipelines, prompt templates, and embedding strategies for text and visual content.\nFocused on latency, quality, and a friendly UX with clear failure modes.\n\n\n\n\n\n\nYour Role\n\n\nCompany\n\n\nYYYY — YYYY · Location\n\n\n\n\nBrief achievement or responsibility.\nImpact metric or technology used."
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "About",
     "section": "Education",
-    "text": "Education\n\n\nYour Degree — University YYYY — YYYY Area of study or relevant coursework."
+    "text": "Education\n\n\n\n\nYour Degree\n\n\nUniversity Name\n\n\nYYYY — YYYY\n\n\n\nArea of study or relevant coursework."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Projects",
     "section": "",
-    "text": "LLM projects\n\n\n\n\n\n\n\n\n\n\n\nPDF Chatbot\n\n\n\n\n\nNo matching items"
+    "text": "LLM projects\n\n\n\n\n\n\n\n\n\n\n\nPDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#llm",
     "href": "index.html#llm",
     "title": "Projects",
     "section": "",
-    "text": "LLM projects\n\n\n\n\n\n\n\n\n\n\n\nPDF Chatbot\n\n\n\n\n\nNo matching items"
+    "text": "LLM projects\n\n\n\n\n\n\n\n\n\n\n\nPDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html",
@@ -111,6 +111,78 @@
       "About",
       "Posts",
       "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html",
+    "href": "posts/dashboard-llm/dash.html",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.\n\n\n\n\n\nCSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas\n\n\n\n\n\nCSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.\n\n\n\n\nDashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html#key-features",
+    "href": "posts/dashboard-llm/dash.html#key-features",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "CSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html#tech-stack",
+    "href": "posts/dashboard-llm/dash.html#tech-stack",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html#how-it-works",
+    "href": "posts/dashboard-llm/dash.html#how-it-works",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "CSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html#getting-started",
+    "href": "posts/dashboard-llm/dash.html#getting-started",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "posts/dashboard-llm/dash.html#security",
+    "href": "posts/dashboard-llm/dash.html#security",
+    "title": "DashboardLLM",
+    "section": "",
+    "text": "DashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "DashboardLLM"
     ]
   }
 ]

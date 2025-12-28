@@ -8,18 +8,12 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-
   }
 
-
-  .main-container {
-    max-width: 960px;
-    padding: 1rem;
-  }
-
-
-
-
+.main-container {
+  max-width: 960px;
+  padding: 1rem;
+}
 
 .thumbnail-image.card-img{
   border-radius: 5%;
@@ -29,10 +23,7 @@ div.quarto-grid-item.card.h-100.card-left{
   border-radius: 5%;
 }
 
-
 div.quarto-grid-item.card.h-100.card-left{
-
-
   overflow: hidden;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -77,9 +68,187 @@ h1, .h1, h2, .h2{
   font-weight: 400;
 }
 
+/* Landing hero */
+.hero {
+  margin: 2.5rem 0 2rem 0;
+  text-align: left;
+}
+.hero-title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 .75rem 0;
+}
+.hero-subtitle {
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  opacity: .9;
+  margin: 0 0 1.25rem 0;
+}
+.highlight {
+  background: linear-gradient(120deg, rgba(0,188,140,.25) 0%, rgba(0,188,140,.55) 100%);
+  padding: 0 .25rem;
+  border-radius: .25rem;
+}
+.highlight-soft {
+  color: #00bc8c;
+}
+
 /* About page enhancements */
 .badge.me-1 { margin-right: .25rem; }
 .badge.mb-2 { margin-bottom: .5rem; }
+
+/* Skills Section - Modern Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.skill-category {
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+}
+
+.category-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.skill-category:hover .category-icon {
+  filter: grayscale(0);
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: inherit;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.skill-chip:hover {
+  transform: scale(1.05);
+}
+
+/* Experience & Education Cards */
+.experience-grid,
+.education-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.experience-card,
+.education-card {
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.experience-card:hover,
+.education-card:hover {
+  transform: translate(-4px,-4px);
+}
+
+.experience-card::before,
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #00bc8c 0%, #17a2b8 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.experience-card:hover::before,
+.education-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid;
+}
+
+.role-title,
+.degree-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: inherit;
+}
+
+.company,
+.institution {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+
+.period {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  margin: 0;
+  font-weight: 500;
+}
+
+.card-content {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  line-height: 1.7;
+}
+
+.card-content ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.card-content li {
+  margin-bottom: 0.5rem;
+}
+
+.card-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
 
 .timeline {
   margin: 0;
@@ -93,10 +262,6 @@ h1, .h1, h2, .h2{
   top: 0;
   bottom: 0;
   width: 2px;
-  background: rgba(0,0,0,.2);
-}
-@media (prefers-color-scheme: dark) {
-  .timeline:before { background: rgba(255,255,255,.2); }
 }
 .timeline > ul { list-style: none; margin: 0; padding: 0; }
 .timeline > p { margin-left: 0; }
@@ -110,7 +275,5 @@ h1, .h1, h2, .h2{
   width: .6rem;
   height: .6rem;
   border-radius: 50%;
-  background: #00bc8c;
-  box-shadow: 0 0 0 3px rgba(0,188,140,.15);
 }
 .timeline em { opacity: .8; }

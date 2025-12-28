@@ -2,7 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/multi-modal-rag/rag.html"
+      "/posts/multi-modal-rag/rag.html",
+      "/posts/dashboard-llm/dash.html"
     ]
   }
 ]

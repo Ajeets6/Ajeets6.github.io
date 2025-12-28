@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-06-30">
-<meta name="description" content="PDF Chatbot">
 
-<title>Multimodal Chatbot – Projects</title>
+<title>dash – Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/dashboard-llm/dash.html" rel="next">
+<link href="../../posts/multi-modal-rag/rag.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -312,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Multimodal Chatbot</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/dashboard-llm/dash.html">DashboardLLM</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,13 +341,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multimodal Chatbot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DashboardLLM</span></a>
   </div>
 </li>
@@ -365,68 +363,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#multimodal-pdf-rag-chatbot" id="toc-multimodal-pdf-rag-chatbot" class="nav-link active" data-scroll-target="#multimodal-pdf-rag-chatbot">Multimodal PDF RAG Chatbot</a>
+  <li><a href="#dashboardllm" id="toc-dashboardllm" class="nav-link active" data-scroll-target="#dashboardllm">DashboardLLM</a>
   <ul class="collapse">
   <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
   <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
   <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
-  <li><a href="#setup-and-installation" id="toc-setup-and-installation" class="nav-link" data-scroll-target="#setup-and-installation">Setup and Installation</a></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/dashboard-llm/dash.html">DashboardLLM</a></li></ol></nav></header>
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Multimodal Chatbot</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Multimodal Chatbot</h1>
-</div>
-
-<div>
-  <div class="description">
-    PDF Chatbot
-  </div>
-</div>
 
 
-<div class="quarto-title-meta">
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 30, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="multimodal-pdf-rag-chatbot" class="level1">
-<h1>Multimodal PDF RAG Chatbot</h1>
-<p>Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="demo.gif" class="img-fluid figure-img"></p>
-<figcaption>Demo</figcaption>
-</figure>
-</div>
+<section id="dashboardllm" class="level1">
+<h1>DashboardLLM</h1>
+<p>It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.</p>
+<p><img src="dashboard1.PNG" class="img-fluid"></p>
+<p><img src="dashboard.PNG" class="img-fluid"></p>
 <section id="key-features" class="level2">
 <h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
 <ul>
-<li><strong>Multimodal Processing:</strong> Extracts and understands both text and images from PDF files.</li>
-<li><strong>Image Understanding:</strong> Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.</li>
-<li><strong>Retrieval-Augmented Generation (RAG):</strong> Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.</li>
+<li><strong>CSV Processing:</strong> Reads and processes data from uploaded CSV files to generate insights.</li>
+<li><strong>Chart Generation:</strong> Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.</li>
+<li><strong>Retrieval-Augmented Generation (RAG):</strong> Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.</li>
 <li><strong>Local LLMs:</strong> Powered by local language models via Ollama, ensuring privacy and control over the models used.</li>
-<li><strong>Interactive UI:</strong> A user-friendly and responsive chat interface built with Streamlit.</li>
 </ul>
 </section>
 <section id="tech-stack" class="level2">
@@ -437,51 +403,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>LLM Serving:</strong> Ollama</li>
 <li><strong>Models:</strong>
 <ul>
-<li><strong>Generation:</strong> <code>gemma3:latest</code> (or any other powerful chat model)</li>
-<li><strong>Vision:</strong> <code>gemma3:latest</code> (for image description)</li>
+<li><strong>Generation:</strong> <code>Qwen</code> (or any other powerful chat model)</li>
 <li><strong>Embeddings:</strong> <code>granite-embedding:latest</code></li>
 </ul></li>
 <li><strong>Vector Database:</strong> ChromaDB</li>
-<li><strong>PDF Processing:</strong> PyMuPDF (<code>fitz</code>)</li>
+<li><strong>CSV Processing:</strong> Pandas</li>
 </ul>
 </section>
 <section id="how-it-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
-<p>The application follows a two-stage RAG pipeline:</p>
-<section id="ingestion-pipeline" class="level4">
-<h4 class="anchored" data-anchor-id="ingestion-pipeline">1. Ingestion Pipeline</h4>
-<p>When a user uploads a PDF: 1. <strong>Content Extraction:</strong> Text and images are extracted from each page using PyMuPDF. 2. <strong>Image Description:</strong> Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. <strong>Chunking:</strong> The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. <strong>Embedding &amp; Storage:</strong> These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.</p>
-</section>
-<section id="retrieval-and-generation-pipeline" class="level4">
-<h4 class="anchored" data-anchor-id="retrieval-and-generation-pipeline">2. Retrieval and Generation Pipeline</h4>
-<p>When a user asks a question: 1. <strong>Query Embedding:</strong> The user’s query is converted into a vector embedding. 2. <strong>Similarity Search:</strong> The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. <strong>Context-Aware Prompting:</strong> The retrieved context is combined with the original query into a prompt for the final generation model. 4. <strong>Answer Generation:</strong> The language model (Gemma) generates a human-like answer based on the provided context. 5. <strong>Display:</strong> The answer is streamed back to the user in the chat interface.</p>
-</section>
-</section>
-<section id="setup-and-installation" class="level2">
-<h2 class="anchored" data-anchor-id="setup-and-installation">Setup and Installation</h2>
 <ol type="1">
-<li><strong>Clone the repository:</strong></li>
+<li><strong>CSV Upload:</strong> Users upload a CSV file containing structured data.</li>
+<li><strong>Context Retrieval:</strong> Relevant data chunks are retrieved using ChromaDB.</li>
+<li><strong>Chart Generation:</strong> The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.</li>
+<li><strong>Interactive Chat Interface:</strong> Users interact with the chatbot via a Streamlit-based UI.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Ajeets6/multi-modal-RAG.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> multi-modal-RAG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<ol type="1">
+<li>Clone the repository:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Ajeets6/dashboard-LLM.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> dashboard-LLM</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li><strong>Install Python dependencies:</strong></li>
+<li>Install dependencies:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li><strong>Install and Run Ollama:</strong>
-<ul>
-<li>Pull the required models from the command line:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull gemma3:latest</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull granite-embedding:latest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><strong>Ensure Ollama is running</strong> in the background.</li>
+<li>Run the application:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Upload a CSV file and start interacting with the chatbot.</li>
 </ol>
 </section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p>Run the Streamlit application from your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run src/main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="security" class="level2">
+<h2 class="anchored" data-anchor-id="security">Security</h2>
+<p>DashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.</p>
 
 
 </section>
@@ -904,11 +863,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../posts/multi-modal-rag/rag.html" class="pagination-link" aria-label="Multimodal Chatbot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multimodal Chatbot</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../posts/dashboard-llm/dash.html" class="pagination-link" aria-label="DashboardLLM">
-        <span class="nav-page-text">DashboardLLM</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
