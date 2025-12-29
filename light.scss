@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 $color-scheme: light;
 $body-color: #1c1c1d;
-$body-bg: #F7F7F8;
+$body-bg: #fff; /* Stark white for high contrast */
 $gray-300: #1c1c1d;
 $breadcrumb-bg: #FAF9F6;
 $breadcrumb-divider-color: #000000;
@@ -17,94 +17,25 @@ $link-hover-decoration: underline;
 $font-size-base: 1.05rem;
 $line-height-base: 1.7;
 $headings-color: #121212;
-$headings-font-weight: 600;
+$headings-font-weight: 700; /* Bolder headings */
 
 $navbar-bg: #ffffff;
 $navbar-color: $body-color;
 
 $card-bg: #ffffff;
-$card-border-color: rgba(0,0,0,.08);
-$border-color: rgba(0,0,0,.12);
-$border-radius: .5rem;
+$card-border-color: #000; /* Solid black border default */
+$border-color: #000;
+$border-radius: 0rem; /* No rounded corners */
 
 $code-color: #b40066;
 $code-bg: #f8f9fa;
 $pre-color: $body-color;
 $pre-bg: #f8f9fa;
 
-.sidebar-navigation a {
-    color: #1c1c1d;
-}
-.navbar {
-    background-color: $navbar-bg;
-    color: $navbar-color;
-}
 $navbar-hl: #26ad8c;
-
+.highlight {
+  color: #152e28; }
 /*-- scss:rules --*/
-
-/* Light mode specific component colors */
-.skill-category {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.skill-category:hover {
-  box-shadow: 0 12px 24px rgba(0, 188, 140, 0.12);
-  border-color: rgba(0, 188, 140, 0.25);
-}
-
-.skill-chip {
-  background: #f8f9fa;
-  border-color: rgba(0, 0, 0, 0.12);
-  color: #1c1c1d;
-}
-
-.skill-chip:hover {
-  background: rgba(0, 188, 140, 0.1);
-  border-color: rgba(0, 188, 140, 0.35);
-}
-
-.skill-chip.primary {
-  background: rgba(0, 188, 140, 0.12);
-  border-color: rgba(0, 188, 140, 0.3);
-  color: #0a5d47;
-}
-
-.skill-chip.accent {
-  background: rgba(23, 162, 184, 0.12);
-  border-color: rgba(23, 162, 184, 0.3);
-  color: #0b4f5d;
-}
-
-.experience-card,
-.education-card {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.experience-card:hover,
-.education-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 188, 140, 0.15);
-  border-color: rgba(0, 188, 140, 0.25);
-}
-
-.card-header {
-  border-bottom-color: rgba(0, 0, 0, 0.08);
-}
-
-.company,
-.institution {
-  color: #00bc8c;
-}
-
-.timeline:before {
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.timeline > *:before {
-  background: #00bc8c;
-  box-shadow: 0 0 0 3px rgba(0, 188, 140, 0.2);
+:root {
+  --box-shadow-color: #1c1c1d;
 }

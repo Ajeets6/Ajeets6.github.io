@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 $color-scheme: dark;
 $body-color: #F1F1F1;
-$body-bg: #1c1c1d;
+$body-bg: #121212; /* Darker background */
 $gray-300:#F1F1F1;
 $breadcrumb-bg: #1c1c1d;
 $breadcrumb-divider-color: #F1F1F1;
@@ -9,79 +9,14 @@ $breadcrumb-divider-color: #F1F1F1;
 $navbar-bg: $body-bg;
 $navbar-color: $body-color;
 
-.navbar {
-    background-color: $navbar-bg;
-    color: $navbar-color;
-}
+$card-bg: #1c1c1d;
+$card-border-color: #F1F1F1;
 
-.sidebar-navigation a {
-    color: #ffffff;
-  }
-
+/* Ensure links pop in dark mode */
+$link-color: #5bffd4;
+.highlight {
+  color: white; }
 /*-- scss:rules --*/
-
-/* Dark mode specific component colors */
-.skill-category {
-  background: rgba(28, 28, 29, 0.6);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.skill-category:hover {
-  box-shadow: 0 12px 24px rgba(0, 188, 140, 0.15);
-  border-color: rgba(0, 188, 140, 0.3);
-}
-
-.skill-chip {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #F1F1F1;
-}
-
-.skill-chip:hover {
-  background: rgba(0, 188, 140, 0.15);
-  border-color: rgba(0, 188, 140, 0.35);
-}
-
-.skill-chip.primary {
-  background: rgba(0, 188, 140, 0.15);
-  border-color: rgba(0, 188, 140, 0.3);
-  color: #5bffd4;
-}
-
-.skill-chip.accent {
-  background: rgba(23, 162, 184, 0.15);
-  border-color: rgba(23, 162, 184, 0.3);
-  color: #7dd8f0;
-}
-
-.experience-card,
-.education-card {
-  background: rgba(28, 28, 29, 0.6);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.experience-card:hover,
-.education-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 188, 140, 0.2);
-  border-color: rgba(0, 188, 140, 0.3);
-}
-
-.card-header {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.company,
-.institution {
-  color: #5bffd4;
-}
-
-.timeline:before {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.timeline > *:before {
-  background: #00bc8c;
-  box-shadow: 0 0 0 3px rgba(0, 188, 140, 0.25);
+:root {
+  --box-shadow-color: #747474; /* Teal shadow for Pop effect on dark */
 }

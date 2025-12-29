@@ -25,6 +25,7 @@ website:
       contents:
         - file: posts/multi-modal-rag/rag.md
         - file: posts/dashboard-llm/dash.md
+        - file: posts/chip8-raylib/chip8.qmd
 
 
 format:
