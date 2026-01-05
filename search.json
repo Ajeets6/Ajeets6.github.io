@@ -4,28 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "I craft practical AI/LLM apps and clean developer experiences.\nHi, I build practical AI/LLM applications and clean developer experiences. I enjoy shipping fast, iterating with users, and crafting simple UIs that make complex systems feel effortless.\nRecently, I built a Multimodal PDF RAG Chatbot that extracts both text and images from PDFs, uses a vision model to describe visuals, stores everything in ChromaDB, and answers questions via a local LLM (Ollama) with a Streamlit UI. See the project post on the homepage for details."
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "About",
-    "section": "Skills",
-    "text": "Skills\n\n\n\n💻\n\n\nLanguages & Core\n\n\nPython SQL Bash\n\n\n\n\n🤖\n\n\nLLM & RAG\n\n\nLangChain RAG ChromaDB Embeddings Ollama\n\n\n\n\n⚡\n\n\nApps & Ops\n\n\nStreamlit FastAPI Docker GitHub Actions\n\n\n\n\n👁️\n\n\nVision & Docs\n\n\nLLaVA PyMuPDF OpenCV"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "About",
-    "section": "Experience",
-    "text": "Experience\n\n\n\n\nAI/LLM Engineer\n\n\nProjects/Portfolio\n\n\n2024 — Present\n\n\n\n\nBuilt a Multimodal PDF RAG Chatbot using Python, LangChain, ChromaDB, PyMuPDF, LLaVA, and Ollama with a Streamlit UI.\nDesigned retrieval pipelines, prompt templates, and embedding strategies for text and visual content.\nFocused on latency, quality, and a friendly UX with clear failure modes.\n\n\n\n\n\n\nYour Role\n\n\nCompany\n\n\nYYYY — YYYY · Location\n\n\n\n\nBrief achievement or responsibility.\nImpact metric or technology used."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\n\n\n\n\nYour Degree\n\n\nUniversity Name\n\n\nYYYY — YYYY\n\n\n\nArea of study or relevant coursework."
+    "text": "Ajeet Singh\n\n\nBuilding Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and High-Performance Computing. I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nJourney\n\n\n\n\n\nSenior Data Scientist\n\n\nTech Company Inc.\n\n\n2023 - Present\n\n\n\n\n\nLeading the development of Multi-Modal RAG systems for enterprise knowledge retrieval.\n\n\nOptimized inference latency for LLM deployment by 40%.\n\n\nMentoring junior developers and establishing best practices for MLOps.\n\n\n\n\n\n\n\nSoftware Engineer\n\n\nSoftware Solutions Ltd.\n\n\n2021 - 2023\n\n\n\n\n\nDeveloped high-performance backend services using Python and C++.\n\n\nImplemented real-time dashboarding solutions for data visualization.\n\n\nCollaborated with cross-functional teams to deliver scalable web applications."
   },
   {
     "objectID": "index.html",
