@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: ""
 pagetitle: "Ajeet Singh - About"
 page-layout: full
 toc: false
@@ -11,7 +11,7 @@ sidebar: false
 :::: {.g-col-12 .g-col-md-8 .d-flex .flex-column .justify-content-center}
 
 <h1 class="hero-title display-1 fw-bold">Ajeet Singh</h1>
-<h2 class="hero-subtitle">Building <span class="highlight">Intelligent Systems</span> & <span class="highlight">Digital Experiences</span></h2>
+<h2 class="hero-subtitle">Building <span class="highlight purple">Intelligent Systems</span> & <span class="highlight blue">Digital Experiences</span></h2>
 
 ::: {.lead .mb-4}
 I am a developer passionate about **LLMs**, **Computer Vision**, and **High-Performance Computing**.
@@ -42,7 +42,7 @@ I turn complex data into actionable insights and build tools that bridge the gap
 
 :::: {.skills-grid}
 
-::: {.skill-category}
+::: {.skill-category .accent-blue}
 <div class="category-icon"><i class="bi bi-cpu"></i></div>
 <h3 class="category-title">Core Tech</h3>
 <div class="skill-chips">
@@ -53,7 +53,7 @@ I turn complex data into actionable insights and build tools that bridge the gap
 </div>
 :::
 
-::: {.skill-category}
+::: {.skill-category .accent-purple}
 <div class="category-icon"><i class="bi bi-robot"></i></div>
 <h3 class="category-title">AI & ML</h3>
 <div class="skill-chips">
@@ -65,7 +65,7 @@ I turn complex data into actionable insights and build tools that bridge the gap
 </div>
 :::
 
-::: {.skill-category}
+::: {.skill-category .accent-orange}
 <div class="category-icon"><i class="bi bi-window-stack"></i></div>
 <h3 class="category-title">Development</h3>
 <div class="skill-chips">
@@ -77,7 +77,7 @@ I turn complex data into actionable insights and build tools that bridge the gap
 </div>
 :::
 
-::: {.skill-category}
+::: {.skill-category .accent-green}
 <div class="category-icon"><i class="bi bi-bar-chart-fill"></i></div>
 <h3 class="category-title">Data Science</h3>
 <div class="skill-chips">
@@ -136,7 +136,7 @@ CHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.
 
 :::: {.experience-grid}
 
-::: {.experience-card}
+::: {.experience-card .accent-red}
 
 <div class="card-header">
 <h3 class="role-title">Senior Data Scientist</h3>
@@ -154,7 +154,7 @@ CHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.
 
 :::
 
-::: {.experience-card}
+::: {.experience-card .accent-pink}
 
 <div class="card-header">
 <h3 class="role-title">Software Engineer</h3>

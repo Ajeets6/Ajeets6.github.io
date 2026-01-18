@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 $color-scheme: dark;
 $body-color: #F1F1F1;
-$body-bg: #121212; /* Darker background */
+$body-bg: #1c1c1d; /* Darker background */
 $gray-300:#F1F1F1;
 $breadcrumb-bg: #1c1c1d;
 $breadcrumb-divider-color: #F1F1F1;
@@ -16,7 +16,10 @@ $card-border-color: #F1F1F1;
 $link-color: #5bffd4;
 .highlight {
   color: white; }
+.chip8 {
+  color: #00b96d;
+}
 /*-- scss:rules --*/
 :root {
-  --box-shadow-color: #747474; /* Teal shadow for Pop effect on dark */
+  --box-shadow-color: #2c2c2c; /* Teal shadow for Pop effect on dark */
 }

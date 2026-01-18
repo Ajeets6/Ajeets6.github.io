@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 $color-scheme: light;
 $body-color: #1c1c1d;
-$body-bg: #fff; /* Stark white for high contrast */
+$body-bg: #FBFAF6; /* Stark white for high contrast */
 $gray-300: #1c1c1d;
 $breadcrumb-bg: #FAF9F6;
 $breadcrumb-divider-color: #000000;
@@ -35,6 +35,9 @@ $pre-bg: #f8f9fa;
 $navbar-hl: #26ad8c;
 .highlight {
   color: #152e28; }
+.chip8 {
+  color: #01644a;
+}
 /*-- scss:rules --*/
 :root {
   --box-shadow-color: #1c1c1d;
