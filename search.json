@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "\nAjeet Singh\n",
     "section": "",
-    "text": "Ajeet Singh\n\n\nBuilding Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and High-Performance Computing. I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nJourney\n\n\n\n\n\nSenior Data Scientist\n\n\nTech Company Inc.\n\n\n2023 - Present\n\n\n\n\n\nLeading the development of Multi-Modal RAG systems for enterprise knowledge retrieval.\n\n\nOptimized inference latency for LLM deployment by 40%.\n\n\nMentoring junior developers and establishing best practices for MLOps.\n\n\n\n\n\n\n\nSoftware Engineer\n\n\nSoftware Solutions Ltd.\n\n\n2021 - 2023\n\n\n\n\n\nDeveloped high-performance backend services using Python and C++.\n\n\nImplemented real-time dashboarding solutions for data visualization.\n\n\nCollaborated with cross-functional teams to deliver scalable web applications."
+    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and High-Performance Computing. I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nJourney\n\n\n\n\n\nSenior Data Scientist\n\n\nTech Company Inc.\n\n\n2023 - Present\n\n\n\n\n\nLeading the development of Multi-Modal RAG systems for enterprise knowledge retrieval.\n\n\nOptimized inference latency for LLM deployment by 40%.\n\n\nMentoring junior developers and establishing best practices for MLOps.\n\n\n\n\n\n\n\nSoftware Engineer\n\n\nSoftware Solutions Ltd.\n\n\n2021 - 2023\n\n\n\n\n\nDeveloped high-performance backend services using Python and C++.\n\n\nImplemented real-time dashboarding solutions for data visualization.\n\n\nCollaborated with cross-functional teams to deliver scalable web applications."
   },
   {
     "objectID": "index.html",
@@ -27,7 +27,7 @@
     "section": "",
     "text": "Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.\n\n\n\nDemo\n\n\n\n\n\nMultimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)\n\n\n\n\nThe application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.\n\n\n\n\nRun the Streamlit application from your terminal:\nstreamlit run src/main.py",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -39,7 +39,7 @@
     "section": "",
     "text": "Multimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -51,7 +51,7 @@
     "section": "",
     "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -63,7 +63,7 @@
     "section": "",
     "text": "The application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -75,7 +75,7 @@
     "section": "",
     "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -87,7 +87,7 @@
     "section": "",
     "text": "Run the Streamlit application from your terminal:\nstreamlit run src/main.py",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "Multimodal Chatbot"
     ]
@@ -99,7 +99,7 @@
     "section": "",
     "text": "It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.\n\n\n\n\n\nCSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas\n\n\n\n\n\nCSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.\n\n\n\n\nDashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]
@@ -111,7 +111,7 @@
     "section": "",
     "text": "CSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]
@@ -123,7 +123,7 @@
     "section": "",
     "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]
@@ -135,7 +135,7 @@
     "section": "",
     "text": "CSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]
@@ -147,7 +147,7 @@
     "section": "",
     "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]
@@ -159,7 +159,7 @@
     "section": "",
     "text": "DashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.",
     "crumbs": [
-      "About",
+      "about.html",
       "Posts",
       "DashboardLLM"
     ]

@@ -1,4 +1,14 @@
 /* css styles */
+:root {
+  --col-green: #00b96d;
+  --col-red: #ff5f57;
+  --col-pink: #fa6ee3;
+  --col-orange: #fc9d0e;
+  --col-blue: #008ffd;
+  --col-purple: #8684ff;
+  --col-green: #b96900;
+}
+
 *{
     font-weight: 400;
 }
@@ -10,37 +20,6 @@ body {
     margin: 0;
   }
 
-/*body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.6;
-  background:
-
-
-    radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent),
-    radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent) 17.5px 17.5px,
-    linear-gradient(#95660f 1.4px, transparent 1.4px) 0 -0.7px,
-    linear-gradient(90deg, #95660f 1.4px, #000 1.4px) -0.7px 0;
-  mask-image: linear-gradient(
-    135deg,
-    black 0%,
-    rgba(0,0,0,0.6) 40%,
-    transparent 70%
-  );
-
-  background-size:
-
-    35px 35px,
-    35px 35px,
-    17.5px 17.5px,
-    17.5px 17.5px;
-}*/
 .main-container {
   max-width: 960px;
   padding: 1rem;
@@ -118,6 +97,7 @@ h1, .h1, h2, .h2{
   font-weight: 800;
   margin: 0 0 1rem 0;
   text-transform: uppercase;
+  text-shadow: -1px 0 var(--col-green), 0 1px var(--col-green), 1px 0 var(--col-green), 0 -1px var(--col-green), -4px 4px var(--col-green), -3px 3px var(--col-green), -2px 2px var(--col-green), -1px 1px var(--col-green);
 }
 .hero-subtitle {
   font-size: clamp(1.2rem, 2.5vw, 1.75rem);
@@ -126,7 +106,8 @@ h1, .h1, h2, .h2{
   font-weight: 500;
 }
 .highlight {
-  background:linear-gradient(to top, #00bc8c 10%, transparent 20%);
+  background-color: #00bc8c; /* Solid color */
+  color: white;
   padding: 0 .25rem;
 }
 .highlight-soft {
@@ -341,10 +322,10 @@ h1, .h1, h2, .h2{
 
 .btn-social:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px 0px #00bc8c;
-    background-color: #00bc8c;
+    box-shadow: 5px 5px 0px 0px #ff5f57;
+    background-color: #fa6ee3;
     color: #fff;
-    border-color: #00bc8c;
+    border-color: #181b1b;
 }
 
 /* Project Cards */
@@ -415,3 +396,49 @@ h1, .h1, h2, .h2{
     margin: 0;
     color: inherit;
 }
+
+/* --- Accent Colors System --- */
+
+/* Accent Classes */
+.accent-green { --accent-color: var(--col-green); }
+.accent-red { --accent-color: var(--col-red); }
+.accent-pink { --accent-color: var(--col-pink); }
+.accent-orange { --accent-color: var(--col-orange); }
+.accent-blue { --accent-color: var(--col-blue); }
+.accent-purple { --accent-color: var(--col-purple); }
+
+/* Apply accent color to icons */
+.accent-green .category-icon, .accent-red .category-icon,
+.accent-pink .category-icon, .accent-orange .category-icon,
+.accent-blue .category-icon, .accent-purple .category-icon {
+    color: var(--accent-color);
+}
+
+/* Hover effects for Cards */
+.skill-category[class*="accent-"]:hover,
+.experience-card[class*="accent-"]:hover,
+.project-card[class*="accent-"]:hover {
+    border-color: #1c1c1d;
+    box-shadow: 6px 6px 0px 0px var(--accent-color);
+}
+
+/* Project Card Link Color on Hover */
+.project-card[class*="accent-"]:hover h3 a {
+    color: var(--accent-color);
+}
+
+/* Experience Card specific: Company Name */
+.experience-card[class*="accent-"] .company {
+    color: var(--accent-color);
+}
+
+/* Skill Chips Hover within Accented Categories */
+.skill-category[class*="accent-"] .skill-chip:hover {
+    background-color: var(--accent-color);
+}
+
+/* Highlights */
+.highlight.purple { background-color: var(--col-purple); }
+.highlight.blue { background-color: var(--col-blue); }
+.highlight.green { background-color: var(--col-green); }
+.highlight.pink { background-color: var(--col-pink); }
