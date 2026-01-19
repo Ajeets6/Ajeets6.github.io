@@ -1,0 +1,75 @@
+---
+title: ""
+pagetitle: "Chip-8"
+description: ""
+image: chip_8.png
+page-layout: article
+sidebar: true
+format: html
+resources:
+- main.html
+- main.js
+- main.wasm
+- main.data
+---
+
+
+<h1 class="chip8">Chip-8</h1>
+
+The chip8 emulator was built with Raylib and compiled to WebAssembly.
+
+```{=html}
+<style>
+	/* Responsive emulator container */
+	.chip8-wrap{ display:flex; justify-content:center; }
+	#chip8-app{ width:100%; max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 12px; }
+	#canvas{ width:100%; height:auto; aspect-ratio: 900 / 700; background:#000; border-radius:0px; box-shadow:0 8px 24px rgba(0,0,0,.15); }
+</style>
+<div class="chip8-wrap">
+	<div id="chip8-app">
+		<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="0" width="900" height="700" style="touch-action:none; outline:none;"></canvas>
+
+	</div>
+</div>
+
+<script>
+// Mirror the Module expected by raylib/Emscripten from main.html
+var Module = {
+	// Print only to console; do not spam the page
+	print: function(text){ if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); console.log(text); },
+	canvas: document.getElementById('canvas'),
+	// Ensure wasm/data are located next to main.js
+	locateFile: function(path) { return './' + path; }
+};
+	// Basic status reporting
+	Module.setStatus = function (text) {
+		var el = document.getElementById('output');
+	if (el) el.textContent = (text || '').toString();
+	};
+	Module.printErr = function (text) {
+		console.error(text);
+		var el = document.getElementById('output');
+	// Keep errors minimal on page
+	if (el) el.textContent = (el.textContent || '') + '\n' + text;
+	};
+	// Ensure canvas receives focus for keyboard input
+	(function(){
+		var canvas = document.getElementById('canvas');
+		if (!canvas) return;
+		// Focus after load
+		window.addEventListener('load', function(){ try { canvas.focus(); } catch(e){} });
+		// Focus on click/touch
+		['click','pointerdown','touchstart'].forEach(function(ev){
+			canvas.addEventListener(ev, function(){ try { canvas.focus(); } catch(e){} }, { passive: true });
+		});
+		// Prevent the page from hijacking arrow keys (optional)
+		canvas.addEventListener('keydown', function(e){
+			// Common keys used by emulators; allow Module to handle them
+			var prevent = ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key);
+			if (prevent) e.preventDefault();
+		});
+	})();
+</script>
+<script src="./main.js"></script>
+```
+
