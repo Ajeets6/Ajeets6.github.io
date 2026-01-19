@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Ajeet Singh"
+  favicon: favicon.svg
   navbar:
     background: secondary
     right:
