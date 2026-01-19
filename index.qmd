@@ -122,7 +122,7 @@ Generates interactive charts from CSV data using LLMs and Vega-Lite.
 
 ::: {.project-card .position-relative}
 ::: {.project-img-container}
-![](posts/chip8-raylib/chip_8.png)
+![](posts/chip8-raylib/chip8.png)
 :::
 ::: {.project-content}
 [CHIP-8 Emulator](posts/chip8-raylib/chip8.qmd){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}

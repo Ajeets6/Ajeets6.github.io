@@ -27,13 +27,13 @@ body {
 
 .thumbnail-image.card-img{
   border-radius: 0; /* sharper edges */
-  border: 2px solid currentColor;
+
 }
 
 div.quarto-grid-item.card.h-100.card-left{
   border-radius: 0;
   overflow: hidden;
-  border: 2px solid currentColor;
+  border: 1px solid currentColor;
   box-shadow: 4px 4px 0px 0px var(--box-shadow-color); /* Hard shadow */
   transition: all 0.2s ease;
 }
@@ -41,7 +41,7 @@ div.quarto-grid-item.card.h-100.card-left{
 div.quarto-grid-item.card.h-100.card-left:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px 0px #00bc8c;
-  border-color: #00bc8c;
+  border-color: #3a3b3b;
 }
 
 .thumbnail-image.card-img{

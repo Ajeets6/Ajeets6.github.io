@@ -11,7 +11,7 @@ resources:
 - main.js
 - main.wasm
 - main.data
-- chip_8.png
+- chip8.png
 ---
 
 
