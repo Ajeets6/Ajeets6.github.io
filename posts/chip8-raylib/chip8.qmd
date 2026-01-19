@@ -2,7 +2,7 @@
 title: ""
 pagetitle: "Chip-8"
 description: ""
-image: chip_8.png
+image: chip8.png
 page-layout: article
 sidebar: true
 format: html
