@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dash – Projects</title>
+<title>Chip-8 – Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +29,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/chip8-raylib/chip8.html" rel="next">
-<link href="../../posts/multi-modal-rag/rag.html" rel="prev">
+<link href="../../posts/dashboard-llm/dash.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -314,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/dashboard-llm/dash.html">DashboardLLM</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/chip8-raylib/chip8.html">chip8.html</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -351,13 +315,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DashboardLLM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/chip8-raylib/chip8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/chip8-raylib/chip8.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">chip8.html</span></a>
   </div>
 </li>
@@ -368,93 +332,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#dashboardllm" id="toc-dashboardllm" class="nav-link active" data-scroll-target="#dashboardllm">DashboardLLM</a>
-  <ul class="collapse">
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/dashboard-llm/dash.html">DashboardLLM</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/chip8-raylib/chip8.html">chip8.html</a></li></ol></nav></header>
 
 
 
 
 
-<section id="dashboardllm" class="level1">
-<h1>DashboardLLM</h1>
-<p>It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.</p>
-<p><img src="dashboard1.PNG" class="img-fluid"></p>
-<p><img src="dashboard.PNG" class="img-fluid"></p>
-<section id="key-features" class="level2">
-<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
-<ul>
-<li><strong>CSV Processing:</strong> Reads and processes data from uploaded CSV files to generate insights.</li>
-<li><strong>Chart Generation:</strong> Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.</li>
-<li><strong>Retrieval-Augmented Generation (RAG):</strong> Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.</li>
-<li><strong>Local LLMs:</strong> Powered by local language models via Ollama, ensuring privacy and control over the models used.</li>
-</ul>
-</section>
-<section id="tech-stack" class="level2">
-<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
-<ul>
-<li><strong>Backend &amp; Orchestration:</strong> Python, LangChain</li>
-<li><strong>Frontend:</strong> Streamlit</li>
-<li><strong>LLM Serving:</strong> Ollama</li>
-<li><strong>Models:</strong>
-<ul>
-<li><strong>Generation:</strong> <code>Qwen</code> (or any other powerful chat model)</li>
-<li><strong>Embeddings:</strong> <code>granite-embedding:latest</code></li>
-</ul></li>
-<li><strong>Vector Database:</strong> ChromaDB</li>
-<li><strong>CSV Processing:</strong> Pandas</li>
-</ul>
-</section>
-<section id="how-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
-<ol type="1">
-<li><strong>CSV Upload:</strong> Users upload a CSV file containing structured data.</li>
-<li><strong>Context Retrieval:</strong> Relevant data chunks are retrieved using ChromaDB.</li>
-<li><strong>Chart Generation:</strong> The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.</li>
-<li><strong>Interactive Chat Interface:</strong> Users interact with the chatbot via a Streamlit-based UI.</li>
-</ol>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<ol type="1">
-<li>Clone the repository:</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Ajeets6/dashboard-LLM.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> dashboard-LLM</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="2" type="1">
-<li>Install dependencies:</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="3" type="1">
-<li>Run the application:</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="4" type="1">
-<li>Upload a CSV file and start interacting with the chatbot.</li>
-</ol>
-</section>
-<section id="security" class="level2">
-<h2 class="anchored" data-anchor-id="security">Security</h2>
-<p>DashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.</p>
+<h1 class="chip8">
+Chip-8
+</h1>
+<p>The chip8 emulator was built with Raylib and compiled to WebAssembly.</p>
+<style>
+    /* Responsive emulator container */
+    .chip8-wrap{ display:flex; justify-content:center; }
+    #chip8-app{ width:100%; max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 12px; }
+    #canvas{ width:100%; height:auto; aspect-ratio: 900 / 700; background:#000; border-radius:0px; box-shadow:0 8px 24px rgba(0,0,0,.15); }
+</style>
+<div class="chip8-wrap">
+    <div id="chip8-app">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="0" width="900" height="700" style="touch-action:none; outline:none;"></canvas>
+
+    </div>
+</div>
+
+<script>
+// Mirror the Module expected by raylib/Emscripten from main.html
+var Module = {
+    // Print only to console; do not spam the page
+    print: function(text){ if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); console.log(text); },
+    canvas: document.getElementById('canvas'),
+    // Ensure wasm/data are located next to main.js
+    locateFile: function(path) { return './' + path; }
+};
+    // Basic status reporting
+    Module.setStatus = function (text) {
+        var el = document.getElementById('output');
+    if (el) el.textContent = (text || '').toString();
+    };
+    Module.printErr = function (text) {
+        console.error(text);
+        var el = document.getElementById('output');
+    // Keep errors minimal on page
+    if (el) el.textContent = (el.textContent || '') + '\n' + text;
+    };
+    // Ensure canvas receives focus for keyboard input
+    (function(){
+        var canvas = document.getElementById('canvas');
+        if (!canvas) return;
+        // Focus after load
+        window.addEventListener('load', function(){ try { canvas.focus(); } catch(e){} });
+        // Focus on click/touch
+        ['click','pointerdown','touchstart'].forEach(function(ev){
+            canvas.addEventListener(ev, function(){ try { canvas.focus(); } catch(e){} }, { passive: true });
+        });
+        // Prevent the page from hijacking arrow keys (optional)
+        canvas.addEventListener('keydown', function(e){
+            // Common keys used by emulators; allow Module to handle them
+            var prevent = ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key);
+            if (prevent) e.preventDefault();
+        });
+    })();
+</script>
+<script src="./main.js"></script>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
@@ -873,14 +818,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../posts/multi-modal-rag/rag.html" class="pagination-link" aria-label="Multimodal Chatbot">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multimodal Chatbot</span>
+      <a href="../../posts/dashboard-llm/dash.html" class="pagination-link" aria-label="DashboardLLM">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">DashboardLLM</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../posts/chip8-raylib/chip8.html" class="pagination-link" aria-label="chip8.html">
-        <span class="nav-page-text">chip8.html</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
