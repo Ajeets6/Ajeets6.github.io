@@ -1,0 +1,44 @@
+---
+order: 2
+toc: false
+
+grid:
+      sidebar-width: 200px
+      body-width: 1100px
+      margin-width: 200px
+
+repo-actions: false
+
+listing:
+
+  - id: talks-evals
+    contents:
+      - posts/multi-modal-rag/*.md
+      - posts/dashboard-llm/*.md
+      - posts/chip8-raylib/*.qmd
+    type: grid
+    sort: order
+    fields: ["image","title","description"]
+    sort-ui: false
+    filter-ui: false
+    max-description-length: 75
+
+page-layout: article
+sidebar: false
+title-block-banner: true
+
+---
+
+
+## Projects
+
+
+
+:::{#talks-evals}
+:::
+
+
+
+---
+
+

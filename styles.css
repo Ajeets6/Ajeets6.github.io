@@ -96,6 +96,7 @@ h1, .h1, h2, .h2{
   line-height: 1.1;
   font-weight: 800;
   margin: 0 0 1rem 0;
+  text-align: center;
   text-transform: uppercase;
   text-shadow: -1px 0 var(--col-green), 0 1px var(--col-green), 1px 0 var(--col-green), 0 -1px var(--col-green), -4px 4px var(--col-green), -3px 3px var(--col-green), -2px 2px var(--col-green), -1px 1px var(--col-green);
 }
@@ -442,3 +443,10 @@ h1, .h1, h2, .h2{
 .highlight.blue { background-color: var(--col-blue); }
 .highlight.green { background-color: var(--col-green); }
 .highlight.pink { background-color: var(--col-pink); }
+
+@media (max-width: 900px) {
+	.hero-title{
+
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+}

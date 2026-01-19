@@ -3,11 +3,11 @@ project:
   execute-dir: project
 
 website:
-  title: "Projects"
+  title: "Ajeet Singh"
   navbar:
     background: secondary
     right:
-      - about.qmd
+      - projects.qmd
       - icon: github
         href: https://github.com/Ajeets6
       - icon: linkedin
