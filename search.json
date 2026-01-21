@@ -4,14 +4,14 @@
     "href": "projects.html",
     "title": "Ajeet Singh",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects.html#projects",
     "href": "projects.html#projects",
     "title": "Ajeet Singh",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html",
@@ -91,18 +91,6 @@
     "title": "\nAjeet Singh\n",
     "section": "",
     "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and Software. I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nfreeBSD\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user emulation, collaborating with mentor Warner Losh.\n\n\nVerified, debugged, and upstreamed patches addressing reviewer feedback; improved system call support merged into QEMU main branch.\n\n\nContributed patches addressing reviewer feedback, improving system call support for multiple architectures\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\n2024-2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
-  },
-  {
-    "objectID": "posts/chip8-raylib/chip8.html",
-    "href": "posts/chip8-raylib/chip8.html",
-    "title": "\nChip-8\n",
-    "section": "",
-    "text": "Chip-8\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "chip8.html"
-    ]
   },
   {
     "objectID": "posts/dashboard-llm/dash.html",
