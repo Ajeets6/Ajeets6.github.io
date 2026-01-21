@@ -1,7 +1,7 @@
 ---
-title: ""
+title: "Chip-8"
 pagetitle: "Chip-8"
-description: ""
+description: "The chip8 emulator was built with Raylib and compiled to WebAssembly."
 image: chip8.png
 page-layout: article
 sidebar: true
@@ -15,9 +15,7 @@ resources:
 ---
 
 
-<h1 class="chip8">Chip-8</h1>
 
-The chip8 emulator was built with Raylib and compiled to WebAssembly.
 
 ```{=html}
 <style>
