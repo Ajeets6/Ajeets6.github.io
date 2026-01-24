@@ -93,6 +93,18 @@
     "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and Software. I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nfreeBSD\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user emulation, collaborating with mentor Warner Losh.\n\n\nVerified, debugged, and upstreamed patches addressing reviewer feedback; improved system call support merged into QEMU main branch.\n\n\nContributed patches addressing reviewer feedback, improving system call support for multiple architectures\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\n2024-2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
   },
   {
+    "objectID": "posts/chip8-raylib/chip8.html",
+    "href": "posts/chip8-raylib/chip8.html",
+    "title": "Chip-8",
+    "section": "",
+    "text": "CHIP-8 Emulator\nDescription: Documentation for the CHIP-8 emulator module. Explains input controls and the mapping between a typical PC keyboard and the CHIP-8 hexadecimal keypad.\nControls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout): | 1 | 2 | 3 | C | |—|—|—|—| | 4 | 5 | 6 | D | | 7 | 8 | 9 | E | | A | 0 | B | F |\nCommon PC keyboard -&gt; CHIP-8 mapping: ‘1’ -&gt; 0x1 ‘2’ -&gt; 0x2 ‘3’ -&gt; 0x3 ‘4’ -&gt; 0xC ‘Q’ -&gt; 0x4 ‘W’ -&gt; 0x5 ‘E’ -&gt; 0x6 ‘R’ -&gt; 0xD ‘A’ -&gt; 0x7 ‘S’ -&gt; 0x8 ‘D’ -&gt; 0x9 ‘F’ -&gt; 0xE ‘Z’ -&gt; 0xA ‘X’ -&gt; 0x0 ‘C’ -&gt; 0xB ‘V’ -&gt; 0xF\nNotes: - Keys are typically handled case-insensitively. - If your environment or platform uses a different keyboard layout, update the mapping accordingly. - This comment is intended to sit above the emulator/input handling code.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Chip-8"
+    ]
+  },
+  {
     "objectID": "posts/dashboard-llm/dash.html",
     "href": "posts/dashboard-llm/dash.html",
     "title": "DashboardLLM",
