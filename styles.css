@@ -171,6 +171,15 @@ h1, .h1, h2, .h2{
   display: inline-block;
   padding-bottom: 0.25rem;
 }
+.tight-table table {
+  border-collapse: collapse;
+}
+
+.tight-table th,
+.tight-table td {
+  padding: 2px 5px;
+  line-height: 1.1;
+}
 
 .skill-chips {
   display: flex;

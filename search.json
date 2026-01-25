@@ -97,7 +97,7 @@
     "href": "posts/chip8-raylib/chip8.html",
     "title": "Chip-8",
     "section": "",
-    "text": "CHIP-8 Emulator\nDescription: Documentation for the CHIP-8 emulator module. Explains input controls and the mapping between a typical PC keyboard and the CHIP-8 hexadecimal keypad.\nControls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout): | 1 | 2 | 3 | C | |—|—|—|—| | 4 | 5 | 6 | D | | 7 | 8 | 9 | E | | A | 0 | B | F |\nCommon PC keyboard -&gt; CHIP-8 mapping: ‘1’ -&gt; 0x1 ‘2’ -&gt; 0x2 ‘3’ -&gt; 0x3 ‘4’ -&gt; 0xC ‘Q’ -&gt; 0x4 ‘W’ -&gt; 0x5 ‘E’ -&gt; 0x6 ‘R’ -&gt; 0xD ‘A’ -&gt; 0x7 ‘S’ -&gt; 0x8 ‘D’ -&gt; 0x9 ‘F’ -&gt; 0xE ‘Z’ -&gt; 0xA ‘X’ -&gt; 0x0 ‘C’ -&gt; 0xB ‘V’ -&gt; 0xF\nNotes: - Keys are typically handled case-insensitively. - If your environment or platform uses a different keyboard layout, update the mapping accordingly. - This comment is intended to sit above the emulator/input handling code.",
+    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF",
     "crumbs": [
       "Projects",
       "Posts",
