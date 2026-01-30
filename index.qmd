@@ -15,7 +15,8 @@ sidebar: false
 
 ::: {.lead .mb-4}
 I am a developer passionate about **LLMs**, **Computer Vision**, and **Software**.
-I turn complex data into actionable insights and build tools that bridge the gap between AI and reality.
+With a strong foundation in **Python**, **C++**, and **Rust**, I specialize in creating innovative AI solutions and seamless user experiences. Currently pursuing a Master's in Artificial Intelligence at RMIT, I am eager to contribute to cutting-edge projects that push the boundaries of technology.
+
 :::
 
 <div>
