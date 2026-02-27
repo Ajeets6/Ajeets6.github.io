@@ -14,97 +14,6 @@
     "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/multi-modal-rag/rag.html",
-    "href": "posts/multi-modal-rag/rag.html",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.\n\n\n\nDemo\n\n\n\n\n\nMultimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)\n\n\n\n\nThe application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.\n\n\n\n\nRun the Streamlit application from your terminal:\nstreamlit run src/main.py",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "posts/multi-modal-rag/rag.html#key-features",
-    "href": "posts/multi-modal-rag/rag.html#key-features",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Multimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "posts/multi-modal-rag/rag.html#tech-stack",
-    "href": "posts/multi-modal-rag/rag.html#tech-stack",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "posts/multi-modal-rag/rag.html#how-it-works",
-    "href": "posts/multi-modal-rag/rag.html#how-it-works",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "The application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "posts/multi-modal-rag/rag.html#setup-and-installation",
-    "href": "posts/multi-modal-rag/rag.html#setup-and-installation",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "posts/multi-modal-rag/rag.html#usage",
-    "href": "posts/multi-modal-rag/rag.html#usage",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Run the Streamlit application from your terminal:\nstreamlit run src/main.py",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Multimodal Chatbot"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nAjeet Singh\n",
-    "section": "",
-    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and Software. With a strong foundation in Python, C++, and Rust, I specialize in creating innovative AI solutions and seamless user experiences. Currently pursuing a Master’s in Artificial Intelligence at RMIT, I am eager to contribute to cutting-edge projects that push the boundaries of technology.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nfreeBSD\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user emulation, collaborating with mentor Warner Losh.\n\n\nVerified, debugged, and upstreamed patches addressing reviewer feedback; improved system call support merged into QEMU main branch.\n\n\nContributed patches addressing reviewer feedback, improving system call support for multiple architectures\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\n2024-2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
-  },
-  {
-    "objectID": "posts/chip8-raylib/chip8.html",
-    "href": "posts/chip8-raylib/chip8.html",
-    "title": "Chip-8",
-    "section": "",
-    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF",
-    "crumbs": [
-      "Projects",
-      "Posts",
-      "Chip-8"
-    ]
-  },
-  {
     "objectID": "posts/dashboard-llm/dash.html",
     "href": "posts/dashboard-llm/dash.html",
     "title": "DashboardLLM",
@@ -174,6 +83,97 @@
       "Projects",
       "Posts",
       "DashboardLLM"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nAjeet Singh\n",
+    "section": "",
+    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a developer passionate about LLMs, Computer Vision, and Software. With a strong foundation in Python, C++, and Rust, I specialize in creating innovative AI solutions and seamless user experiences. Currently pursuing a Master’s in Artificial Intelligence at RMIT, I am eager to contribute to cutting-edge projects that push the boundaries of technology.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C++ Rust JavaScript\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch TensorFlow LLMs / RAG Computer Vision HuggingFace\n\n\n\n\n\n\n\nDevelopment\n\n\nDocker Kubernetes FastAPI React Git\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Scikit-learn Visualization\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nMultimodal Chatbot\n\nPDF Chatbot with local LLMs, extracting text and images for context-aware answers.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nfreeBSD\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user emulation, collaborating with mentor Warner Losh.\n\n\nVerified, debugged, and upstreamed patches addressing reviewer feedback; improved system call support merged into QEMU main branch.\n\n\nContributed patches addressing reviewer feedback, improving system call support for multiple architectures\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\n2024-2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
+  },
+  {
+    "objectID": "posts/chip8-raylib/chip8.html",
+    "href": "posts/chip8-raylib/chip8.html",
+    "title": "Chip-8",
+    "section": "",
+    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Chip-8"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html",
+    "href": "posts/multi-modal-rag/rag.html",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.\n\n\n\nDemo\n\n\n\n\n\nMultimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)\n\n\n\n\nThe application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.\n\n\n\n\nRun the Streamlit application from your terminal:\nstreamlit run src/main.py",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html#key-features",
+    "href": "posts/multi-modal-rag/rag.html#key-features",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "Multimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html#tech-stack",
+    "href": "posts/multi-modal-rag/rag.html#tech-stack",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html#how-it-works",
+    "href": "posts/multi-modal-rag/rag.html#how-it-works",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "The application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html#setup-and-installation",
+    "href": "posts/multi-modal-rag/rag.html#setup-and-installation",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
+    ]
+  },
+  {
+    "objectID": "posts/multi-modal-rag/rag.html#usage",
+    "href": "posts/multi-modal-rag/rag.html#usage",
+    "title": "Multimodal Chatbot",
+    "section": "",
+    "text": "Run the Streamlit application from your terminal:\nstreamlit run src/main.py",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Multimodal Chatbot"
     ]
   }
 ]
