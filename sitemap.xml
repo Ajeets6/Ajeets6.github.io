@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Ajeets6.github.io/projects.html</loc>
-    <lastmod>2026-03-09T12:56:24.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Ajeets6.github.io/posts/mango.html</loc>
-    <lastmod>2026-03-09T12:56:24.466Z</lastmod>
+    <loc>https://Ajeets6.github.io/index.html</loc>
+    <lastmod>2026-04-13T14:06:27.836Z</lastmod>
   </url>
   <url>
     <loc>https://Ajeets6.github.io/posts/dashboard-llm/dash.html</loc>
-    <lastmod>2026-03-09T12:56:24.465Z</lastmod>
+    <lastmod>2026-04-13T14:06:27.852Z</lastmod>
   </url>
   <url>
-    <loc>https://Ajeets6.github.io/index.html</loc>
-    <lastmod>2026-03-09T12:56:24.461Z</lastmod>
+    <loc>https://Ajeets6.github.io/posts/mango.html</loc>
+    <lastmod>2026-04-13T14:06:27.854Z</lastmod>
   </url>
   <url>
-    <loc>https://Ajeets6.github.io/posts/chip8-raylib/chip8.html</loc>
-    <lastmod>2026-03-09T12:56:24.463Z</lastmod>
+    <loc>https://Ajeets6.github.io/projects.html</loc>
+    <lastmod>2026-04-13T14:06:27.858Z</lastmod>
   </url>
   <url>
     <loc>https://Ajeets6.github.io/posts/multi-modal-rag/rag.html</loc>
-    <lastmod>2026-03-09T12:56:24.470Z</lastmod>
+    <lastmod>2026-04-13T14:06:27.857Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Ajeets6.github.io/posts/chip8-raylib/chip8.html</loc>
+    <lastmod>2026-04-13T14:06:27.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Ajeets6.github.io/posts/aerialAI/aerial.html</loc>
+    <lastmod>2026-04-13T14:06:27.837Z</lastmod>
   </url>
 </urlset>

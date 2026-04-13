@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Ajeet Singh</title>
+<title>aerial – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,28 +23,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a99e7f566c7c60527c8b72cbb0e1a34e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-27bee97cbe91346d889236a074e4e760.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/chip8-raylib/chip8.html" rel="prev">
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a99e7f566c7c60527c8b72cbb0e1a34e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-27bee97cbe91346d889236a074e4e760.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,10 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -249,13 +285,13 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
@@ -275,193 +311,171 @@ ul.task-list li input[type="checkbox"] {
             <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/aerialAI/aerial.html">Aerial AI</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multimodal Chatbot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DashboardLLM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/chip8-raylib/chip8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chip-8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/aerialAI/aerial.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Aerial AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#aerial-ai" id="toc-aerial-ai" class="nav-link active" data-scroll-target="#aerial-ai">Aerial AI</a>
+  <ul class="collapse">
+  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
+  <li><a href="#architecture-brief" id="toc-architecture-brief" class="nav-link" data-scroll-target="#architecture-brief">Architecture (Brief)</a></li>
+  <li><a href="#screenshot-placeholder" id="toc-screenshot-placeholder" class="nav-link" data-scroll-target="#screenshot-placeholder">Screenshot Placeholder</a></li>
+  <li><a href="#demo-video" id="toc-demo-video" class="nav-link" data-scroll-target="#demo-video">Demo Video</a></li>
+  <li><a href="#train-brief" id="toc-train-brief" class="nav-link" data-scroll-target="#train-brief">Train (Brief)</a></li>
+  <li><a href="#run-brief" id="toc-run-brief" class="nav-link" data-scroll-target="#run-brief">Run (Brief)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content page-columns page-full column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="hero-title display-1 fw-bold title display-7">
-Ajeet Singh
-</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/aerialAI/aerial.html">Aerial AI</a></li></ol></nav></header>
 
 
 
 
 
-<div class="grid hero">
-<div class="g-col-12 g-col-md-8 d-flex flex-column justify-content-center">
-
-<h2 class="hero-subtitle anchored">
-Building <span class="highlight purple">Intelligent Systems</span> &amp; <span class="highlight blue">Digital Experiences</span>
-</h2>
-<div class="lead mb-4">
-<p>I am a developer passionate about <strong>LLMs</strong>, <strong>Computer Vision</strong>, and <strong>Software</strong>. With a strong foundation in <strong>Python</strong>, <strong>C++</strong>, and <strong>Rust</strong>, I specialize in creating innovative AI solutions and seamless user experiences. Currently pursuing a Master’s in Artificial Intelligence at RMIT, I am eager to contribute to cutting-edge projects that push the boundaries of technology.</p>
-</div>
-<div>
-<p><a href="https://www.linkedin.com/in/ajeetsingh6" class="btn-social" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a> <a href="https://github.com/Ajeets6" class="btn-social" target="_blank"><i class="bi bi-github"></i> Github</a> <a href="mailto:your.email@example.com" class="btn-social"><i class="bi bi-envelope"></i> Contact</a></p>
-</div>
-</div>
-<div class="g-col-12 g-col-md-4">
-<div class="profile-img-container">
-<p><img src="profile.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<div class="column-page-inset">
-<h2 class="section-heading anchored">
-Technical Arsenal
-</h2>
-<div class="skills-grid">
-<div class="skill-category accent-blue">
-<div class="category-icon">
-<i class="bi bi-cpu"></i>
-</div>
-<h3 class="category-title anchored">
-Core Tech
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Python</span> <span class="skill-chip">C++</span> <span class="skill-chip">Rust</span> <span class="skill-chip">JavaScript</span></p>
-</div>
-</div>
-<div class="skill-category accent-purple">
-<div class="category-icon">
-<i class="bi bi-robot"></i>
-</div>
-<h3 class="category-title anchored">
-AI &amp; ML
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">PyTorch</span> <span class="skill-chip">TensorFlow</span> <span class="skill-chip">LLMs / RAG</span> <span class="skill-chip">Computer Vision</span> <span class="skill-chip">HuggingFace</span></p>
-</div>
-</div>
-<div class="skill-category accent-orange">
-<div class="category-icon">
-<i class="bi bi-window-stack"></i>
-</div>
-<h3 class="category-title anchored">
-Development
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Docker</span> <span class="skill-chip">Kubernetes</span> <span class="skill-chip">FastAPI</span> <span class="skill-chip">React</span> <span class="skill-chip">Git</span></p>
-</div>
-</div>
-<div class="skill-category accent-green">
-<div class="category-icon">
-<i class="bi bi-bar-chart-fill"></i>
-</div>
-<h3 class="category-title anchored">
-Data Science
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Pandas</span> <span class="skill-chip">NumPy</span> <span class="skill-chip">Scikit-learn</span> <span class="skill-chip">Visualization</span></p>
-</div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Selected Projects
-</h2>
-<div class="project-grid">
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/aerialAI/aerial.png" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/aerialAI/aerial.html" class="stretched-link text-decoration-none h3 d-block fw-bold">AerialAI</a></p>
-<div class="project-desc">
-<p>Aerial imagery segmentation system for buildings, roads, water, and solar panel detection.</p>
-</div>
-</div>
-</div>
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/dashboard-llm/dashboard1.PNG" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/dashboard-llm/dash.html" class="stretched-link text-decoration-none h3 d-block fw-bold">DashboardLLM</a></p>
-<div class="project-desc">
-<p>Generates interactive charts from CSV data using LLMs and Vega-Lite.</p>
-</div>
-</div>
-</div>
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/chip8-raylib/chip8.png" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/chip8-raylib/chip8.html" class="stretched-link text-decoration-none h3 d-block fw-bold">CHIP-8 Emulator</a></p>
-<div class="project-desc">
-<p>CHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.</p>
-</div>
-</div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Experience
-</h2>
-<div class="experience-grid">
-<div class="experience-card accent-red">
-<div class="card-header">
-<h3 class="role-title anchored">
-Google Summer of Code contributor
-</h3>
-<div class="company">
-freeBSD
-</div>
-<div class="period">
-May - August 2024
-</div>
-</div>
-<div class="card-content">
+<section id="aerial-ai" class="level1">
+<h1>Aerial AI</h1>
+<section id="project" class="level2">
+<h2 class="anchored" data-anchor-id="project">Project</h2>
+<p>Aerial AI is a dual-task segmentation project for aerial imagery: - Semantic segmentation: buildings, roads, water - Instance segmentation: solar panels - Web inference UI with Streamlit in app.py</p>
+</section>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
 <ul>
-<li>
-Implemented AArch64 and RISC-V support in QEMU’s FreeBSD user emulation, collaborating with mentor Warner Losh.
-</li>
-<li>
-Verified, debugged, and upstreamed patches addressing reviewer feedback; improved system call support merged into QEMU main branch.
-</li>
-<li>
-Contributed patches addressing reviewer feedback, improving system call support for multiple architectures
-</li>
+<li>Aerial Segmentation (Kaggle): RGB aerial images + masks for semantic classes</li>
+<li>Solar Plants Brazil: TIFF imagery + binary masks for solar panel instances</li>
+<li>Indian Demo: sample aerial TIFF images for testing/inference</li>
 </ul>
+</section>
+<section id="models" class="level2">
+<h2 class="anchored" data-anchor-id="models">Models</h2>
+<ul>
+<li>Semantic model: SegFormer (<code>nvidia/segformer-b1-finetuned-cityscapes-1024-1024</code>)</li>
+<li>Instance model: Mask2Former (<code>facebook/mask2former-swin-base-coco-instance</code>)</li>
+<li>Fine-tuned outputs are stored under:
+<ul>
+<li>output/semantic/best_model</li>
+<li>output/instance/best_model</li>
+</ul></li>
+</ul>
+</section>
+<section id="architecture-brief" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-brief">Architecture (Brief)</h2>
+<ol type="1">
+<li>Data prep/download scripts -&gt; organized train/val folders</li>
+<li>Training scripts:
+<ul>
+<li>train_semantic.py (SegFormer)</li>
+<li>train_instance.py (Mask2Former)</li>
+</ul></li>
+<li>Inference/UI:
+<ul>
+<li>app.py loads best checkpoints and runs selected task</li>
+<li>overlay + basic stats shown in Streamlit</li>
+</ul></li>
+</ol>
+</section>
+<section id="screenshot-placeholder" class="level2">
+<h2 class="anchored" data-anchor-id="screenshot-placeholder">Screenshot Placeholder</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="aerial.png" class="img-fluid figure-img"></p>
+<figcaption>App Screenshot Placeholder</figcaption>
+</figure>
 </div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Education
-</h2>
-<div class="experience-grid">
-<div class="experience-card accent-red">
-<div class="card-header">
-<h3 class="role-title anchored">
-Master of Artificial Intelligence
-</h3>
-<div class="company">
-Royal Melbourne Institute of Technology, Australia
-</div>
-<div class="period">
-2024-2026
-</div>
-</div>
-</div>
-<div class="experience-card accent-pink">
-<div class="card-header">
-<h3 class="role-title anchored">
-B.Tech in Computer Science
-</h3>
-<div class="company">
-SRM Institute of technology, India
-</div>
-<div class="period">
-2020 - 2024
-</div>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="demo-video" class="level2">
+<h2 class="anchored" data-anchor-id="demo-video">Demo Video</h2>
+<video controls="" width="100%" poster="aerial.png">
+<source src="aerial.mp4" type="video/mp4">
+<p>Your browser does not support embedded videos. Download it here: <a href="aerial.mp4">aerial.mp4</a> </p>
+</video></section>
+<section id="train-brief" class="level2">
+<h2 class="anchored" data-anchor-id="train-brief">Train (Brief)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train both models (Windows)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">train_all.bat</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or train individually</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> train_semantic.py <span class="at">--train_image_dir</span> ./data/aerial_segmentation/train/images <span class="at">--train_mask_dir</span> ./data/aerial_segmentation/train/masks <span class="at">--val_image_dir</span> ./data/aerial_segmentation/val/images <span class="at">--val_mask_dir</span> ./data/aerial_segmentation/val/masks</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> train_instance.py <span class="at">--train_image_dir</span> ./data/solar_panels/train/images <span class="at">--train_mask_dir</span> ./data/solar_panels/train/masks <span class="at">--val_image_dir</span> ./data/solar_panels/val/images <span class="at">--val_mask_dir</span> ./data/solar_panels/val/masks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="run-brief" class="level2">
+<h2 class="anchored" data-anchor-id="run-brief">Run (Brief)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch web app</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
@@ -878,6 +892,15 @@ SRM Institute of technology, India
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/chip8-raylib/chip8.html" class="pagination-link" aria-label="Chip-8">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Chip-8</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
