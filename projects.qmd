@@ -16,6 +16,7 @@ listing:
       - posts/multi-modal-rag/*.md
       - posts/dashboard-llm/*.md
       - posts/chip8-raylib/*.qmd
+      - posts/aerialAI/*.md
     type: grid
     sort: order
     fields: ["image","title","description"]

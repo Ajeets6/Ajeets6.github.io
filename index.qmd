@@ -97,13 +97,13 @@ With a strong foundation in **Python**, **C++**, and **Rust**, I specialize in c
 
 ::: {.project-card .position-relative}
 ::: {.project-img-container}
-![](posts/multi-modal-rag/rag.png)
+![](posts/aerialAI/aerial.png)
 :::
 ::: {.project-content}
-[Multimodal Chatbot](posts/multi-modal-rag/rag.md){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}
+[AerialAI](posts/aerialAI/aerial.md){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}
 
 ::: {.project-desc}
-PDF Chatbot with local LLMs, extracting text and images for context-aware answers.
+Aerial imagery segmentation system for buildings, roads, water, and solar panel detection.
 :::
 :::
 :::
