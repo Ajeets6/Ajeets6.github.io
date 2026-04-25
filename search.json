@@ -169,7 +169,7 @@
     "href": "posts/chip8-raylib/chip8.html",
     "title": "Chip-8",
     "section": "",
-    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF",
+    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF\n\n\n\n\nTo compile for web similarly use Emscripten SDK:\nemcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. -Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s USE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB",
     "crumbs": [
       "Projects",
       "Posts",
