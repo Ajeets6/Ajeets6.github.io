@@ -60,3 +60,5 @@ streamlit run main.py
 DashboardLLM ensures safe operation by:
 - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution.
 - Employing local language models for privacy and control.
+
+Source: [dashboard-LLM](https://github.com/Ajeets6/dashboard-LLM)

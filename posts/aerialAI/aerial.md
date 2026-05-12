@@ -52,3 +52,5 @@ python train_instance.py --train_image_dir ./data/solar_panels/train/images --tr
 # Launch web app
 streamlit run app.py
 ```
+
+Source: [aerial_AI](https://github.com/Ajeets6/aerial_AI)

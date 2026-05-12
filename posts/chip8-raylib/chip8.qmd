@@ -91,5 +91,9 @@ var Module = {
 
 To compile for web similarly use Emscripten SDK:
 ```bash
-emcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. -Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s USE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB
+emcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. \\
+-Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s \\
+USE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB
 ```
+
+Source: [chip8-raylib](https://github.com/Ajeets6/chip8-raylib)

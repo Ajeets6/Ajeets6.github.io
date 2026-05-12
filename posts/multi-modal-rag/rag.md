@@ -83,3 +83,5 @@ Run the Streamlit application from your terminal:
 ```bash
 streamlit run src/main.py
 ```
+
+Source: [multi-modal-RAG](https://github.com/Ajeets6/multi-modal-RAG)
