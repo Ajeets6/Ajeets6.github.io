@@ -494,7 +494,10 @@ var Module = {
 </table>
 </div>
 <p>To compile for web similarly use Emscripten SDK:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">emcc</span> <span class="at">-o</span> main.html src/main.c <span class="at">-Os</span> <span class="at">-Wall</span> C:/raylib/raylib/src/libraylib.web.a <span class="at">-I.</span> <span class="at">-Iinclude</span> <span class="at">-IC:</span>/raylib/raylib/src <span class="at">-L.</span> <span class="at">-LC:</span>/raylib/raylib/src/libraylib.web.a <span class="at">-s</span> USE_GLFW=3 <span class="at">-s</span> ASYNCIFY <span class="at">-s</span> WASM=1 <span class="at">--preload-file</span> resources@/resources <span class="at">--shell-file</span> minshell.html <span class="at">-DPLATFORM_WEB</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">emcc</span> <span class="at">-o</span> main.html src/main.c <span class="at">-Os</span> <span class="at">-Wall</span> C:/raylib/raylib/src/libraylib.web.a <span class="at">-I.</span> <span class="dt">\\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-Iinclude</span> <span class="at">-IC:</span>/raylib/raylib/src <span class="at">-L.</span> <span class="at">-LC:</span>/raylib/raylib/src/libraylib.web.a <span class="at">-s</span> <span class="dt">\\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">USE_GLFW</span><span class="op">=</span>3 <span class="ex">-s</span> ASYNCIFY <span class="at">-s</span> WASM=1 <span class="at">--preload-file</span> resources@/resources <span class="at">--shell-file</span> minshell.html <span class="at">-DPLATFORM_WEB</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Source: <a href="https://github.com/Ajeets6/chip8-raylib">chip8-raylib</a></p>
 
 
 
