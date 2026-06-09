@@ -27,8 +27,8 @@ Aerial AI is a dual-task segmentation project for aerial imagery:
    - app.py loads best checkpoints and runs selected task
    - overlay + basic stats shown in Streamlit
 
-## Screenshot Placeholder
-![App Screenshot Placeholder](aerial.png)
+## App Screenshot
+![Aerial AI Streamlit inference interface showing segmentation overlays](aerial.png)
 
 ## Demo Video
 <video controls width="100%" poster="aerial.png">

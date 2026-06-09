@@ -1,6 +1,11 @@
 project:
   type: website
   execute-dir: project
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
+    - "posts/**/*.md"
+    - "!site_audit/**"
 
 website:
   title: "Ajeet Singh"
