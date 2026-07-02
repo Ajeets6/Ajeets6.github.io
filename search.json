@@ -180,11 +180,18 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nAjeet Singh\n",
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Ajeet Singh",
     "section": "",
-    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a graduate AI/software engineer focused on RAG applications, computer vision, and systems-level software. I recently completed a Master of Artificial Intelligence at RMIT and have built applied AI projects using Python, PyTorch, LangChain, ChromaDB, and local LLMs. I also contributed review-ready C patches to FreeBSD/QEMU through Google Summer of Code.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C C++ SQL\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch LLMs / RAG Computer Vision LangChain ChromaDB\n\n\n\n\n\n\n\nDevelopment\n\n\nLinux Bash Git QEMU FreeBSD\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Matplotlib Seaborn Vega-Lite\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nAerialAI\n\nAerial imagery segmentation system for buildings, roads, water, and solar panel detection.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nFreeBSD / QEMU\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user-mode emulation, collaborating with mentor Warner Losh.\n\n\nInvestigated syscall behavior, ABI compatibility, and architecture-specific edge cases across FreeBSD user-mode execution.\n\n\nSubmitted review-ready patches through upstream maintainer review, incorporating feedback and iterative testing.\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\nCompleted June 2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html#projects",
+    "href": "projects.html#projects",
+    "title": "Ajeet Singh",
+    "section": "",
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/chip8-raylib/chip8.html",
@@ -199,18 +206,18 @@
     ]
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Ajeet Singh",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nAjeet Singh\n",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a graduate AI/software engineer focused on RAG applications, computer vision, and systems-level software. I recently completed a Master of Artificial Intelligence at RMIT and have built applied AI projects using Python, PyTorch, LangChain, ChromaDB, and local LLMs. I also contributed review-ready C patches to FreeBSD/QEMU through Google Summer of Code.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C C++ SQL\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch LLMs / RAG Computer Vision LangChain ChromaDB\n\n\n\n\n\n\n\nDevelopment\n\n\nLinux Bash Git QEMU FreeBSD\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Matplotlib Seaborn Vega-Lite\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nAerialAI\n\nAerial imagery segmentation system for buildings, roads, water, and solar panel detection.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nFreeBSD / QEMU\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user-mode emulation, collaborating with mentor Warner Losh.\n\n\nInvestigated syscall behavior, ABI compatibility, and architecture-specific edge cases across FreeBSD user-mode execution.\n\n\nSubmitted review-ready patches through upstream maintainer review, incorporating feedback and iterative testing.\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\nCompleted June 2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
   },
   {
-    "objectID": "projects.html#projects",
-    "href": "projects.html#projects",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html",
+    "href": "posts/GurmukhiSLM/gurmukhi.html",
     "title": "Ajeet Singh",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "#gurmukhi"
   },
   {
     "objectID": "posts/dashboard-llm/dash.html",
