@@ -184,14 +184,14 @@
     "href": "projects.html",
     "title": "Ajeet Singh",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects.html#projects",
     "href": "projects.html#projects",
     "title": "Ajeet Singh",
     "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/chip8-raylib/chip8.html",
@@ -215,9 +215,122 @@
   {
     "objectID": "posts/GurmukhiSLM/gurmukhi.html",
     "href": "posts/GurmukhiSLM/gurmukhi.html",
-    "title": "Ajeet Singh",
+    "title": "Gurmukhi Small Language Model",
     "section": "",
-    "text": "#gurmukhi"
+    "text": "Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.\n\n\n\nCombine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the merged corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automatic and manual translation checks.\n\n\n\n\nThe combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe judicial data comes from the Anuvaad Parallel Corpus. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.\n\n\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\n\nThe three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.\n\n\n\n\ntokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nSharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.\n\n\n\n\n\nGur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.\n\n\n\ngur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.\n\n\n\n\ndistillation.py implements the teacher-refinement stage. Sarvam-Translate is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.\nThe teacher and student use different tokenizers, so the main training path uses quality-gated sequence-level knowledge distillation rather than exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See MiniLLM: Knowledge Distillation of Large Language Models.\n\n\n\nEvaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation rather than training. Larger dev and devtest runs are still required before making broad generalization claims from the current small-cache distillation experiment.\n\n\n\n\n\n\nFile\nPurpose\n\n\n\n\nEDA.py\nCorpus audit, cleaning, and visualizations\n\n\ntokenization.py\nShared bilingual BPE tokenizer training\n\n\nGur_slm_seq2seq.py\nSequence-to-sequence Transformer training\n\n\ngur_slm_decoder.py\nDecoder-only Transformer training and analysis\n\n\ndistillation.py\nTeacher qualification, sequence KD, reverse-KL diagnostic, and evaluation\n\n\nprepare_parallel_corpus.py\nReproducible three-corpus assembly\n\n\n\nThe original online data-analysis notebook is available on marimo molab.\n\n\n\n\nRun full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.\n\n\n\n\n\n\n\nCC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "Combine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the merged corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automatic and manual translation checks.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#dataset",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#dataset",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "The combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe judicial data comes from the Anuvaad Parallel Corpus. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.\n\n\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\n\nThe three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nSharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#models",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#models",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "Gur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.\n\n\n\ngur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "distillation.py implements the teacher-refinement stage. Sarvam-Translate is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.\nThe teacher and student use different tokenizers, so the main training path uses quality-gated sequence-level knowledge distillation rather than exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See MiniLLM: Knowledge Distillation of Large Language Models.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "Evaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation rather than training. Larger dev and devtest runs are still required before making broad generalization claims from the current small-cache distillation experiment.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#notebooks-and-scripts",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#notebooks-and-scripts",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "File\nPurpose\n\n\n\n\nEDA.py\nCorpus audit, cleaning, and visualizations\n\n\ntokenization.py\nShared bilingual BPE tokenizer training\n\n\nGur_slm_seq2seq.py\nSequence-to-sequence Transformer training\n\n\ngur_slm_decoder.py\nDecoder-only Transformer training and analysis\n\n\ndistillation.py\nTeacher qualification, sequence KD, reverse-KL diagnostic, and evaluation\n\n\nprepare_parallel_corpus.py\nReproducible three-corpus assembly\n\n\n\nThe original online data-analysis notebook is available on marimo molab.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#future-work",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#future-work",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "Run full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#data-license",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#data-license",
+    "title": "Gurmukhi Small Language Model",
+    "section": "",
+    "text": "CC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
+    "crumbs": [
+      "Projects",
+      "Posts",
+      "Gurmukhi Small Language Model"
+    ]
   },
   {
     "objectID": "posts/dashboard-llm/dash.html",

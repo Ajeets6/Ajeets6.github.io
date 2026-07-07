@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../posts/aerialAI/aerial.html" rel="prev">
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -280,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/GurmukhiSLM/gurmukhi.html">Gurmukhi Small Language Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -302,13 +303,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Posts</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link">
@@ -333,6 +334,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Aerial AI</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/GurmukhiSLM/gurmukhi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gurmukhi Small Language Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -340,19 +347,228 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gurmukhi-small-language-model" id="toc-gurmukhi-small-language-model" class="nav-link active" data-scroll-target="#gurmukhi-small-language-model">Gurmukhi Small Language Model</a>
+  <ul class="collapse">
+  <li><a href="#project-pipeline" id="toc-project-pipeline" class="nav-link" data-scroll-target="#project-pipeline">Project Pipeline</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a>
+  <ul class="collapse">
+  <li><a href="#combined-corpus-summary" id="toc-combined-corpus-summary" class="nav-link" data-scroll-target="#combined-corpus-summary">Combined Corpus Summary</a></li>
+  <li><a href="#cleaning" id="toc-cleaning" class="nav-link" data-scroll-target="#cleaning">Cleaning</a></li>
+  </ul></li>
+  <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
+  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a>
+  <ul class="collapse">
+  <li><a href="#sequence-to-sequence-transformer" id="toc-sequence-to-sequence-transformer" class="nav-link" data-scroll-target="#sequence-to-sequence-transformer">Sequence-to-Sequence Transformer</a></li>
+  <li><a href="#decoder-only-transformer" id="toc-decoder-only-transformer" class="nav-link" data-scroll-target="#decoder-only-transformer">Decoder-Only Transformer</a></li>
+  </ul></li>
+  <li><a href="#teacher-distillation" id="toc-teacher-distillation" class="nav-link" data-scroll-target="#teacher-distillation">Teacher Distillation</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#notebooks-and-scripts" id="toc-notebooks-and-scripts" class="nav-link" data-scroll-target="#notebooks-and-scripts">Notebooks and Scripts</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
+  <li><a href="#data-license" id="toc-data-license" class="nav-link" data-scroll-target="#data-license">Data License</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/GurmukhiSLM/gurmukhi.html">Gurmukhi Small Language Model</a></li></ol></nav></header>
 
 
 
 
 
-<p>#gurmukhi</p>
+<section id="gurmukhi-small-language-model" class="level1">
+<h1>Gurmukhi Small Language Model</h1>
+<p>Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.</p>
+<section id="project-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="project-pipeline">Project Pipeline</h2>
+<ol type="1">
+<li>Combine three English-Punjabi parallel corpora into one consistent schema.</li>
+<li>Audit and clean the merged corpus.</li>
+<li>Train a shared 24,000-token bilingual BPE tokenizer.</li>
+<li>Train a sequence-to-sequence Transformer baseline.</li>
+<li>Train a modern decoder-only Transformer.</li>
+<li>Distil translation behavior from a stronger teacher into the decoder-only student.</li>
+<li>Evaluate the baseline, teacher, and distilled student with automatic and manual translation checks.</li>
+</ol>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>The combined corpus contains three sources:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Domain</th>
+<th style="text-align: right;">Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>judicial</code></td>
+<td>Legal</td>
+<td style="text-align: right;">1,261,948</td>
+</tr>
+<tr class="even">
+<td><code>pan_Guru</code></td>
+<td>General</td>
+<td style="text-align: right;">85,907</td>
+</tr>
+<tr class="odd">
+<td><code>trainclean</code></td>
+<td>General</td>
+<td style="text-align: right;">255,705</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>1,603,560</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The judicial data comes from the <a href="https://github.com/project-anuvaad/anuvaad-parallel-corpus">Anuvaad Parallel Corpus</a>. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.</p>
+<section id="combined-corpus-summary" class="level3">
+<h3 class="anchored" data-anchor-id="combined-corpus-summary">Combined Corpus Summary</h3>
+<ul>
+<li>Exact duplicate pairs before cleaning: 2,513</li>
+<li>Average English length: 24.26 words</li>
+<li>Average Punjabi length: 25.97 words</li>
+<li>General-domain rows: 341,612</li>
+<li>Legal-domain rows: 1,261,948</li>
+</ul>
+</section>
+<section id="cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning">Cleaning</h3>
+<p>The three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:</p>
+<ul>
+<li>Normalize text to Unicode NFC and collapse repeated whitespace.</li>
+<li>Remove exact duplicate English-Punjabi pairs using the pair hash.</li>
+<li>Reject punctuation-only and URL-only records.</li>
+<li>Filter extreme sentence lengths and strongly mismatched source/target length ratios.</li>
+<li>Flag very short records and rows containing URLs for review.</li>
+<li>Remove remaining URL and common web-page noise from the training split.</li>
+<li>Retain source and domain labels so performance can be analysed by corpus and domain.</li>
+</ul>
+<p>Corpus construction is implemented in <a href="prepare_parallel_corpus.py"><code>prepare_parallel_corpus.py</code></a>, while the cleaning audit and visual analysis are in <a href="EDA.py"><code>EDA.py</code></a>.</p>
+</section>
+</section>
+<section id="tokenization" class="level2">
+<h2 class="anchored" data-anchor-id="tokenization">Tokenization</h2>
+<p><a href="tokenization.py"><code>tokenization.py</code></a> trains a shared bilingual byte-pair encoding tokenizer with:</p>
+<ul>
+<li>A 24,000-token vocabulary</li>
+<li>Unicode NFC normalization</li>
+<li>Metaspace whitespace handling</li>
+<li>Translation direction and control tokens</li>
+<li>One vocabulary for English and Gurmukhi text</li>
+</ul>
+<p>Sharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.</p>
+</section>
+<section id="models" class="level2">
+<h2 class="anchored" data-anchor-id="models">Models</h2>
+<section id="sequence-to-sequence-transformer" class="level3">
+<h3 class="anchored" data-anchor-id="sequence-to-sequence-transformer">Sequence-to-Sequence Transformer</h3>
+<p><a href="Gur_slm_seq2seq.py"><code>Gur_slm_seq2seq.py</code></a> implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.</p>
+</section>
+<section id="decoder-only-transformer" class="level3">
+<h3 class="anchored" data-anchor-id="decoder-only-transformer">Decoder-Only Transformer</h3>
+<p><a href="gur_slm_decoder.py"><code>gur_slm_decoder.py</code></a> contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.</p>
+<p>The base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately <strong>58.1 million parameters</strong> and is published as <a href="https://huggingface.co/Ajaple/gur-slm-decoder-base">Ajaple/gur-slm-decoder-base</a>.</p>
+</section>
+</section>
+<section id="teacher-distillation" class="level2">
+<h2 class="anchored" data-anchor-id="teacher-distillation">Teacher Distillation</h2>
+<p><a href="distillation.py"><code>distillation.py</code></a> implements the teacher-refinement stage. <a href="https://huggingface.co/sarvamai/sarvam-translate">Sarvam-Translate</a> is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.</p>
+<p>The teacher and student use different tokenizers, so the main training path uses <strong>quality-gated sequence-level knowledge distillation</strong> rather than exact token-level KL divergence:</p>
+<ol type="1">
+<li>Generate Punjabi translations with the teacher.</li>
+<li>Reject outputs with script errors, English leakage, implausible length ratios, or other quality failures.</li>
+<li>Mix accepted teacher targets with gold parallel-corpus targets.</li>
+<li>Fine-tune the decoder-only student with cross-entropy.</li>
+<li>Compare the original student, teacher, and distilled checkpoint.</li>
+</ol>
+<p>The notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See <a href="https://arxiv.org/abs/2306.08543">MiniLLM: Knowledge Distillation of Large Language Models</a>.</p>
+</section>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+<p>Evaluation combines corpus metrics with targeted failure checks:</p>
+<ul>
+<li>BLEU and chrF through SacreBLEU</li>
+<li>Gurmukhi script error rate</li>
+<li>English leakage rate</li>
+<li>Instruction leakage rate</li>
+<li>Side-by-side translation inspection</li>
+<li>A manually reviewed challenge set</li>
+<li><a href="https://huggingface.co/datasets/openlanguagedata/flores_plus">FLORES+</a> English (<code>eng_Latn</code>) to Punjabi (<code>pan_Guru</code>) evaluation</li>
+</ul>
+<p>FLORES+ is reserved for evaluation rather than training. Larger <code>dev</code> and <code>devtest</code> runs are still required before making broad generalization claims from the current small-cache distillation experiment.</p>
+</section>
+<section id="notebooks-and-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="notebooks-and-scripts">Notebooks and Scripts</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="EDA.py"><code>EDA.py</code></a></td>
+<td>Corpus audit, cleaning, and visualizations</td>
+</tr>
+<tr class="even">
+<td><a href="tokenization.py"><code>tokenization.py</code></a></td>
+<td>Shared bilingual BPE tokenizer training</td>
+</tr>
+<tr class="odd">
+<td><a href="Gur_slm_seq2seq.py"><code>Gur_slm_seq2seq.py</code></a></td>
+<td>Sequence-to-sequence Transformer training</td>
+</tr>
+<tr class="even">
+<td><a href="gur_slm_decoder.py"><code>gur_slm_decoder.py</code></a></td>
+<td>Decoder-only Transformer training and analysis</td>
+</tr>
+<tr class="odd">
+<td><a href="distillation.py"><code>distillation.py</code></a></td>
+<td>Teacher qualification, sequence KD, reverse-KL diagnostic, and evaluation</td>
+</tr>
+<tr class="even">
+<td><a href="prepare_parallel_corpus.py"><code>prepare_parallel_corpus.py</code></a></td>
+<td>Reproducible three-corpus assembly</td>
+</tr>
+</tbody>
+</table>
+<p>The original online data-analysis notebook is available on <a href="https://molab.marimo.io/notebooks/nb_7UA5TaVaoCqvAZ16d93KKL">marimo molab</a>.</p>
+</section>
+<section id="future-work" class="level2">
+<h2 class="anchored" data-anchor-id="future-work">Future Work</h2>
+<ul>
+<li>Run full FLORES+ <code>dev</code> and <code>devtest</code> evaluations for the base and distilled models.</li>
+<li>Quantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.</li>
+<li>Investigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.</li>
+<li>Export the best practical checkpoint to a mobile-compatible runtime.</li>
+<li>Test translation quality, peak memory, startup time, and tokens per second on real mobile hardware.</li>
+</ul>
+</section>
+<section id="data-license" class="level2">
+<h2 class="anchored" data-anchor-id="data-license">Data License</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" class="img-fluid figure-img"></a></p>
+<figcaption>CC BY 4.0</figcaption>
+</figure>
+</div>
+<p>The corpus work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
@@ -769,6 +985,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/aerialAI/aerial.html" class="pagination-link" aria-label="Aerial AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Aerial AI</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
