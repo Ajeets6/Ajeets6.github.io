@@ -17,6 +17,7 @@ listing:
       - posts/dashboard-llm/*.md
       - posts/chip8-raylib/*.qmd
       - posts/aerialAI/*.md
+      - posts/GurmukhiSLM/*.md
     type: grid
     sort: order
     fields: ["image","title","description"]
