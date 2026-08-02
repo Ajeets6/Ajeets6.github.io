@@ -1,6 +1,14 @@
 # Gurmukhi Small Language Model
+![](slm.jpeg)
 
 Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.
+
+![](slm.gif)
+
+
+
+
+
 
 ## Project Pipeline
 
@@ -45,11 +53,11 @@ The three datasets are loaded into a common English-to-Punjabi format and then p
 - Remove remaining URL and common web-page noise from the training split.
 - Retain source and domain labels so performance can be analysed by corpus and domain.
 
-Corpus construction is implemented in [`prepare_parallel_corpus.py`](prepare_parallel_corpus.py), while the cleaning audit and visual analysis are in [`EDA.py`](EDA.py).
+Corpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.
 
 ## Tokenization
 
-[`tokenization.py`](tokenization.py) trains a shared bilingual byte-pair encoding tokenizer with:
+tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:
 
 - A 24,000-token vocabulary
 - Unicode NFC normalization
@@ -63,17 +71,17 @@ Sharing the tokenizer allows both translation directions to use the same model v
 
 ### Sequence-to-Sequence Transformer
 
-[`Gur_slm_seq2seq.py`](Gur_slm_seq2seq.py) implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.
+Gur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.
 
 ### Decoder-Only Transformer
 
-[`gur_slm_decoder.py`](gur_slm_decoder.py) contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.
+gur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.
 
 The base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately **58.1 million parameters** and is published as [Ajaple/gur-slm-decoder-base](https://huggingface.co/Ajaple/gur-slm-decoder-base).
 
 ## Teacher Distillation
 
-[`distillation.py`](distillation.py) implements the teacher-refinement stage. [Sarvam-Translate](https://huggingface.co/sarvamai/sarvam-translate) is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.
+distillation.py implements the teacher-refinement stage. [Sarvam-Translate](https://huggingface.co/sarvamai/sarvam-translate) is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.
 
 The teacher and student use different tokenizers, so the main training path uses **quality-gated sequence-level knowledge distillation** rather than exact token-level KL divergence:
 
@@ -98,17 +106,6 @@ Evaluation combines corpus metrics with targeted failure checks:
 - [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) English (`eng_Latn`) to Punjabi (`pan_Guru`) evaluation
 
 FLORES+ is reserved for evaluation rather than training. Larger `dev` and `devtest` runs are still required before making broad generalization claims from the current small-cache distillation experiment.
-
-## Notebooks and Scripts
-
-| File | Purpose |
-| --- | --- |
-| [`EDA.py`](EDA.py) | Corpus audit, cleaning, and visualizations |
-| [`tokenization.py`](tokenization.py) | Shared bilingual BPE tokenizer training |
-| [`Gur_slm_seq2seq.py`](Gur_slm_seq2seq.py) | Sequence-to-sequence Transformer training |
-| [`gur_slm_decoder.py`](gur_slm_decoder.py) | Decoder-only Transformer training and analysis |
-| [`distillation.py`](distillation.py) | Teacher qualification, sequence KD, reverse-KL diagnostic, and evaluation |
-| [`prepare_parallel_corpus.py`](prepare_parallel_corpus.py) | Reproducible three-corpus assembly |
 
 The original online data-analysis notebook is available on [marimo molab](https://molab.marimo.io/notebooks/nb_7UA5TaVaoCqvAZ16d93KKL).
 
