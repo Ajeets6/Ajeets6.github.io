@@ -1,6 +1,8 @@
 ---
 title: "Three.js in Quarto"
-format: html
+format:
+  html:
+    include-after-body: ../three.html
 ---
 
 ```{=html}

@@ -1,14 +1,22 @@
-# DashboardLLM
+---
+title: "DashboardLLM"
+description: "Natural-language chart generation from CSV data using local language models."
+image: dashboard1.PNG
+image-alt: "DashboardLLM interface showing an uploaded CSV dataset"
+project-area: "Data tools"
+tech: "Vega-Lite / Pandas / RAG / Streamlit"
+order: 4
+---
 
 It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.
 
 
-![](dashboard1.PNG)
+![DashboardLLM interface showing an uploaded CSV dataset](dashboard1.PNG){fig-alt="DashboardLLM interface showing an uploaded CSV dataset"}
 
 
 
 
-![](dashboard.PNG)
+![DashboardLLM interface showing generated charts and analysis controls](dashboard.PNG){fig-alt="DashboardLLM interface showing generated charts and analysis controls"}
 
 ## Key Features
 

@@ -1,46 +1,37 @@
 ---
-order: 2
+title: ""
+pagetitle: "Projects | Ajeet Singh"
+description: "AI, computer vision, data, and systems projects by Ajeet Singh."
+page-layout: custom
 toc: false
-
-grid:
-      sidebar-width: 200px
-      body-width: 1100px
-      margin-width: 200px
-
-repo-actions: false
-
-listing:
-
-  - id: talks-evals
-    contents:
-      - posts/multi-modal-rag/*.md
-      - posts/dashboard-llm/*.md
-      - posts/chip8-raylib/*.qmd
-      - posts/aerialAI/*.md
-      - posts/GurmukhiSLM/*.md
-    type: grid
-    sort: order
-    fields: ["image","title","description"]
-    sort-ui: false
-    filter-ui: false
-    max-description-length: 75
-
-page-layout: article
 sidebar: false
-title-block-banner: true
-
+listing:
+  id: all-work
+  contents:
+    - posts/aerialAI/aerial.md
+    - posts/GurmukhiSLM/gurmukhi.md
+    - posts/multi-modal-rag/rag.md
+    - posts/dashboard-llm/dash.md
+    - posts/chip8-raylib/chip8.qmd
+  template: project-bento.ejs.md
+  sort: order
+  sort-ui: false
+  filter-ui: false
 ---
 
+```{=html}
+<div class="projects-page">
+  <div class="site-shell">
+    <header class="projects-intro">
+      <h1>Engineering <span class="accent-line">projects</span></h1>
+      <p>Applied AI, computer vision, data tooling, and systems software with implementation notes, demos, and source links.</p>
+    </header>
+```
 
-## Projects
-
-
-
-:::{#talks-evals}
+::: {#all-work}
 :::
 
-
-
----
-
-
+```{=html}
+  </div>
+</div>
+```

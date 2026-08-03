@@ -1,8 +1,12 @@
 ---
 title: "Chip-8"
 pagetitle: "Chip-8"
-description: "The chip8 emulator was built with Raylib and compiled to WebAssembly."
+description: "A browser-playable CHIP-8 emulator built in C and compiled to WebAssembly."
 image: chip8.png
+image-alt: "CHIP-8 emulator display with memory and stack inspection panels"
+project-area: "Systems software"
+tech: "C / Raylib / WebAssembly"
+order: 5
 page-layout: article
 sidebar: true
 format: html

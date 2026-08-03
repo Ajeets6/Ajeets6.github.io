@@ -1,6 +1,7 @@
 project:
   type: website
   execute-dir: project
+  output-dir: _site
   render:
     - "*.qmd"
     - "posts/**/*.qmd"
@@ -9,52 +10,62 @@ project:
 
 website:
   title: "Ajeet Singh"
+  site-url: "https://ajeets6.github.io"
+  description: "AI and software engineer building retrieval, computer vision, and systems software."
   favicon: favicon.svg
+  search: true
+  open-graph: true
+  twitter-card: true
   navbar:
-    background: secondary
-    right:
-      - projects.qmd
-      - icon: github
-        href: https://github.com/Ajeets6
-      - icon: linkedin
-        href: https://www.linkedin.com/in/ajeetsingh6
     pinned: true
-    collapse: false
+    collapse: true
+    right:
+      - text: Work
+        href: index.qmd#work
+      - text: Knowledge
+        href: index.qmd#knowledge
+      - text: Experience
+        href: index.qmd#experience
+      - text: Projects
+        href: projects.qmd
+      - text: Contact
+        href: mailto:ajeetsingh6234@gmail.com
   sidebar:
-    style: "docked"
+    style: docked
     collapse-level: 1
-    search: true
-
-    alignment: center
+    alignment: left
     contents:
-    - section: "Posts"
-      contents:
-        - file: posts/multi-modal-rag/rag.md
-        - file: posts/dashboard-llm/dash.md
-        - file: posts/chip8-raylib/chip8.qmd
-        - file: posts/aerialAI/aerial.md
-        - file: posts/GurmukhiSLM/gurmukhi.md
-
+      - section: Projects
+        contents:
+          - file: posts/multi-modal-rag/rag.md
+          - file: posts/dashboard-llm/dash.md
+          - file: posts/chip8-raylib/chip8.qmd
+          - file: posts/aerialAI/aerial.md
+          - file: posts/GurmukhiSLM/gurmukhi.md
+  page-footer:
+    left: "© 2026 Ajeet Singh"
+    right:
+      - text: GitHub
+        href: https://github.com/Ajeets6
+      - text: LinkedIn
+        href: https://www.linkedin.com/in/ajeetsingh6
+      - text: Contact
+        href: mailto:ajeetsingh6234@gmail.com
 
 format:
   html:
-    mainfont: "'Roboto Flex'"
+    theme: [darkly, theme.scss]
+    css: styles.css
     code-blocks: true
+    code-copy: true
+    toc-location: right
+    anchor-sections: true
+    smooth-scroll: true
+    canonical-url: true
     embed-resources: false
     page-layout: article
-    theme:
-      dark: [darkly,dark.scss]
-      light: [darkly,light.scss]
-    highlight-style:
-      light: github
-    include-in-header:
-      file: header.html
-    include-after-body: three.html
     grid:
-      sidebar-width: 300px
-      body-width: 1000px
-      margin-width: 300px
-    css: styles.css
-
-
-
+      sidebar-width: 270px
+      body-width: 900px
+      margin-width: 250px
+      gutter-width: 2.5rem

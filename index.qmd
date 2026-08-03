@@ -1,199 +1,152 @@
 ---
 title: ""
-pagetitle: "About"
-page-layout: full
+pagetitle: "Ajeet Singh | AI and Software Engineer"
+description: "AI and software engineer building retrieval, computer vision, and systems software."
+image: assets/girl-with-pearl-earring.jpg
+image-alt: "Girl with a Pearl Earring by Johannes Vermeer used in Ajeet Singh's portfolio hero"
+page-layout: custom
 toc: false
 sidebar: false
+listing:
+  id: featured-work
+  contents:
+    - posts/aerialAI/aerial.md
+    - posts/GurmukhiSLM/gurmukhi.md
+    - posts/multi-modal-rag/rag.md
+    - posts/dashboard-llm/dash.md
+    - posts/chip8-raylib/chip8.qmd
+  template: project-bento.ejs.md
+  sort: order
+  sort-ui: false
+  filter-ui: false
 ---
 
-::::: {.grid .hero}
+```{=html}
+<div class="portfolio-home">
+  <section class="poster-hero" aria-labelledby="hero-title">
+    <div class="poster-stage site-shell">
+      <h1 class="poster-title" id="hero-title">
+        <span>Ajeet</span>
+        <span>Singh</span>
+      </h1>
+      <figure class="poster-portrait">
+        <img class="poster-image" src="assets/girl-with-pearl-earring.jpg" alt="Girl with a Pearl Earring by Johannes Vermeer" width="1600" height="1873" fetchpriority="high" decoding="async">
+      </figure>
+      <div class="poster-copy">
+        <p>AI and software engineer building retrieval, vision, and systems software.</p>
+        <div class="poster-actions">
+          <a class="portfolio-button primary" href="#work">View projects</a>
+          <a class="portfolio-button" href="mailto:ajeetsingh6234@gmail.com">Contact</a>
+        </div>
+      </div>
+      <p class="poster-note">Master of Artificial Intelligence, RMIT. Google Summer of Code contributor to FreeBSD and QEMU.</p>
+    </div>
+  </section>
 
-:::: {.g-col-12 .g-col-md-8 .d-flex .flex-column .justify-content-center}
+  <section class="home-section work-section" id="work" aria-labelledby="work-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="work-title">Selected <span class="accent-line">work</span></h2>
+        <p>Five projects across applied AI, computer vision, data tools, and low-level systems.</p>
+      </header>
+```
 
-<h1 class="hero-title display-1 fw-bold">Ajeet Singh</h1>
-<h2 class="hero-subtitle">Building <span class="highlight purple">Intelligent Systems</span> & <span class="highlight blue">Digital Experiences</span></h2>
-
-::: {.lead .mb-4}
-I am a graduate AI/software engineer focused on **RAG applications**, **computer vision**, and **systems-level software**.
-I recently completed a Master of Artificial Intelligence at RMIT and have built applied AI projects using **Python**, **PyTorch**, **LangChain**, **ChromaDB**, and local LLMs. I also contributed review-ready C patches to FreeBSD/QEMU through Google Summer of Code.
-
+::: {#featured-work}
 :::
 
-<div>
-  <a href="https://www.linkedin.com/in/ajeetsingh6" class="btn-social" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
-  <a href="https://github.com/Ajeets6" class="btn-social" target="_blank"><i class="bi bi-github"></i> Github</a>
-  <a href="mailto:ajeetsingh6234@gmail.com" class="btn-social"><i class="bi bi-envelope"></i> Contact</a>
+```{=html}
+    </div>
+  </section>
+
+  <section class="home-section knowledge-section" id="knowledge" aria-labelledby="knowledge-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="knowledge-title">How I <span class="accent-line">build</span></h2>
+        <p>Strong foundations, evaluated models, and software that remains clear from data preparation through delivery.</p>
+      </header>
+
+      <div class="knowledge-grid">
+        <article class="knowledge-item">
+          <span class="knowledge-key">Systems</span>
+          <h3>Languages and runtimes</h3>
+          <p>Software that stays legible from the user workflow down to the runtime.</p>
+          <ul class="knowledge-list">
+            <li>Python, C, C++, SQL</li>
+            <li>Linux, Bash, Git</li>
+            <li>QEMU, FreeBSD, WebAssembly</li>
+          </ul>
+        </article>
+        <article class="knowledge-item">
+          <span class="knowledge-key">Intelligence</span>
+          <h3>Models and retrieval</h3>
+          <p>Applied AI grounded in evaluation, useful interfaces, and local-first tooling.</p>
+          <ul class="knowledge-list">
+            <li>PyTorch, Transformers</li>
+            <li>LLM, RAG, LangChain</li>
+            <li>ChromaDB, Computer Vision</li>
+          </ul>
+        </article>
+        <article class="knowledge-item">
+          <span class="knowledge-key">Delivery</span>
+          <h3>Data and interfaces</h3>
+          <p>Exploration and presentation layers that make technical work understandable.</p>
+          <ul class="knowledge-list">
+            <li>Pandas, NumPy</li>
+            <li>Streamlit, Vega-Lite</li>
+            <li>Jupyter, Quarto</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section" id="experience" aria-labelledby="experience-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="experience-title">Experience and <span class="accent-line">education</span></h2>
+        <p>Open source systems engineering and postgraduate study in artificial intelligence.</p>
+      </header>
+
+      <div class="experience-list">
+        <article class="experience-row">
+          <time datetime="2024-05">May - August 2024</time>
+          <div>
+            <h3>Google Summer of Code, FreeBSD</h3>
+            <p>Implemented AArch64 and RISC-V support in QEMU's FreeBSD user-mode emulation and submitted patches through upstream review.</p>
+          </div>
+          <div class="experience-place">Open source</div>
+        </article>
+        <article class="experience-row">
+          <time datetime="2026-06">Completed June 2026</time>
+          <div>
+            <h3>Master of Artificial Intelligence, RMIT</h3>
+            <p>Postgraduate study spanning machine learning, computer vision, language models, and applied software projects.</p>
+          </div>
+          <div class="experience-place">Melbourne, AU</div>
+        </article>
+        <article class="experience-row">
+          <time datetime="2024">Completed 2024</time>
+          <div>
+            <h3>B.Tech in Computer Science, SRM</h3>
+            <p>Undergraduate computer science study at SRM Institute of Science and Technology.</p>
+          </div>
+          <div class="experience-place">India</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="site-shell">
+      <div class="contact-grid">
+        <h2 id="contact-title">Build with me.</h2>
+        <div class="contact-side">
+          <p>Have an AI, systems, or software problem worth solving?</p>
+          <a class="portfolio-button" href="mailto:ajeetsingh6234@gmail.com">Contact</a>
+        </div>
+      </div>
+      <p class="art-credit">Hero artwork: <a href="https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg">Girl with a Pearl Earring</a>, Johannes Vermeer, circa 1665. Public domain.</p>
+    </div>
+  </section>
 </div>
-
-::::
-
-:::: {.g-col-12 .g-col-md-4}
-
-::: {.profile-img-container}
-![](profile.png)
-:::
-
-::::
-
-:::::
-
-::::: {.column-page-inset}
-
-<h2 class="section-heading">Technical Arsenal</h2>
-
-:::: {.skills-grid}
-
-::: {.skill-category .accent-blue}
-<div class="category-icon"><i class="bi bi-cpu"></i></div>
-<h3 class="category-title">Core Tech</h3>
-<div class="skill-chips">
-<span class="skill-chip">Python</span>
-<span class="skill-chip">C</span>
-<span class="skill-chip">C++</span>
-<span class="skill-chip">SQL</span>
-</div>
-:::
-
-::: {.skill-category .accent-purple}
-<div class="category-icon"><i class="bi bi-robot"></i></div>
-<h3 class="category-title">AI & ML</h3>
-<div class="skill-chips">
-<span class="skill-chip">PyTorch</span>
-<span class="skill-chip">LLMs / RAG</span>
-<span class="skill-chip">Computer Vision</span>
-<span class="skill-chip">LangChain</span>
-<span class="skill-chip">ChromaDB</span>
-</div>
-:::
-
-::: {.skill-category .accent-orange}
-<div class="category-icon"><i class="bi bi-window-stack"></i></div>
-<h3 class="category-title">Development</h3>
-<div class="skill-chips">
-<span class="skill-chip">Linux</span>
-<span class="skill-chip">Bash</span>
-<span class="skill-chip">Git</span>
-<span class="skill-chip">QEMU</span>
-<span class="skill-chip">FreeBSD</span>
-</div>
-:::
-
-::: {.skill-category .accent-green}
-<div class="category-icon"><i class="bi bi-bar-chart-fill"></i></div>
-<h3 class="category-title">Data Science</h3>
-<div class="skill-chips">
-<span class="skill-chip">Pandas</span>
-<span class="skill-chip">NumPy</span>
-<span class="skill-chip">Matplotlib</span>
-<span class="skill-chip">Seaborn</span>
-<span class="skill-chip">Vega-Lite</span>
-</div>
-:::
-
-::::
-
-<h2 class="section-heading">Selected Projects</h2>
-
-:::: {.project-grid}
-
-::: {.project-card .position-relative}
-::: {.project-img-container}
-![](posts/aerialAI/aerial.png)
-:::
-::: {.project-content}
-[AerialAI](posts/aerialAI/aerial.md){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}
-
-::: {.project-desc}
-Aerial imagery segmentation system for buildings, roads, water, and solar panel detection.
-:::
-:::
-:::
-
-::: {.project-card .position-relative}
-::: {.project-img-container}
-![](posts/dashboard-llm/dashboard1.PNG)
-:::
-::: {.project-content}
-[DashboardLLM](posts/dashboard-llm/dash.md){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}
-
-::: {.project-desc}
-Generates interactive charts from CSV data using LLMs and Vega-Lite.
-:::
-:::
-:::
-
-::: {.project-card .position-relative}
-::: {.project-img-container}
-![](posts/chip8-raylib/chip8.png)
-:::
-::: {.project-content}
-[CHIP-8 Emulator](posts/chip8-raylib/chip8.qmd){.stretched-link .text-decoration-none .h3 .d-block .fw-bold}
-
-::: {.project-desc}
-CHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.
-:::
-:::
-:::
-
-::::
-
-<h2 class="section-heading">Experience</h2>
-
-:::: {.experience-grid}
-
-::: {.experience-card .accent-red}
-
-<div class="card-header">
-<h3 class="role-title">Google Summer of Code contributor</h3>
-<div class="company">FreeBSD / QEMU</div>
-<div class="period">May - August 2024</div>
-</div>
-
-<div class="card-content">
-<ul>
-<li>Implemented AArch64 and RISC-V support in QEMU’s FreeBSD user-mode emulation, collaborating with mentor
-Warner Losh.</li>
-<li>Investigated syscall behavior, ABI compatibility, and architecture-specific edge cases across FreeBSD user-mode execution.</li>
-<li>Submitted review-ready patches through upstream maintainer review, incorporating feedback and iterative testing.</li>
-</ul>
-</div>
-
-:::
-
-
-
-::::
-
-
-
-<h2 class="section-heading">Education</h2>
-
-:::: {.experience-grid}
-
-::: {.experience-card .accent-red}
-
-<div class="card-header">
-<h3 class="role-title">Master of Artificial Intelligence</h3>
-<div class="company">Royal Melbourne Institute of Technology, Australia</div>
-<div class="period">Completed June 2026</div>
-</div>
-
-
-
-:::
-
-::: {.experience-card .accent-pink}
-
-<div class="card-header">
-<h3 class="role-title">B.Tech in Computer Science</h3>
-<div class="company">SRM Institute of technology, India</div>
-<div class="period">2020 - 2024</div>
-</div>
-
-
-
-:::
-
-::::
-
-:::::
+```

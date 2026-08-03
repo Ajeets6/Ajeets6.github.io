@@ -1,4 +1,12 @@
-# Aerial AI
+---
+title: "Aerial AI"
+description: "Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery."
+image: aerial.png
+image-alt: "Aerial AI interface comparing satellite imagery with a semantic segmentation result"
+project-area: "Computer vision"
+tech: "SegFormer / Mask2Former / PyTorch / Streamlit"
+order: 1
+---
 
 ## Project
 Aerial AI is a dual-task segmentation project for aerial imagery:
@@ -28,7 +36,7 @@ Aerial AI is a dual-task segmentation project for aerial imagery:
    - overlay + basic stats shown in Streamlit
 
 ## App Screenshot
-![Aerial AI Streamlit inference interface showing segmentation overlays](aerial.png)
+![Aerial AI Streamlit inference interface showing segmentation overlays](aerial.png){fig-alt="Aerial AI interface comparing satellite imagery with a semantic segmentation result"}
 
 ## Demo Video
 <video controls width="100%" poster="aerial.png">

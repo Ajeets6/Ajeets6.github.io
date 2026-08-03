@@ -1,17 +1,18 @@
 ---
-title: " Multimodal Chatbot"
+title: "Multimodal PDF RAG Chatbot"
 date: "2024-06-30"
-description: PDF Chatbot
+description: "A local retrieval pipeline that understands text and visual content inside uploaded PDFs."
 image: rag.png
-
+image-alt: "Multimodal PDF RAG chatbot answering a question after a document upload"
+project-area: "Retrieval systems"
+tech: "LangChain / ChromaDB / Ollama / Streamlit"
+order: 3
 ---
-
-# Multimodal PDF RAG Chatbot
 
 
 Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.
 
-![Demo](demo.gif)
+![Multimodal PDF RAG interface processing and answering questions about an uploaded document](demo.gif){fig-alt="Multimodal PDF RAG interface processing and answering questions about an uploaded document"}
 
 
 ## Key Features

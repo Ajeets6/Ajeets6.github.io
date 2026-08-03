@@ -1,9 +1,18 @@
-# Gurmukhi Small Language Model
-![](slm.jpeg)
+---
+title: "Gurmukhi Small Language Model"
+description: "A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation."
+image: slm.jpeg
+image-alt: "Gurmukhi language model lab with translation and quantization controls"
+project-area: "Language models"
+tech: "Transformers / BPE / Distillation / FLORES+"
+order: 2
+---
+
+![Gurmukhi language model lab with translation and quantization controls](slm.jpeg){fig-alt="Gurmukhi language model lab with translation and quantization controls"}
 
 Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.
 
-![](slm.gif)
+![Gurmukhi translation interface running a model comparison](slm.gif){fig-alt="Gurmukhi translation interface running a model comparison"}
 
 
 
@@ -119,7 +128,7 @@ The original online data-analysis notebook is available on [marimo molab](https:
 
 ## Data License
 
-[![CC BY 4.0][cc-by-shield]][cc-by]
+[![CC BY 4.0][cc-by-shield]{fig-alt="Creative Commons Attribution 4.0 license"}][cc-by]
 
 The corpus work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by]. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.
 
