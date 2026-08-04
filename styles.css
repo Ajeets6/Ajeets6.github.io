@@ -3,12 +3,12 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -52,6 +52,27 @@ canvas {
   text-transform: uppercase;
 }
 
+@media (min-width: 992px) {
+  #quarto-margin-sidebar {
+    position: relative;
+    top: auto;
+    align-self: stretch;
+    height: auto;
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  #quarto-margin-sidebar #TOC {
+    position: sticky;
+    top: 96px;
+    margin-top: 0;
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+}
+
 main.content > section > h2,
 main.content > h2 {
   margin-top: 3.5rem;
@@ -67,9 +88,14 @@ main.content h3 {
   letter-spacing: -0.025em;
 }
 
-main.content p,
-main.content li {
-  max-width: 72ch;
+#quarto-content.page-layout-article main.content > #title-block-header {
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+#quarto-content.page-layout-article main.content > :not(#title-block-header) {
+  width: min(100%, 780px);
+  margin-inline: auto;
 }
 
 main.content img:not(.project-image):not(.poster-image) {
@@ -366,6 +392,7 @@ tbody tr {
 }
 
 .project-item {
+  container-type: inline-size;
   min-height: 470px;
   overflow: hidden;
   background: var(--panel);
@@ -418,13 +445,15 @@ tbody tr {
 }
 
 .project-item:nth-child(1) .project-image { object-position: 50% 47%; }
-.project-item:nth-child(2) .project-image { object-position: 49% 50%; }
+.project-item:nth-child(2) .project-image { object-position: left center; }
 .project-item:nth-child(3) .project-image { object-position: 50% 35%; }
 .project-item:nth-child(4) .project-image { object-position: 32% 50%; }
 .project-item:nth-child(5) .project-image { object-position: 50% 45%; }
 
 .project-copy {
+  min-width: 0;
   padding: 22px 22px 24px;
+  overflow: hidden;
 }
 
 .project-meta {
@@ -444,12 +473,30 @@ tbody tr {
   color: var(--accent);
 }
 
+.listing-project-area {
+  min-width: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
 .project-copy h3 {
+  max-width: 100%;
   margin: 0;
   color: var(--paper);
   font-size: clamp(1.7rem, 3vw, 3.4rem);
   line-height: 0.96;
   letter-spacing: -0.055em;
+}
+
+@container (max-width: 420px) {
+  .project-item .project-copy h3 {
+    font-size: clamp(1.25rem, 10cqi, 2.5rem);
+    letter-spacing: -0.045em;
+  }
+
+  .project-meta {
+    gap: 8px;
+  }
 }
 
 .project-copy p {
@@ -680,12 +727,12 @@ tbody tr {
   }
 
   .project-item:nth-child(3) {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 
   .project-item:nth-child(4),
   .project-item:nth-child(5) {
-    grid-column: span 3;
+    grid-column: span 6;
   }
 
   .project-copy h3 {

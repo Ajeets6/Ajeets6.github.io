@@ -10,79 +10,76 @@ order: 3
 ---
 
 
-Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.
+This local RAG application answers questions about uploaded PDFs by retrieving evidence from both written content and embedded images. It combines text extraction, image descriptions, vector search, and a locally served language model in a Streamlit chat interface.
 
 ![Multimodal PDF RAG interface processing and answering questions about an uploaded document](demo.gif){fig-alt="Multimodal PDF RAG interface processing and answering questions about an uploaded document"}
 
 
-## Key Features
+## What It Does
 
--   **Multimodal Processing:** Extracts and understands both text and images from PDF files.
--   **Image Understanding:** Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.
--   **Retrieval-Augmented Generation (RAG):** Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.
--   **Local LLMs:** Powered by local language models via Ollama, ensuring privacy and control over the models used.
--   **Interactive UI:** A user-friendly and responsive chat interface built with Streamlit.
+- **Processes text and images:** Extracts both content types from each PDF.
+- **Makes images searchable:** Uses a local vision model to turn visual content into semantic descriptions.
+- **Retrieves relevant evidence:** Stores text chunks and image descriptions in ChromaDB for similarity search.
+- **Runs models locally:** Uses Ollama to keep model serving and document processing under the user's control.
+- **Supports conversational queries:** Streams grounded answers through a Streamlit chat interface.
 
 ## Tech Stack
 
--   **Backend & Orchestration:** Python, LangChain
--   **Frontend:** Streamlit
--   **LLM Serving:** Ollama
--   **Models:**
-    -   **Generation:** ```gemma3:latest``` (or any other powerful chat model)
-    -   **Vision:** ```gemma3:latest``` (for image description)
-    -   **Embeddings:** ```granite-embedding:latest```
--   **Vector Database:** ChromaDB
--   **PDF Processing:** PyMuPDF (```fitz```)
+- **Backend and orchestration:** Python, LangChain
+- **Interface:** Streamlit
+- **Model serving:** Ollama
+- **Generation and vision:** `gemma3:latest` by default, with support for other compatible local models
+- **Embeddings:** `granite-embedding:latest`
+- **Vector database:** ChromaDB
+- **PDF processing:** PyMuPDF (`fitz`)
 
 ## How It Works
 
-The application follows a two-stage RAG pipeline:
+The application uses a two-stage pipeline.
 
-#### 1. Ingestion Pipeline
-When a user uploads a PDF:
-1.  **Content Extraction:** Text and images are extracted from each page using PyMuPDF.
-2.  **Image Description:** Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content.
-3.  **Chunking:** The extracted text and the generated image descriptions are split into smaller, manageable chunks.
-4.  **Embedding & Storage:** These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.
+### Document ingestion
 
-#### 2. Retrieval and Generation Pipeline
-When a user asks a question:
-1.  **Query Embedding:** The user's query is converted into a vector embedding.
-2.  **Similarity Search:** The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions.
-3.  **Context-Aware Prompting:** The retrieved context is combined with the original query into a prompt for the final generation model.
-4.  **Answer Generation:** The language model (Gemma) generates a human-like answer based on the provided context.
-5.  **Display:** The answer is streamed back to the user in the chat interface.
+1. PyMuPDF extracts text and images from each page.
+2. A local vision model generates a text description for every extracted image.
+3. The application splits the text and image descriptions into manageable chunks.
+4. An embedding model converts each chunk into a vector, which is stored in ChromaDB.
+
+### Retrieval and answer generation
+
+1. The embedding model converts the user's question into a query vector.
+2. ChromaDB returns the most relevant text chunks and image descriptions.
+3. The application combines the retrieved evidence with the original question.
+4. The generation model produces an answer grounded in that context.
+5. Streamlit displays the answer as it is generated.
 
 ## Setup and Installation
 
-1.  **Clone the repository:**
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Ajeets6/multi-modal-RAG.git
 cd multi-modal-RAG
 ```
 
-2.  **Install Python dependencies:**
+2. Install the Python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3.  **Install and Run Ollama:**
-    -   Pull the required models from the command line:
+3. Install Ollama, then pull the required models:
 ```bash
 ollama pull gemma3:latest
 ollama pull granite-embedding:latest
 ```
 
-4.  **Ensure Ollama is running** in the background.
+4. Make sure Ollama is running.
 
 ## Usage
 
-Run the Streamlit application from your terminal:
+Start the Streamlit application:
 
 ```bash
 streamlit run src/main.py
 ```
 
-Source: [multi-modal-RAG](https://github.com/Ajeets6/multi-modal-RAG)
+Source code: [multi-modal-RAG](https://github.com/Ajeets6/multi-modal-RAG)

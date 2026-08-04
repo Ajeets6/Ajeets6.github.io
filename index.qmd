@@ -108,14 +108,7 @@ listing:
       </header>
 
       <div class="experience-list">
-        <article class="experience-row">
-          <time datetime="2024-05">May - August 2024</time>
-          <div>
-            <h3>Google Summer of Code, FreeBSD</h3>
-            <p>Implemented AArch64 and RISC-V support in QEMU's FreeBSD user-mode emulation and submitted patches through upstream review.</p>
-          </div>
-          <div class="experience-place">Open source</div>
-        </article>
+
         <article class="experience-row">
           <time datetime="2026-06">Completed June 2026</time>
           <div>
@@ -123,6 +116,14 @@ listing:
             <p>Postgraduate study spanning machine learning, computer vision, language models, and applied software projects.</p>
           </div>
           <div class="experience-place">Melbourne, AU</div>
+        </article>
+        <article class="experience-row">
+          <time datetime="2024-05">May - August 2024</time>
+          <div>
+            <h3>Google Summer of Code, FreeBSD</h3>
+            <p>Implemented AArch64 and RISC-V support in QEMU's FreeBSD user-mode emulation and submitted patches through upstream review.</p>
+          </div>
+          <div class="experience-place">Open source</div>
         </article>
         <article class="experience-row">
           <time datetime="2024">Completed 2024</time>

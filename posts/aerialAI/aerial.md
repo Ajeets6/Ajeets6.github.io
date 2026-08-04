@@ -8,46 +8,44 @@ tech: "SegFormer / Mask2Former / PyTorch / Streamlit"
 order: 1
 ---
 
-## Project
-Aerial AI is a dual-task segmentation project for aerial imagery:
-- Semantic segmentation: buildings, roads, water
-- Instance segmentation: solar panels
-- Web inference UI with Streamlit in app.py
+Aerial AI identifies structures and land features in aerial imagery. It combines semantic segmentation for buildings, roads, and water with instance segmentation for individual solar panels, then exposes both tasks through a Streamlit inference interface.
 
 ## Datasets
-- Aerial Segmentation (Kaggle): RGB aerial images + masks for semantic classes
-- Solar Plants Brazil: TIFF imagery + binary masks for solar panel instances
-- Indian Demo: sample aerial TIFF images for testing/inference
+
+- **Aerial Segmentation (Kaggle):** RGB aerial images and class masks for semantic segmentation
+- **Solar Plants Brazil:** TIFF imagery and binary masks for solar-panel instances
+- **Indian demo set:** Sample aerial TIFF images used for testing and inference
 
 ## Models
-- Semantic model: SegFormer (`nvidia/segformer-b1-finetuned-cityscapes-1024-1024`)
-- Instance model: Mask2Former (`facebook/mask2former-swin-base-coco-instance`)
-- Fine-tuned outputs are stored under:
-  - output/semantic/best_model
-  - output/instance/best_model
 
-## Architecture (Brief)
-1. Data prep/download scripts -> organized train/val folders
-2. Training scripts:
-   - train_semantic.py (SegFormer)
-   - train_instance.py (Mask2Former)
-3. Inference/UI:
-   - app.py loads best checkpoints and runs selected task
-   - overlay + basic stats shown in Streamlit
+- **Semantic segmentation:** SegFormer, initialised from `nvidia/segformer-b1-finetuned-cityscapes-1024-1024`
+- **Instance segmentation:** Mask2Former, initialised from `facebook/mask2former-swin-base-coco-instance`
 
-## App Screenshot
+The best fine-tuned checkpoints are stored in `output/semantic/best_model` and `output/instance/best_model`.
+
+## Workflow
+
+1. Preparation scripts download and organise the data into training and validation sets.
+2. `train_semantic.py` fine-tunes SegFormer for buildings, roads, and water.
+3. `train_instance.py` fine-tunes Mask2Former for solar-panel instances.
+4. `app.py` loads the selected checkpoint and runs inference.
+5. Streamlit displays the segmentation overlay and summary statistics.
+
+## Inference Interface
+
 ![Aerial AI Streamlit inference interface showing segmentation overlays](aerial.png){fig-alt="Aerial AI interface comparing satellite imagery with a semantic segmentation result"}
 
-## Demo Video
+## Demo
+
 <video controls width="100%" poster="aerial.png">
    <source src="aerial.mp4" type="video/mp4">
-   Your browser does not support embedded videos. Download it here:
-   <a href="aerial.mp4">aerial.mp4</a>
+   Your browser does not support embedded video. <a href="aerial.mp4">Download the demo video.</a>
 </video>
 
-## Train (Brief)
+## Train the Models
+
 ```bash
-# Train both models (Windows)
+# Train both models on Windows
 train_all.bat
 
 # Or train individually
@@ -55,10 +53,10 @@ python train_semantic.py --train_image_dir ./data/aerial_segmentation/train/imag
 python train_instance.py --train_image_dir ./data/solar_panels/train/images --train_mask_dir ./data/solar_panels/train/masks --val_image_dir ./data/solar_panels/val/images --val_mask_dir ./data/solar_panels/val/masks
 ```
 
-## Run (Brief)
+## Run the Interface
+
 ```bash
-# Launch web app
 streamlit run app.py
 ```
 
-Source: [aerial_AI](https://github.com/Ajeets6/aerial_AI)
+Source code: [aerial_AI](https://github.com/Ajeets6/aerial_AI)
