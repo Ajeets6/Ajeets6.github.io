@@ -1,9 +1,31 @@
-# Gurmukhi Small Language Model
-![](slm.jpeg)
+---
+title: "Gurmukhi Small Language Model"
+description: "A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation."
+image: slm.jpeg
+image-alt: "Gurmukhi language model lab with translation and quantization controls"
+project-area: "Language models"
+tech: "Transformers / BPE / Distillation / FLORES+"
+order: 2
+---
 
-Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.
+![Gurmukhi language model lab with translation and quantization controls](slm.jpeg){fig-alt="Gurmukhi language model lab with translation and quantization controls"}
 
-![](slm.gif)
+Gurmukhi SLM explores bidirectional translation between English and Punjabi written in the Gurmukhi script. The project builds its corpus and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and improves the decoder-only model through teacher distillation.
+
+```{=html}
+<style>
+main.content img.gurmukhi-demo {
+  display: block;
+  width: auto !important;
+  height: clamp(320px, 48vw, 500px);
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+}
+</style>
+```
+
+![Gurmukhi translation interface running a model comparison](slm.gif){.gurmukhi-demo fig-alt="Gurmukhi translation interface running a model comparison"}
 
 
 
@@ -13,12 +35,12 @@ Gurmukhi SLM is a research project for bidirectional machine translation between
 ## Project Pipeline
 
 1. Combine three English-Punjabi parallel corpora into one consistent schema.
-2. Audit and clean the merged corpus.
+2. Audit and clean the combined corpus.
 3. Train a shared 24,000-token bilingual BPE tokenizer.
 4. Train a sequence-to-sequence Transformer baseline.
 5. Train a modern decoder-only Transformer.
 6. Distil translation behavior from a stronger teacher into the decoder-only student.
-7. Evaluate the baseline, teacher, and distilled student with automatic and manual translation checks.
+7. Evaluate the baseline, teacher, and distilled student with automated metrics and manual review.
 
 ## Dataset
 
@@ -31,7 +53,7 @@ The combined corpus contains three sources:
 | `trainclean` | General | 255,705 |
 | **Total** |  | **1,603,560** |
 
-The judicial data comes from the [Anuvaad Parallel Corpus](https://github.com/project-anuvaad/anuvaad-parallel-corpus). The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.
+The legal-domain data comes from the [Anuvaad Parallel Corpus](https://github.com/project-anuvaad/anuvaad-parallel-corpus). For every aligned sentence pair, the preparation script records its source, domain, language tags, text lengths, and a stable pair hash.
 
 ### Combined Corpus Summary
 
@@ -43,7 +65,7 @@ The judicial data comes from the [Anuvaad Parallel Corpus](https://github.com/pr
 
 ### Cleaning
 
-The three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:
+The pipeline maps all three datasets to a shared English-to-Punjabi schema, then applies the following checks:
 
 - Normalize text to Unicode NFC and collapse repeated whitespace.
 - Remove exact duplicate English-Punjabi pairs using the pair hash.
@@ -53,11 +75,11 @@ The three datasets are loaded into a common English-to-Punjabi format and then p
 - Remove remaining URL and common web-page noise from the training split.
 - Retain source and domain labels so performance can be analysed by corpus and domain.
 
-Corpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.
+Corpus construction is implemented in `prepare_parallel_corpus.py`. The cleaning audit and visual analysis are in `EDA.py`.
 
 ## Tokenization
 
-tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:
+`tokenization.py` trains a shared bilingual byte-pair encoding tokenizer with:
 
 - A 24,000-token vocabulary
 - Unicode NFC normalization
@@ -65,25 +87,25 @@ tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:
 - Translation direction and control tokens
 - One vocabulary for English and Gurmukhi text
 
-Sharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.
+A shared tokenizer lets both translation directions use the same vocabulary and supports future student-to-student distillation experiments.
 
 ## Models
 
 ### Sequence-to-Sequence Transformer
 
-Gur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.
+`Gur_slm_seq2seq.py` implements the encoder-decoder Transformer baseline. The encoder reads the source sentence, and the autoregressive decoder generates the translation.
 
 ### Decoder-Only Transformer
 
-gur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.
+`gur_slm_decoder.py` contains the main decoder-only training workflow. The prompt specifies the translation direction, allowing one causal model to translate both English to Punjabi and Punjabi to English.
 
 The base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately **58.1 million parameters** and is published as [Ajaple/gur-slm-decoder-base](https://huggingface.co/Ajaple/gur-slm-decoder-base).
 
 ## Teacher Distillation
 
-distillation.py implements the teacher-refinement stage. [Sarvam-Translate](https://huggingface.co/sarvamai/sarvam-translate) is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.
+`distillation.py` implements the teacher-refinement stage. [Sarvam-Translate](https://huggingface.co/sarvamai/sarvam-translate) serves as the English-to-Punjabi teacher because it supports Punjabi and outperformed the initial student during the project's qualification checks.
 
-The teacher and student use different tokenizers, so the main training path uses **quality-gated sequence-level knowledge distillation** rather than exact token-level KL divergence:
+Because the teacher and student use different tokenizers, the main training path uses **quality-gated sequence-level knowledge distillation** instead of exact token-level KL divergence:
 
 1. Generate Punjabi translations with the teacher.
 2. Reject outputs with script errors, English leakage, implausible length ratios, or other quality failures.
@@ -91,7 +113,7 @@ The teacher and student use different tokenizers, so the main training path uses
 4. Fine-tune the decoder-only student with cross-entropy.
 5. Compare the original student, teacher, and distilled checkpoint.
 
-The notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See [MiniLLM: Knowledge Distillation of Large Language Models](https://arxiv.org/abs/2306.08543).
+The workflow also includes an on-policy reverse-KL experiment inspired by [MiniLLM: Knowledge Distillation of Large Language Models](https://arxiv.org/abs/2306.08543). Because the vocabularies differ, the result is treated as a sequence-level diagnostic, not exact token-level reverse KL.
 
 ## Evaluation
 
@@ -105,7 +127,7 @@ Evaluation combines corpus metrics with targeted failure checks:
 - A manually reviewed challenge set
 - [FLORES+](https://huggingface.co/datasets/openlanguagedata/flores_plus) English (`eng_Latn`) to Punjabi (`pan_Guru`) evaluation
 
-FLORES+ is reserved for evaluation rather than training. Larger `dev` and `devtest` runs are still required before making broad generalization claims from the current small-cache distillation experiment.
+FLORES+ is reserved for evaluation. Full `dev` and `devtest` runs are still needed before drawing broad conclusions from the current small-cache distillation experiment.
 
 The original online data-analysis notebook is available on [marimo molab](https://molab.marimo.io/notebooks/nb_7UA5TaVaoCqvAZ16d93KKL).
 
@@ -119,7 +141,7 @@ The original online data-analysis notebook is available on [marimo molab](https:
 
 ## Data License
 
-[![CC BY 4.0][cc-by-shield]][cc-by]
+[![CC BY 4.0][cc-by-shield]{fig-alt="Creative Commons Attribution 4.0 license"}][cc-by]
 
 The corpus work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by]. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.
 

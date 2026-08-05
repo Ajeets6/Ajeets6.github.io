@@ -1,10 +1,14 @@
 ---
 title: "Chip-8"
 pagetitle: "Chip-8"
-description: "The chip8 emulator was built with Raylib and compiled to WebAssembly."
+description: "A browser-playable CHIP-8 emulator built in C and compiled to WebAssembly."
 image: chip8.png
+image-alt: "CHIP-8 emulator display with memory and stack inspection panels"
+project-area: "Systems software"
+tech: "C / Raylib / WebAssembly"
+order: 5
 page-layout: article
-sidebar: true
+sidebar: false
 format: html
 resources:
 - main.html
@@ -13,9 +17,6 @@ resources:
 - main.data
 - chip8.png
 ---
-
-
-
 
 ```{=html}
 <style>
@@ -72,11 +73,13 @@ var Module = {
 <script src="./main.js"></script>
 ```
 
+This browser-playable CHIP-8 emulator is written in C with Raylib and compiled to WebAssembly with Emscripten. Click or tap the canvas to focus it before using the keyboard.
 
- Controls:
-   - Spacebar: Pause / Resume emulation
+## Controls
 
- CHIP-8 Keypad (logical layout):
+- **Spacebar:** Pause or resume emulation
+
+The emulator uses the standard CHIP-8 hexadecimal keypad layout:
 
 <div style="max-width: fit-content; margin: auto;">
 
@@ -89,11 +92,14 @@ var Module = {
 
 </div>
 
-To compile for web similarly use Emscripten SDK:
+## Build for the Web
+
+Compile the project with the Emscripten SDK and link it against Raylib's web library:
+
 ```bash
 emcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. \\
 -Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s \\
 USE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB
 ```
 
-Source: [chip8-raylib](https://github.com/Ajeets6/chip8-raylib)
+Source code: [chip8-raylib](https://github.com/Ajeets6/chip8-raylib)

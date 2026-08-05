@@ -2,8 +2,9 @@ freeze: true
 title-block-banner: false
 page-navigation: true
 toc: true
+sidebar: false
 page-layout: article
 grid:
-      sidebar-width: 300px
-      body-width: 1000px
-      margin-width: 300px
+  sidebar-width: 270px
+  body-width: 900px
+  margin-width: 250px

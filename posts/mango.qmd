@@ -1,15 +1,20 @@
 ---
-title: "Three.js in Quarto"
-format: html
+title: "Embedding Three.js in Quarto"
+description: "A minimal example of rendering an animated Three.js scene inside a Quarto page."
+format:
+  html:
+    include-after-body: ../three.html
 ---
+
+This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container's dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene.
 
 ```{=html}
 
-<!-- Container for your 3D scene -->
+<!-- Container for the Three.js scene -->
 <div id="three-container" style="width: 100%; height: 400px;"></div>
 
 <script>
-  // Basic Three.js setup
+  // Create the scene, camera, and renderer.
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer();

@@ -1,39 +1,47 @@
-# DashboardLLM
+---
+title: "DashboardLLM"
+description: "Natural-language chart generation from CSV data using local language models."
+image: dashboard1.PNG
+image-alt: "DashboardLLM interface showing an uploaded CSV dataset"
+project-area: "Data tools"
+tech: "Vega-Lite / Pandas / RAG / Streamlit"
+order: 4
+---
 
-It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.
+DashboardLLM turns natural-language questions about CSV data into interactive charts. Instead of generating executable plotting code, the model produces declarative Vega-Lite specifications that the application validates and renders in Streamlit.
 
 
-![](dashboard1.PNG)
+![DashboardLLM interface showing an uploaded CSV dataset](dashboard1.PNG){fig-alt="DashboardLLM interface showing an uploaded CSV dataset"}
 
 
 
 
-![](dashboard.PNG)
+![DashboardLLM interface showing generated charts and analysis controls](dashboard.PNG){fig-alt="DashboardLLM interface showing generated charts and analysis controls"}
 
-## Key Features
+## What It Does
 
--   **CSV Processing:** Reads and processes data from uploaded CSV files to generate insights.
--   **Chart Generation:** Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.
--   **Retrieval-Augmented Generation (RAG):** Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.
--   **Local LLMs:** Powered by local language models via Ollama, ensuring privacy and control over the models used.
+- **Profiles uploaded data:** Reads CSV files with Pandas and prepares their structure for analysis.
+- **Generates interactive charts:** Produces Vega-Lite JSON specifications from natural-language requests.
+- **Retrieves relevant context:** Uses ChromaDB to find the data chunks most useful for each question.
+- **Runs models locally:** Serves generation and embedding models through Ollama.
 
 ## Tech Stack
 
--   **Backend & Orchestration:** Python, LangChain
--   **Frontend:** Streamlit
--   **LLM Serving:** Ollama
--   **Models:**
-    -   **Generation:** `Qwen` (or any other powerful chat model)
-    -   **Embeddings:** `granite-embedding:latest`
--   **Vector Database:** ChromaDB
--   **CSV Processing:** Pandas
+- **Backend and orchestration:** Python, LangChain
+- **Interface:** Streamlit
+- **Model serving:** Ollama
+- **Generation:** Qwen or another compatible chat model
+- **Embeddings:** `granite-embedding:latest`
+- **Vector database:** ChromaDB
+- **Data processing:** Pandas
 
 ## How It Works
 
-1. **CSV Upload:** Users upload a CSV file containing structured data.
-2. **Context Retrieval:** Relevant data chunks are retrieved using ChromaDB.
-3. **Chart Generation:** The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.
-4. **Interactive Chat Interface:** Users interact with the chatbot via a Streamlit-based UI.
+1. The user uploads a CSV file.
+2. Pandas reads the data and the application indexes relevant context in ChromaDB.
+3. The user describes the chart or analysis they need.
+4. The language model returns a Vega-Lite specification grounded in the uploaded data.
+5. Streamlit renders the chart and keeps the conversation available for follow-up questions.
 
 ## Getting Started
 
@@ -53,12 +61,10 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
-4. Upload a CSV file and start interacting with the chatbot.
+4. Upload a CSV file and ask for a chart or analysis.
 
 ## Security
 
-DashboardLLM ensures safe operation by:
-- Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution.
-- Employing local language models for privacy and control.
+DashboardLLM reduces the risks associated with model-generated plotting code by using declarative Vega-Lite JSON rather than executing arbitrary Python. Local model serving also keeps the model runtime under the user's control. Uploaded data should still be handled according to the security requirements of the environment in which the application is deployed.
 
-Source: [dashboard-LLM](https://github.com/Ajeets6/dashboard-LLM)
+Source code: [dashboard-LLM](https://github.com/Ajeets6/dashboard-LLM)
