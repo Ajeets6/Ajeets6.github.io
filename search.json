@@ -2,73 +2,73 @@
   {
     "objectID": "posts/multi-modal-rag/rag.html",
     "href": "posts/multi-modal-rag/rag.html",
-    "title": "Multimodal Chatbot",
+    "title": "Multimodal PDF RAG Chatbot",
     "section": "",
-    "text": "Users can upload a PDF, and the system will intelligently retrieve relevant information from both the text and the visual content to provide accurate, context-aware answers.\n\n\n\nDemo\n\n\n\n\n\nMultimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)\n\n\n\n\nThe application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.\n\n\n\n\nRun the Streamlit application from your terminal:\nstreamlit run src/main.py\nSource: multi-modal-RAG",
+    "text": "This local RAG application answers questions about uploaded PDFs by retrieving evidence from both written content and embedded images. It combines text extraction, image descriptions, vector search, and a locally served language model in a Streamlit chat interface.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
-    "objectID": "posts/multi-modal-rag/rag.html#key-features",
-    "href": "posts/multi-modal-rag/rag.html#key-features",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Multimodal Processing: Extracts and understands both text and images from PDF files.\nImage Understanding: Utilizes a vision model (LLaVA) to generate rich, semantic descriptions of images, making visual data searchable.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant text chunks and image descriptions to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\nInteractive UI: A user-friendly and responsive chat interface built with Streamlit.",
+    "objectID": "posts/multi-modal-rag/rag.html#what-it-does",
+    "href": "posts/multi-modal-rag/rag.html#what-it-does",
+    "title": "Multimodal PDF RAG Chatbot",
+    "section": "What It Does",
+    "text": "What It Does\n\nProcesses text and images: Extracts both content types from each PDF.\nMakes images searchable: Uses a local vision model to turn visual content into semantic descriptions.\nRetrieves relevant evidence: Stores text chunks and image descriptions in ChromaDB for similarity search.\nRuns models locally: Uses Ollama to keep model serving and document processing under the user’s control.\nSupports conversational queries: Streams grounded answers through a Streamlit chat interface.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html#tech-stack",
     "href": "posts/multi-modal-rag/rag.html#tech-stack",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: gemma3:latest (or any other powerful chat model)\nVision: gemma3:latest (for image description)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nPDF Processing: PyMuPDF (fitz)",
+    "title": "Multimodal PDF RAG Chatbot",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nBackend and orchestration: Python, LangChain\nInterface: Streamlit\nModel serving: Ollama\nGeneration and vision: gemma3:latest by default, with support for other compatible local models\nEmbeddings: granite-embedding:latest\nVector database: ChromaDB\nPDF processing: PyMuPDF (fitz)",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html#how-it-works",
     "href": "posts/multi-modal-rag/rag.html#how-it-works",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "The application follows a two-stage RAG pipeline:\n\n\nWhen a user uploads a PDF: 1. Content Extraction: Text and images are extracted from each page using PyMuPDF. 2. Image Description: Each extracted image is passed to a vision model (LLaVA) which generates a detailed text description of its content. 3. Chunking: The extracted text and the generated image descriptions are split into smaller, manageable chunks. 4. Embedding & Storage: These chunks are converted into vector embeddings and stored in a ChromaDB vector database, creating a searchable knowledge base of the document.\n\n\n\nWhen a user asks a question: 1. Query Embedding: The user’s query is converted into a vector embedding. 2. Similarity Search: The system performs a similarity search in ChromaDB to find the most relevant text chunks and image descriptions. 3. Context-Aware Prompting: The retrieved context is combined with the original query into a prompt for the final generation model. 4. Answer Generation: The language model (Gemma) generates a human-like answer based on the provided context. 5. Display: The answer is streamed back to the user in the chat interface.",
+    "title": "Multimodal PDF RAG Chatbot",
+    "section": "How It Works",
+    "text": "How It Works\nThe application uses a two-stage pipeline.\n\nDocument ingestion\n\nPyMuPDF extracts text and images from each page.\nA local vision model generates a text description for every extracted image.\nThe application splits the text and image descriptions into manageable chunks.\nAn embedding model converts each chunk into a vector, which is stored in ChromaDB.\n\n\n\nRetrieval and answer generation\n\nThe embedding model converts the user’s question into a query vector.\nChromaDB returns the most relevant text chunks and image descriptions.\nThe application combines the retrieved evidence with the original question.\nThe generation model produces an answer grounded in that context.\nStreamlit displays the answer as it is generated.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html#setup-and-installation",
     "href": "posts/multi-modal-rag/rag.html#setup-and-installation",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall Python dependencies:\n\npip install -r requirements.txt\n\nInstall and Run Ollama:\n\nPull the required models from the command line:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\nEnsure Ollama is running in the background.",
+    "title": "Multimodal PDF RAG Chatbot",
+    "section": "Setup and Installation",
+    "text": "Setup and Installation\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/multi-modal-RAG.git\ncd multi-modal-RAG\n\nInstall the Python dependencies:\n\npip install -r requirements.txt\n\nInstall Ollama, then pull the required models:\n\nollama pull gemma3:latest\nollama pull granite-embedding:latest\n\nMake sure Ollama is running.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
     "objectID": "posts/multi-modal-rag/rag.html#usage",
     "href": "posts/multi-modal-rag/rag.html#usage",
-    "title": "Multimodal Chatbot",
-    "section": "",
-    "text": "Run the Streamlit application from your terminal:\nstreamlit run src/main.py\nSource: multi-modal-RAG",
+    "title": "Multimodal PDF RAG Chatbot",
+    "section": "Usage",
+    "text": "Usage\nStart the Streamlit application:\nstreamlit run src/main.py\nSource code: multi-modal-RAG",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Multimodal Chatbot"
+      "Multimodal PDF RAG Chatbot"
     ]
   },
   {
@@ -76,22 +76,10 @@
     "href": "posts/aerialAI/aerial.html",
     "title": "Aerial AI",
     "section": "",
-    "text": "Aerial AI is a dual-task segmentation project for aerial imagery: - Semantic segmentation: buildings, roads, water - Instance segmentation: solar panels - Web inference UI with Streamlit in app.py\n\n\n\n\nAerial Segmentation (Kaggle): RGB aerial images + masks for semantic classes\nSolar Plants Brazil: TIFF imagery + binary masks for solar panel instances\nIndian Demo: sample aerial TIFF images for testing/inference\n\n\n\n\n\nSemantic model: SegFormer (nvidia/segformer-b1-finetuned-cityscapes-1024-1024)\nInstance model: Mask2Former (facebook/mask2former-swin-base-coco-instance)\nFine-tuned outputs are stored under:\n\noutput/semantic/best_model\noutput/instance/best_model\n\n\n\n\n\n\nData prep/download scripts -&gt; organized train/val folders\nTraining scripts:\n\ntrain_semantic.py (SegFormer)\ntrain_instance.py (Mask2Former)\n\nInference/UI:\n\napp.py loads best checkpoints and runs selected task\noverlay + basic stats shown in Streamlit\n\n\n\n\n\n\n\n\nAerial AI Streamlit inference interface showing segmentation overlays\n\n\n\n\n\n\n\nYour browser does not support embedded videos. Download it here: aerial.mp4 \n\n\n\n# Train both models (Windows)\ntrain_all.bat\n\n# Or train individually\npython train_semantic.py --train_image_dir ./data/aerial_segmentation/train/images --train_mask_dir ./data/aerial_segmentation/train/masks --val_image_dir ./data/aerial_segmentation/val/images --val_mask_dir ./data/aerial_segmentation/val/masks\npython train_instance.py --train_image_dir ./data/solar_panels/train/images --train_mask_dir ./data/solar_panels/train/masks --val_image_dir ./data/solar_panels/val/images --val_mask_dir ./data/solar_panels/val/masks\n\n\n\n# Launch web app\nstreamlit run app.py\nSource: aerial_AI",
+    "text": "Aerial AI identifies structures and land features in aerial imagery. It combines semantic segmentation for buildings, roads, and water with instance segmentation for individual solar panels, then exposes both tasks through a Streamlit inference interface.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
-      "Aerial AI"
-    ]
-  },
-  {
-    "objectID": "posts/aerialAI/aerial.html#project",
-    "href": "posts/aerialAI/aerial.html#project",
-    "title": "Aerial AI",
-    "section": "",
-    "text": "Aerial AI is a dual-task segmentation project for aerial imagery: - Semantic segmentation: buildings, roads, water - Instance segmentation: solar panels - Web inference UI with Streamlit in app.py",
-    "crumbs": [
-      "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
@@ -99,11 +87,11 @@
     "objectID": "posts/aerialAI/aerial.html#datasets",
     "href": "posts/aerialAI/aerial.html#datasets",
     "title": "Aerial AI",
-    "section": "",
-    "text": "Aerial Segmentation (Kaggle): RGB aerial images + masks for semantic classes\nSolar Plants Brazil: TIFF imagery + binary masks for solar panel instances\nIndian Demo: sample aerial TIFF images for testing/inference",
+    "section": "Datasets",
+    "text": "Datasets\n\nAerial Segmentation (Kaggle): RGB aerial images and class masks for semantic segmentation\nSolar Plants Brazil: TIFF imagery and binary masks for solar-panel instances\nIndian demo set: Sample aerial TIFF images used for testing and inference",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
@@ -111,116 +99,126 @@
     "objectID": "posts/aerialAI/aerial.html#models",
     "href": "posts/aerialAI/aerial.html#models",
     "title": "Aerial AI",
-    "section": "",
-    "text": "Semantic model: SegFormer (nvidia/segformer-b1-finetuned-cityscapes-1024-1024)\nInstance model: Mask2Former (facebook/mask2former-swin-base-coco-instance)\nFine-tuned outputs are stored under:\n\noutput/semantic/best_model\noutput/instance/best_model",
+    "section": "Models",
+    "text": "Models\n\nSemantic segmentation: SegFormer, initialised from nvidia/segformer-b1-finetuned-cityscapes-1024-1024\nInstance segmentation: Mask2Former, initialised from facebook/mask2former-swin-base-coco-instance\n\nThe best fine-tuned checkpoints are stored in output/semantic/best_model and output/instance/best_model.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
   {
-    "objectID": "posts/aerialAI/aerial.html#architecture-brief",
-    "href": "posts/aerialAI/aerial.html#architecture-brief",
+    "objectID": "posts/aerialAI/aerial.html#workflow",
+    "href": "posts/aerialAI/aerial.html#workflow",
     "title": "Aerial AI",
-    "section": "",
-    "text": "Data prep/download scripts -&gt; organized train/val folders\nTraining scripts:\n\ntrain_semantic.py (SegFormer)\ntrain_instance.py (Mask2Former)\n\nInference/UI:\n\napp.py loads best checkpoints and runs selected task\noverlay + basic stats shown in Streamlit",
+    "section": "Workflow",
+    "text": "Workflow\n\nPreparation scripts download and organise the data into training and validation sets.\ntrain_semantic.py fine-tunes SegFormer for buildings, roads, and water.\ntrain_instance.py fine-tunes Mask2Former for solar-panel instances.\napp.py loads the selected checkpoint and runs inference.\nStreamlit displays the segmentation overlay and summary statistics.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
   {
-    "objectID": "posts/aerialAI/aerial.html#app-screenshot",
-    "href": "posts/aerialAI/aerial.html#app-screenshot",
+    "objectID": "posts/aerialAI/aerial.html#inference-interface",
+    "href": "posts/aerialAI/aerial.html#inference-interface",
     "title": "Aerial AI",
-    "section": "",
-    "text": "Aerial AI Streamlit inference interface showing segmentation overlays",
+    "section": "Inference Interface",
+    "text": "Inference Interface\n\n\n\nAerial AI Streamlit inference interface showing segmentation overlays",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
   {
-    "objectID": "posts/aerialAI/aerial.html#demo-video",
-    "href": "posts/aerialAI/aerial.html#demo-video",
+    "objectID": "posts/aerialAI/aerial.html#demo",
+    "href": "posts/aerialAI/aerial.html#demo",
     "title": "Aerial AI",
-    "section": "",
-    "text": "Your browser does not support embedded videos. Download it here: aerial.mp4",
+    "section": "Demo",
+    "text": "Demo\n\n\nYour browser does not support embedded video. Download the demo video.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
   {
-    "objectID": "posts/aerialAI/aerial.html#train-brief",
-    "href": "posts/aerialAI/aerial.html#train-brief",
+    "objectID": "posts/aerialAI/aerial.html#train-the-models",
+    "href": "posts/aerialAI/aerial.html#train-the-models",
     "title": "Aerial AI",
-    "section": "",
-    "text": "# Train both models (Windows)\ntrain_all.bat\n\n# Or train individually\npython train_semantic.py --train_image_dir ./data/aerial_segmentation/train/images --train_mask_dir ./data/aerial_segmentation/train/masks --val_image_dir ./data/aerial_segmentation/val/images --val_mask_dir ./data/aerial_segmentation/val/masks\npython train_instance.py --train_image_dir ./data/solar_panels/train/images --train_mask_dir ./data/solar_panels/train/masks --val_image_dir ./data/solar_panels/val/images --val_mask_dir ./data/solar_panels/val/masks",
+    "section": "Train the Models",
+    "text": "Train the Models\n# Train both models on Windows\ntrain_all.bat\n\n# Or train individually\npython train_semantic.py --train_image_dir ./data/aerial_segmentation/train/images --train_mask_dir ./data/aerial_segmentation/train/masks --val_image_dir ./data/aerial_segmentation/val/images --val_mask_dir ./data/aerial_segmentation/val/masks\npython train_instance.py --train_image_dir ./data/solar_panels/train/images --train_mask_dir ./data/solar_panels/train/masks --val_image_dir ./data/solar_panels/val/images --val_mask_dir ./data/solar_panels/val/masks",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
   },
   {
-    "objectID": "posts/aerialAI/aerial.html#run-brief",
-    "href": "posts/aerialAI/aerial.html#run-brief",
+    "objectID": "posts/aerialAI/aerial.html#run-the-interface",
+    "href": "posts/aerialAI/aerial.html#run-the-interface",
     "title": "Aerial AI",
-    "section": "",
-    "text": "# Launch web app\nstreamlit run app.py\nSource: aerial_AI",
+    "section": "Run the Interface",
+    "text": "Run the Interface\nstreamlit run app.py\nSource code: aerial_AI",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Aerial AI"
     ]
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Ajeet Singh",
-    "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "projects.html#projects",
-    "href": "projects.html#projects",
-    "title": "Ajeet Singh",
-    "section": "",
-    "text": "PDF Chatbot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chip8 emulator was built with Raylib and compiled to WebAssembly.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/chip8-raylib/chip8.html",
     "href": "posts/chip8-raylib/chip8.html",
     "title": "Chip-8",
     "section": "",
-    "text": "Controls: - Spacebar: Pause / Resume emulation\nCHIP-8 Keypad (logical layout):\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF\n\n\n\n\nTo compile for web similarly use Emscripten SDK:\nemcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. \\\\\n-Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s \\\\\nUSE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB\nSource: chip8-raylib",
+    "text": "This browser-playable CHIP-8 emulator is written in C with Raylib and compiled to WebAssembly with Emscripten. Click or tap the canvas to focus it before using the keyboard.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Chip-8"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nAjeet Singh\n",
+    "objectID": "posts/chip8-raylib/chip8.html#controls",
+    "href": "posts/chip8-raylib/chip8.html#controls",
+    "title": "Chip-8",
+    "section": "Controls",
+    "text": "Controls\n\nSpacebar: Pause or resume emulation\n\nThe emulator uses the standard CHIP-8 hexadecimal keypad layout:\n\n\n\n\n1\n2\n3\nC\n\n\n4\n5\n6\nD\n\n\n7\n8\n9\nE\n\n\nA\n0\nB\nF",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "Chip-8"
+    ]
+  },
+  {
+    "objectID": "posts/chip8-raylib/chip8.html#build-for-the-web",
+    "href": "posts/chip8-raylib/chip8.html#build-for-the-web",
+    "title": "Chip-8",
+    "section": "Build for the Web",
+    "text": "Build for the Web\nCompile the project with the Emscripten SDK and link it against Raylib’s web library:\nemcc -o main.html src/main.c -Os -Wall C:/raylib/raylib/src/libraylib.web.a -I. \\\\\n-Iinclude -IC:/raylib/raylib/src -L. -LC:/raylib/raylib/src/libraylib.web.a -s \\\\\nUSE_GLFW=3 -s ASYNCIFY -s WASM=1 --preload-file resources@/resources --shell-file minshell.html -DPLATFORM_WEB\nSource code: chip8-raylib",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "Chip-8"
+    ]
+  },
+  {
+    "objectID": "posts/mango.html",
+    "href": "posts/mango.html",
+    "title": "Embedding Three.js in Quarto",
     "section": "",
-    "text": "Building Intelligent Systems & Digital Experiences\n\n\nI am a graduate AI/software engineer focused on RAG applications, computer vision, and systems-level software. I recently completed a Master of Artificial Intelligence at RMIT and have built applied AI projects using Python, PyTorch, LangChain, ChromaDB, and local LLMs. I also contributed review-ready C patches to FreeBSD/QEMU through Google Summer of Code.\n\n\n LinkedIn  Github  Contact\n\n\n\n\n\n\n\n\n\n\nTechnical Arsenal\n\n\n\n\n\n\n\nCore Tech\n\n\nPython C C++ SQL\n\n\n\n\n\n\n\nAI & ML\n\n\nPyTorch LLMs / RAG Computer Vision LangChain ChromaDB\n\n\n\n\n\n\n\nDevelopment\n\n\nLinux Bash Git QEMU FreeBSD\n\n\n\n\n\n\n\nData Science\n\n\nPandas NumPy Matplotlib Seaborn Vega-Lite\n\n\n\n\nSelected Projects\n\n\n\n\n\n\n\nAerialAI\n\nAerial imagery segmentation system for buildings, roads, water, and solar panel detection.\n\n\n\n\n\n\n\n\nDashboardLLM\n\nGenerates interactive charts from CSV data using LLMs and Vega-Lite.\n\n\n\n\n\n\n\n\nCHIP-8 Emulator\n\nCHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.\n\n\n\n\n\nExperience\n\n\n\n\n\nGoogle Summer of Code contributor\n\n\nFreeBSD / QEMU\n\n\nMay - August 2024\n\n\n\n\n\nImplemented AArch64 and RISC-V support in QEMU’s FreeBSD user-mode emulation, collaborating with mentor Warner Losh.\n\n\nInvestigated syscall behavior, ABI compatibility, and architecture-specific edge cases across FreeBSD user-mode execution.\n\n\nSubmitted review-ready patches through upstream maintainer review, incorporating feedback and iterative testing.\n\n\n\n\n\n\nEducation\n\n\n\n\n\nMaster of Artificial Intelligence\n\n\nRoyal Melbourne Institute of Technology, Australia\n\n\nCompleted June 2026\n\n\n\n\n\n\nB.Tech in Computer Science\n\n\nSRM Institute of technology, India\n\n\n2020 - 2024"
+    "text": "This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container’s dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene."
   },
   {
     "objectID": "posts/GurmukhiSLM/gurmukhi.html",
     "href": "posts/GurmukhiSLM/gurmukhi.html",
     "title": "Gurmukhi Small Language Model",
     "section": "",
-    "text": "Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.\n\n\n\n\nCombine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the merged corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automatic and manual translation checks.\n\n\n\n\nThe combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe judicial data comes from the Anuvaad Parallel Corpus. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.\n\n\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\n\nThe three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.\n\n\n\n\ntokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nSharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.\n\n\n\n\n\nGur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.\n\n\n\ngur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.\n\n\n\n\ndistillation.py implements the teacher-refinement stage. Sarvam-Translate is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.\nThe teacher and student use different tokenizers, so the main training path uses quality-gated sequence-level knowledge distillation rather than exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See MiniLLM: Knowledge Distillation of Large Language Models.\n\n\n\nEvaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation rather than training. Larger dev and devtest runs are still required before making broad generalization claims from the current small-cache distillation experiment.\nThe original online data-analysis notebook is available on marimo molab.\n\n\n\n\nRun full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.\n\n\n\n\n\n\n\nCC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
+    "text": "Gurmukhi language model lab with translation and quantization controls\nGurmukhi SLM explores bidirectional translation between English and Punjabi written in the Gurmukhi script. The project builds its corpus and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and improves the decoder-only model through teacher distillation.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -228,11 +226,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
     "href": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "Combine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the merged corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automatic and manual translation checks.",
+    "section": "Project Pipeline",
+    "text": "Project Pipeline\n\nCombine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the combined corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automated metrics and manual review.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -240,11 +238,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#dataset",
     "href": "posts/GurmukhiSLM/gurmukhi.html#dataset",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "The combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe judicial data comes from the Anuvaad Parallel Corpus. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.\n\n\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\n\nThe three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.",
+    "section": "Dataset",
+    "text": "Dataset\nThe combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe legal-domain data comes from the Anuvaad Parallel Corpus. For every aligned sentence pair, the preparation script records its source, domain, language tags, text lengths, and a stable pair hash.\n\nCombined Corpus Summary\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\nCleaning\nThe pipeline maps all three datasets to a shared English-to-Punjabi schema, then applies the following checks:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py. The cleaning audit and visual analysis are in EDA.py.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -252,11 +250,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
     "href": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nSharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.",
+    "section": "Tokenization",
+    "text": "Tokenization\ntokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nA shared tokenizer lets both translation directions use the same vocabulary and supports future student-to-student distillation experiments.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -264,11 +262,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#models",
     "href": "posts/GurmukhiSLM/gurmukhi.html#models",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "Gur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.\n\n\n\ngur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.",
+    "section": "Models",
+    "text": "Models\n\nSequence-to-Sequence Transformer\nGur_slm_seq2seq.py implements the encoder-decoder Transformer baseline. The encoder reads the source sentence, and the autoregressive decoder generates the translation.\n\n\nDecoder-Only Transformer\ngur_slm_decoder.py contains the main decoder-only training workflow. The prompt specifies the translation direction, allowing one causal model to translate both English to Punjabi and Punjabi to English.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -276,11 +274,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
     "href": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "distillation.py implements the teacher-refinement stage. Sarvam-Translate is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.\nThe teacher and student use different tokenizers, so the main training path uses quality-gated sequence-level knowledge distillation rather than exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See MiniLLM: Knowledge Distillation of Large Language Models.",
+    "section": "Teacher Distillation",
+    "text": "Teacher Distillation\ndistillation.py implements the teacher-refinement stage. Sarvam-Translate serves as the English-to-Punjabi teacher because it supports Punjabi and outperformed the initial student during the project’s qualification checks.\nBecause the teacher and student use different tokenizers, the main training path uses quality-gated sequence-level knowledge distillation instead of exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe workflow also includes an on-policy reverse-KL experiment inspired by MiniLLM: Knowledge Distillation of Large Language Models. Because the vocabularies differ, the result is treated as a sequence-level diagnostic, not exact token-level reverse KL.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -288,11 +286,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
     "href": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "Evaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation rather than training. Larger dev and devtest runs are still required before making broad generalization claims from the current small-cache distillation experiment.\nThe original online data-analysis notebook is available on marimo molab.",
+    "section": "Evaluation",
+    "text": "Evaluation\nEvaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation. Full dev and devtest runs are still needed before drawing broad conclusions from the current small-cache distillation experiment.\nThe original online data-analysis notebook is available on marimo molab.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -300,11 +298,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#future-work",
     "href": "posts/GurmukhiSLM/gurmukhi.html#future-work",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "Run full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.",
+    "section": "Future Work",
+    "text": "Future Work\n\nRun full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -312,11 +310,11 @@
     "objectID": "posts/GurmukhiSLM/gurmukhi.html#data-license",
     "href": "posts/GurmukhiSLM/gurmukhi.html#data-license",
     "title": "Gurmukhi Small Language Model",
-    "section": "",
-    "text": "CC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
+    "section": "Data License",
+    "text": "Data License\n\n\n\nCC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "Gurmukhi Small Language Model"
     ]
   },
@@ -325,22 +323,22 @@
     "href": "posts/dashboard-llm/dash.html",
     "title": "DashboardLLM",
     "section": "",
-    "text": "It generates charts based on the data using Vega-Lite JSON specifications, ensuring safe and efficient visualization without any malicious code execution.\n\n\n\n\n\nCSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.\n\n\n\n\n\nBackend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas\n\n\n\n\n\nCSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.\n\n\n\n\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.\n\n\n\n\nDashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.\nSource: dashboard-LLM",
+    "text": "DashboardLLM turns natural-language questions about CSV data into interactive charts. Instead of generating executable plotting code, the model produces declarative Vega-Lite specifications that the application validates and renders in Streamlit.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   },
   {
-    "objectID": "posts/dashboard-llm/dash.html#key-features",
-    "href": "posts/dashboard-llm/dash.html#key-features",
+    "objectID": "posts/dashboard-llm/dash.html#what-it-does",
+    "href": "posts/dashboard-llm/dash.html#what-it-does",
     "title": "DashboardLLM",
-    "section": "",
-    "text": "CSV Processing: Reads and processes data from uploaded CSV files to generate insights.\nChart Generation: Creates interactive charts using Vega-Lite JSON specifications, ensuring secure and reliable visualization.\nRetrieval-Augmented Generation (RAG): Employs a vector database (ChromaDB) to find the most relevant data chunks to answer user queries.\nLocal LLMs: Powered by local language models via Ollama, ensuring privacy and control over the models used.",
+    "section": "What It Does",
+    "text": "What It Does\n\nProfiles uploaded data: Reads CSV files with Pandas and prepares their structure for analysis.\nGenerates interactive charts: Produces Vega-Lite JSON specifications from natural-language requests.\nRetrieves relevant context: Uses ChromaDB to find the data chunks most useful for each question.\nRuns models locally: Serves generation and embedding models through Ollama.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   },
@@ -348,11 +346,11 @@
     "objectID": "posts/dashboard-llm/dash.html#tech-stack",
     "href": "posts/dashboard-llm/dash.html#tech-stack",
     "title": "DashboardLLM",
-    "section": "",
-    "text": "Backend & Orchestration: Python, LangChain\nFrontend: Streamlit\nLLM Serving: Ollama\nModels:\n\nGeneration: Qwen (or any other powerful chat model)\nEmbeddings: granite-embedding:latest\n\nVector Database: ChromaDB\nCSV Processing: Pandas",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nBackend and orchestration: Python, LangChain\nInterface: Streamlit\nModel serving: Ollama\nGeneration: Qwen or another compatible chat model\nEmbeddings: granite-embedding:latest\nVector database: ChromaDB\nData processing: Pandas",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   },
@@ -360,11 +358,11 @@
     "objectID": "posts/dashboard-llm/dash.html#how-it-works",
     "href": "posts/dashboard-llm/dash.html#how-it-works",
     "title": "DashboardLLM",
-    "section": "",
-    "text": "CSV Upload: Users upload a CSV file containing structured data.\nContext Retrieval: Relevant data chunks are retrieved using ChromaDB.\nChart Generation: The system generates Vega-Lite JSON specifications based on the data and renders interactive charts.\nInteractive Chat Interface: Users interact with the chatbot via a Streamlit-based UI.",
+    "section": "How It Works",
+    "text": "How It Works\n\nThe user uploads a CSV file.\nPandas reads the data and the application indexes relevant context in ChromaDB.\nThe user describes the chart or analysis they need.\nThe language model returns a Vega-Lite specification grounded in the uploaded data.\nStreamlit renders the chart and keeps the conversation available for follow-up questions.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   },
@@ -372,11 +370,11 @@
     "objectID": "posts/dashboard-llm/dash.html#getting-started",
     "href": "posts/dashboard-llm/dash.html#getting-started",
     "title": "DashboardLLM",
-    "section": "",
-    "text": "Clone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and start interacting with the chatbot.",
+    "section": "Getting Started",
+    "text": "Getting Started\n\nClone the repository:\n\ngit clone https://github.com/Ajeets6/dashboard-LLM.git\ncd dashboard-LLM\n\nInstall dependencies:\n\npip install -r requirements.txt\n\nRun the application:\n\nstreamlit run main.py\n\nUpload a CSV file and ask for a chart or analysis.",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   },
@@ -384,11 +382,11 @@
     "objectID": "posts/dashboard-llm/dash.html#security",
     "href": "posts/dashboard-llm/dash.html#security",
     "title": "DashboardLLM",
-    "section": "",
-    "text": "DashboardLLM ensures safe operation by: - Using Vega-Lite JSON specifications for chart generation, eliminating the risk of malicious code execution. - Employing local language models for privacy and control.\nSource: dashboard-LLM",
+    "section": "Security",
+    "text": "Security\nDashboardLLM reduces the risks associated with model-generated plotting code by using declarative Vega-Lite JSON rather than executing arbitrary Python. Local model serving also keeps the model runtime under the user’s control. Uploaded data should still be handled according to the security requirements of the environment in which the application is deployed.\nSource code: dashboard-LLM",
     "crumbs": [
+      "Work",
       "Projects",
-      "Posts",
       "DashboardLLM"
     ]
   }

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="AI and software engineer building retrieval, computer vision, and systems software.">
 
-<title>About – Ajeet Singh</title>
+<title>Ajeet Singh | AI and Software Engineer – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,18 +37,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3b56f18ea2d0dcd9bf905760c8de76c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-31e858ad9f2e4d2841475443b9d9d086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e4954fc46800205dab9e4c5c9533f224.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,414 +76,354 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
-<style>@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="styles.css">
-</head>
-
-<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-featured-work .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
     }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-page-navigation','listing-toc','listing-sidebar','listing-page-layout','listing-grid','listing-title','listing-description','listing-image','listing-image-alt','listing-project-area','listing-tech','listing-order','listing-path','listing-outputHref','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-date','listing-date-modified','listing-pagetitle','listing-resources',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] }],
+      
+      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-page-navigation","listing-toc","listing-sidebar","listing-page-layout","listing-grid","listing-title","listing-description","listing-image","listing-image-alt","listing-project-area","listing-tech","listing-order","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-date","listing-date-modified","listing-pagetitle","listing-resources"],
     };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-featured-work'] = new List('listing-featured-work', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
     }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
     }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
+  })
+  </script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
         });
       }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = true;
-    const darkModeDefault = authorPrefersDark;
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
     }
-  </script>
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Ajeet Singh | AI and Software Engineer">
+<meta property="og:description" content="AI and software engineer building retrieval, computer vision, and systems software.">
+<meta property="og:image" content="https://ajeets6.github.io/assets/girl-with-pearl-earring.jpg">
+<meta property="og:site_name" content="Ajeet Singh">
+<meta property="og:image:alt" content="Girl with a Pearl Earring by Johannes Vermeer used in Ajeet Singh's portfolio hero">
+<meta name="twitter:title" content="Ajeet Singh | AI and Software Engineer">
+<meta name="twitter:description" content="AI and software engineer building retrieval, computer vision, and systems software.">
+<meta name="twitter:image" content="https://ajeets6.github.io/assets/girl-with-pearl-earring.jpg">
+<meta name="twitter:image:alt" content="Girl with a Pearl Earring by Johannes Vermeer used in Ajeet Singh's portfolio hero">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ajeets6.github.io/">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
-          <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#work"> 
+<span class="menu-text">Work</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#knowledge"> 
+<span class="menu-text">Knowledge</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#experience"> 
+<span class="menu-text">Experience</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Ajeets6"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
-          <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
 <!-- main -->
-<main class="content page-columns page-full column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="hero-title display-1 fw-bold title display-7">
-Ajeet Singh
-</h1></header>
+
+
+
+
+<div class="portfolio-home">
+  <section class="poster-hero" aria-labelledby="hero-title">
+    <div class="poster-stage site-shell">
+      <h1 class="poster-title" id="hero-title">
+        <span>Ajeet</span>
+        <span>Singh</span>
+      </h1>
+      <figure class="poster-portrait figure">
+        <img class="poster-image figure-img" src="assets/girl-with-pearl-earring.jpg" alt="Girl with a Pearl Earring by Johannes Vermeer" width="1600" height="1873" fetchpriority="high" decoding="async">
+      </figure>
+      <div class="poster-copy">
+        <p>AI and software engineer building retrieval, vision, and systems software.</p>
+        <div class="poster-actions">
+          <a class="portfolio-button primary" href="#work">View projects</a>
+          <a class="portfolio-button" href="mailto:ajeetsingh6234@gmail.com">Contact</a>
+        </div>
+      </div>
+      <p class="poster-note">Master of Artificial Intelligence, RMIT. Google Summer of Code contributor to FreeBSD and QEMU.</p>
+    </div>
+  </section>
+
+  <section class="home-section work-section" id="work" aria-labelledby="work-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="work-title">Selected <span class="accent-line">work</span></h2>
+        <p>Five projects across applied AI, computer vision, data tools, and low-level systems.</p>
+      </header>
+<div id="listing-featured-work" class="quarto-listing quarto-listing-container-custom">
+<div class="project-bento list">
+
+  <article class="project-item" data-index="0" data-listing-file-modified-sort="1785954947356" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
+    <a class="project-link" href="./posts/aerialAI/aerial.html">
+      <div class="project-media">
+        <img class="project-image" src="./posts/aerialAI/aerial.png" alt="Aerial AI interface comparing satellite imagery with a semantic segmentation result" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="project-index">01</span>
+          <span class="listing-project-area">Computer vision</span>
+        </div>
+        <h3 class="listing-title">Aerial AI</h3>
+        <p class="listing-description">Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery.</p>
+        <div class="project-tech">SegFormer / Mask2Former / PyTorch / Streamlit</div>
+      </div>
+    </a>
+  </article>
+
+  <article class="project-item" data-index="1" data-listing-file-modified-sort="1785954947355" data-listing-reading-time-sort="4" data-listing-word-count-sort="770">
+    <a class="project-link" href="./posts/GurmukhiSLM/gurmukhi.html">
+      <div class="project-media">
+        <img class="project-image" src="./posts/GurmukhiSLM/slm.jpeg" alt="Gurmukhi language model lab with translation and quantization controls" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="project-index">02</span>
+          <span class="listing-project-area">Language models</span>
+        </div>
+        <h3 class="listing-title">Gurmukhi Small Language Model</h3>
+        <p class="listing-description">A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation.</p>
+        <div class="project-tech">Transformers / BPE / Distillation / FLORES+</div>
+      </div>
+    </a>
+  </article>
+
+  <article class="project-item" data-index="2" data-listing-date-sort="1719705600000" data-listing-file-modified-sort="1785954947375" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
+    <a class="project-link" href="./posts/multi-modal-rag/rag.html">
+      <div class="project-media">
+        <img class="project-image" src="./posts/multi-modal-rag/rag.png" alt="Multimodal PDF RAG chatbot answering a question after a document upload" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="project-index">03</span>
+          <span class="listing-project-area">Retrieval systems</span>
+        </div>
+        <h3 class="listing-title">Multimodal PDF RAG Chatbot</h3>
+        <p class="listing-description">A local retrieval pipeline that understands text and visual content inside uploaded PDFs.</p>
+        <div class="project-tech">LangChain / ChromaDB / Ollama / Streamlit</div>
+      </div>
+    </a>
+  </article>
+
+  <article class="project-item" data-index="3" data-listing-file-modified-sort="1785954947371" data-listing-reading-time-sort="2" data-listing-word-count-sort="268">
+    <a class="project-link" href="./posts/dashboard-llm/dash.html">
+      <div class="project-media">
+        <img class="project-image" src="./posts/dashboard-llm/dashboard1.PNG" alt="DashboardLLM interface showing an uploaded CSV dataset" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="project-index">04</span>
+          <span class="listing-project-area">Data tools</span>
+        </div>
+        <h3 class="listing-title">DashboardLLM</h3>
+        <p class="listing-description">Natural-language chart generation from CSV data using local language models.</p>
+        <div class="project-tech">Vega-Lite / Pandas / RAG / Streamlit</div>
+      </div>
+    </a>
+  </article>
+
+  <article class="project-item" data-index="4" data-listing-file-modified-sort="1785954947369" data-listing-reading-time-sort="2" data-listing-word-count-sort="317">
+    <a class="project-link" href="./posts/chip8-raylib/chip8.html">
+      <div class="project-media">
+        <img class="project-image" src="./posts/chip8-raylib/chip8.png" alt="CHIP-8 emulator display with memory and stack inspection panels" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="project-index">05</span>
+          <span class="listing-project-area">Systems software</span>
+        </div>
+        <h3 class="listing-title">Chip-8</h3>
+        <p class="listing-description">A browser-playable CHIP-8 emulator built in C and compiled to WebAssembly.</p>
+        <div class="project-tech">C / Raylib / WebAssembly</div>
+      </div>
+    </a>
+  </article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+    </div>
+  </section>
+
+  <section class="home-section knowledge-section" id="knowledge" aria-labelledby="knowledge-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="knowledge-title">How I <span class="accent-line">build</span></h2>
+        <p>Strong foundations, evaluated models, and software that remains clear from data preparation through delivery.</p>
+      </header>
+
+      <div class="knowledge-grid">
+        <article class="knowledge-item">
+          <span class="knowledge-key">Systems</span>
+          <h3>Languages and runtimes</h3>
+          <p>Software that stays legible from the user workflow down to the runtime.</p>
+          <ul class="knowledge-list">
+            <li>Python, C, C++, SQL</li>
+            <li>Linux, Bash, Git</li>
+            <li>QEMU, FreeBSD, WebAssembly</li>
+          </ul>
+        </article>
+        <article class="knowledge-item">
+          <span class="knowledge-key">Intelligence</span>
+          <h3>Models and retrieval</h3>
+          <p>Applied AI grounded in evaluation, useful interfaces, and local-first tooling.</p>
+          <ul class="knowledge-list">
+            <li>PyTorch, Transformers</li>
+            <li>LLM, RAG, LangChain</li>
+            <li>ChromaDB, Computer Vision</li>
+          </ul>
+        </article>
+        <article class="knowledge-item">
+          <span class="knowledge-key">Delivery</span>
+          <h3>Data and interfaces</h3>
+          <p>Exploration and presentation layers that make technical work understandable.</p>
+          <ul class="knowledge-list">
+            <li>Pandas, NumPy</li>
+            <li>Streamlit, Vega-Lite</li>
+            <li>Jupyter, Quarto</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section" id="experience" aria-labelledby="experience-title">
+    <div class="site-shell">
+      <header class="home-section-head">
+        <h2 id="experience-title">Experience and <span class="accent-line">education</span></h2>
+        <p>Open source systems engineering and postgraduate study in artificial intelligence.</p>
+      </header>
+
+      <div class="experience-list">
+
+        <article class="experience-row">
+          <time datetime="2026-06">Completed June 2026</time>
+          <div>
+            <h3>Master of Artificial Intelligence, RMIT</h3>
+            <p>Postgraduate study spanning machine learning, computer vision, language models, and applied software projects.</p>
+          </div>
+          <div class="experience-place">Melbourne, AU</div>
+        </article>
+        <article class="experience-row">
+          <time datetime="2024-05">May - August 2024</time>
+          <div>
+            <h3>Google Summer of Code, FreeBSD</h3>
+            <p>Implemented AArch64 and RISC-V support in QEMU's FreeBSD user-mode emulation and submitted patches through upstream review.</p>
+          </div>
+          <div class="experience-place">Open source</div>
+        </article>
+        <article class="experience-row">
+          <time datetime="2024">Completed 2024</time>
+          <div>
+            <h3>B.Tech in Computer Science, SRM</h3>
+            <p>Undergraduate computer science study at SRM Institute of Science and Technology.</p>
+          </div>
+          <div class="experience-place">India</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="site-shell">
+      <div class="contact-grid">
+        <h2 id="contact-title">Build with me.</h2>
+        <div class="contact-side">
+          <p>Have an AI, systems, or software problem worth solving?</p>
+          <a class="portfolio-button" href="mailto:ajeetsingh6234@gmail.com">Contact</a>
+        </div>
+      </div>
+      <p class="art-credit">Hero artwork: <a href="https://commons.wikimedia.org/wiki/File:Meisje_met_de_parel.jpg">Girl with a Pearl Earring</a>, Johannes Vermeer, circa 1665. Public domain.</p>
+    </div>
+  </section>
+</div>
 
 
 
 
 
-<div class="grid hero">
-<div class="g-col-12 g-col-md-8 d-flex flex-column justify-content-center">
-
-<h2 class="hero-subtitle anchored">
-Building <span class="highlight purple">Intelligent Systems</span> &amp; <span class="highlight blue">Digital Experiences</span>
-</h2>
-<div class="lead mb-4">
-<p>I am a graduate AI/software engineer focused on <strong>RAG applications</strong>, <strong>computer vision</strong>, and <strong>systems-level software</strong>. I recently completed a Master of Artificial Intelligence at RMIT and have built applied AI projects using <strong>Python</strong>, <strong>PyTorch</strong>, <strong>LangChain</strong>, <strong>ChromaDB</strong>, and local LLMs. I also contributed review-ready C patches to FreeBSD/QEMU through Google Summer of Code.</p>
-</div>
-<div>
-<p><a href="https://www.linkedin.com/in/ajeetsingh6" class="btn-social" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a> <a href="https://github.com/Ajeets6" class="btn-social" target="_blank"><i class="bi bi-github"></i> Github</a> <a href="mailto:ajeetsingh6234@gmail.com" class="btn-social"><i class="bi bi-envelope"></i> Contact</a></p>
-</div>
-</div>
-<div class="g-col-12 g-col-md-4">
-<div class="profile-img-container">
-<p><img src="profile.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<div class="column-page-inset">
-<h2 class="section-heading anchored">
-Technical Arsenal
-</h2>
-<div class="skills-grid">
-<div class="skill-category accent-blue">
-<div class="category-icon">
-<i class="bi bi-cpu"></i>
-</div>
-<h3 class="category-title anchored">
-Core Tech
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Python</span> <span class="skill-chip">C</span> <span class="skill-chip">C++</span> <span class="skill-chip">SQL</span></p>
-</div>
-</div>
-<div class="skill-category accent-purple">
-<div class="category-icon">
-<i class="bi bi-robot"></i>
-</div>
-<h3 class="category-title anchored">
-AI &amp; ML
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">PyTorch</span> <span class="skill-chip">LLMs / RAG</span> <span class="skill-chip">Computer Vision</span> <span class="skill-chip">LangChain</span> <span class="skill-chip">ChromaDB</span></p>
-</div>
-</div>
-<div class="skill-category accent-orange">
-<div class="category-icon">
-<i class="bi bi-window-stack"></i>
-</div>
-<h3 class="category-title anchored">
-Development
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Linux</span> <span class="skill-chip">Bash</span> <span class="skill-chip">Git</span> <span class="skill-chip">QEMU</span> <span class="skill-chip">FreeBSD</span></p>
-</div>
-</div>
-<div class="skill-category accent-green">
-<div class="category-icon">
-<i class="bi bi-bar-chart-fill"></i>
-</div>
-<h3 class="category-title anchored">
-Data Science
-</h3>
-<div class="skill-chips">
-<p><span class="skill-chip">Pandas</span> <span class="skill-chip">NumPy</span> <span class="skill-chip">Matplotlib</span> <span class="skill-chip">Seaborn</span> <span class="skill-chip">Vega-Lite</span></p>
-</div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Selected Projects
-</h2>
-<div class="project-grid">
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/aerialAI/aerial.png" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/aerialAI/aerial.html" class="stretched-link text-decoration-none h3 d-block fw-bold">AerialAI</a></p>
-<div class="project-desc">
-<p>Aerial imagery segmentation system for buildings, roads, water, and solar panel detection.</p>
-</div>
-</div>
-</div>
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/dashboard-llm/dashboard1.PNG" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/dashboard-llm/dash.html" class="stretched-link text-decoration-none h3 d-block fw-bold">DashboardLLM</a></p>
-<div class="project-desc">
-<p>Generates interactive charts from CSV data using LLMs and Vega-Lite.</p>
-</div>
-</div>
-</div>
-<div class="project-card position-relative">
-<div class="project-img-container">
-<p><img src="posts/chip8-raylib/chip8.png" class="img-fluid"></p>
-</div>
-<div class="project-content">
-<p><a href="./posts/chip8-raylib/chip8.html" class="stretched-link text-decoration-none h3 d-block fw-bold">CHIP-8 Emulator</a></p>
-<div class="project-desc">
-<p>CHIP-8 emulator built with Raylib and compiled to WebAssembly for the browser.</p>
-</div>
-</div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Experience
-</h2>
-<div class="experience-grid">
-<div class="experience-card accent-red">
-<div class="card-header">
-<h3 class="role-title anchored">
-Google Summer of Code contributor
-</h3>
-<div class="company">
-FreeBSD / QEMU
-</div>
-<div class="period">
-May - August 2024
-</div>
-</div>
-<div class="card-content">
-<ul>
-<li>
-Implemented AArch64 and RISC-V support in QEMU’s FreeBSD user-mode emulation, collaborating with mentor Warner Losh.
-</li>
-<li>
-Investigated syscall behavior, ABI compatibility, and architecture-specific edge cases across FreeBSD user-mode execution.
-</li>
-<li>
-Submitted review-ready patches through upstream maintainer review, incorporating feedback and iterative testing.
-</li>
-</ul>
-</div>
-</div>
-</div>
-<h2 class="section-heading anchored">
-Education
-</h2>
-<div class="experience-grid">
-<div class="experience-card accent-red">
-<div class="card-header">
-<h3 class="role-title anchored">
-Master of Artificial Intelligence
-</h3>
-<div class="company">
-Royal Melbourne Institute of Technology, Australia
-</div>
-<div class="period">
-Completed June 2026
-</div>
-</div>
-</div>
-<div class="experience-card accent-pink">
-<div class="card-header">
-<h3 class="role-title anchored">
-B.Tech in Computer Science
-</h3>
-<div class="company">
-SRM Institute of technology, India
-</div>
-<div class="period">
-2020 - 2024
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-</main> <!-- /main -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -554,7 +495,7 @@ SRM Institute of technology, India
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Ajeets6\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/ajeets6\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -882,8 +823,38 @@ SRM Institute of technology, India
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ajeet Singh</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Ajeets6">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

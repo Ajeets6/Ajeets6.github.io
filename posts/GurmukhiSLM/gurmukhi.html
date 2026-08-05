@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation.">
 
-<title>gurmukhi – Ajeet Singh</title>
+<title>Gurmukhi Small Language Model – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,12 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3b56f18ea2d0dcd9bf905760c8de76c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-31e858ad9f2e4d2841475443b9d9d086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e4954fc46800205dab9e4c5c9533f224.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,288 +75,77 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-<style>@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Gurmukhi Small Language Model – Ajeet Singh">
+<meta property="og:description" content="A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation.">
+<meta property="og:image" content="https://ajeets6.github.io/posts/GurmukhiSLM/slm.jpeg">
+<meta property="og:site_name" content="Ajeet Singh">
+<meta property="og:image:alt" content="Gurmukhi language model lab with translation and quantization controls">
+<meta name="twitter:title" content="Gurmukhi Small Language Model – Ajeet Singh">
+<meta name="twitter:description" content="A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation.">
+<meta name="twitter:image" content="https://ajeets6.github.io/posts/GurmukhiSLM/slm.jpeg">
+<meta name="twitter:image:alt" content="Gurmukhi language model lab with translation and quantization controls">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ajeets6.github.io/posts/GurmukhiSLM/gurmukhi.html">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = true;
-    const darkModeDefault = authorPrefersDark;
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
-          <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#work"> 
+<span class="menu-text">Work</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#knowledge"> 
+<span class="menu-text">Knowledge</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#experience"> 
+<span class="menu-text">Experience</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Ajeets6"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
-          <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/GurmukhiSLM/gurmukhi.html">Gurmukhi Small Language Model</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Posts</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Multimodal Chatbot</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DashboardLLM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/chip8-raylib/chip8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chip-8</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/aerialAI/aerial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aerial AI</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/GurmukhiSLM/gurmukhi.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Gurmukhi Small Language Model</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gurmukhi-small-language-model" id="toc-gurmukhi-small-language-model" class="nav-link active" data-scroll-target="#gurmukhi-small-language-model">Gurmukhi Small Language Model</a>
-  <ul class="collapse">
-  <li><a href="#project-pipeline" id="toc-project-pipeline" class="nav-link" data-scroll-target="#project-pipeline">Project Pipeline</a></li>
+  <li><a href="#project-pipeline" id="toc-project-pipeline" class="nav-link active" data-scroll-target="#project-pipeline">Project Pipeline</a></li>
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a>
   <ul class="collapse">
   <li><a href="#combined-corpus-summary" id="toc-combined-corpus-summary" class="nav-link" data-scroll-target="#combined-corpus-summary">Combined Corpus Summary</a></li>
@@ -373,32 +161,69 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
   <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
   <li><a href="#data-license" id="toc-data-license" class="nav-link" data-scroll-target="#data-license">Data License</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/GurmukhiSLM/gurmukhi.html">Gurmukhi Small Language Model</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Projects</a></li><li class="breadcrumb-item"><a href="../../posts/GurmukhiSLM/gurmukhi.html">Gurmukhi Small Language Model</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Gurmukhi Small Language Model</h1>
+</div>
+
+<div>
+  <div class="description">
+    A compact English and Punjabi translation system with a custom tokenizer, Transformer models, and teacher distillation.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
-<section id="gurmukhi-small-language-model" class="level1">
-<h1>Gurmukhi Small Language Model</h1>
-<p><img src="slm.jpeg" class="img-fluid"></p>
-<p>Gurmukhi SLM is a research project for bidirectional machine translation between English and Punjabi written in the Gurmukhi script. The project builds the data and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and refines the decoder-only model through teacher distillation.</p>
-<p><img src="slm.gif" class="img-fluid"></p>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slm.jpeg" class="img-fluid figure-img" alt="Gurmukhi language model lab with translation and quantization controls"></p>
+<figcaption>Gurmukhi language model lab with translation and quantization controls</figcaption>
+</figure>
+</div>
+<p>Gurmukhi SLM explores bidirectional translation between English and Punjabi written in the Gurmukhi script. The project builds its corpus and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and improves the decoder-only model through teacher distillation.</p>
+<style>
+main.content img.gurmukhi-demo {
+  display: block;
+  width: auto !important;
+  height: clamp(320px, 48vw, 500px);
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+}
+</style>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slm.gif" class="gurmukhi-demo img-fluid figure-img" alt="Gurmukhi translation interface running a model comparison"></p>
+<figcaption>Gurmukhi translation interface running a model comparison</figcaption>
+</figure>
+</div>
 <section id="project-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="project-pipeline">Project Pipeline</h2>
 <ol type="1">
 <li>Combine three English-Punjabi parallel corpora into one consistent schema.</li>
-<li>Audit and clean the merged corpus.</li>
+<li>Audit and clean the combined corpus.</li>
 <li>Train a shared 24,000-token bilingual BPE tokenizer.</li>
 <li>Train a sequence-to-sequence Transformer baseline.</li>
 <li>Train a modern decoder-only Transformer.</li>
 <li>Distil translation behavior from a stronger teacher into the decoder-only student.</li>
-<li>Evaluate the baseline, teacher, and distilled student with automatic and manual translation checks.</li>
+<li>Evaluate the baseline, teacher, and distilled student with automated metrics and manual review.</li>
 </ol>
 </section>
 <section id="dataset" class="level2">
@@ -435,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>The judicial data comes from the <a href="https://github.com/project-anuvaad/anuvaad-parallel-corpus">Anuvaad Parallel Corpus</a>. The preparation script records source, domain, language tags, text lengths, and a stable pair hash for every aligned sentence pair.</p>
+<p>The legal-domain data comes from the <a href="https://github.com/project-anuvaad/anuvaad-parallel-corpus">Anuvaad Parallel Corpus</a>. For every aligned sentence pair, the preparation script records its source, domain, language tags, text lengths, and a stable pair hash.</p>
 <section id="combined-corpus-summary" class="level3">
 <h3 class="anchored" data-anchor-id="combined-corpus-summary">Combined Corpus Summary</h3>
 <ul>
@@ -448,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="cleaning">Cleaning</h3>
-<p>The three datasets are loaded into a common English-to-Punjabi format and then processed with the following pipeline:</p>
+<p>The pipeline maps all three datasets to a shared English-to-Punjabi schema, then applies the following checks:</p>
 <ul>
 <li>Normalize text to Unicode NFC and collapse repeated whitespace.</li>
 <li>Remove exact duplicate English-Punjabi pairs using the pair hash.</li>
@@ -458,12 +283,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Remove remaining URL and common web-page noise from the training split.</li>
 <li>Retain source and domain labels so performance can be analysed by corpus and domain.</li>
 </ul>
-<p>Corpus construction is implemented in prepare_parallel_corpus.py, while the cleaning audit and visual analysis are in EDA.py.</p>
+<p>Corpus construction is implemented in <code>prepare_parallel_corpus.py</code>. The cleaning audit and visual analysis are in <code>EDA.py</code>.</p>
 </section>
 </section>
 <section id="tokenization" class="level2">
 <h2 class="anchored" data-anchor-id="tokenization">Tokenization</h2>
-<p>tokenization.py trains a shared bilingual byte-pair encoding tokenizer with:</p>
+<p><code>tokenization.py</code> trains a shared bilingual byte-pair encoding tokenizer with:</p>
 <ul>
 <li>A 24,000-token vocabulary</li>
 <li>Unicode NFC normalization</li>
@@ -471,24 +296,24 @@ ul.task-list li input[type="checkbox"] {
 <li>Translation direction and control tokens</li>
 <li>One vocabulary for English and Gurmukhi text</li>
 </ul>
-<p>Sharing the tokenizer allows both translation directions to use the same model vocabulary and makes later student-to-student distillation experiments possible.</p>
+<p>A shared tokenizer lets both translation directions use the same vocabulary and supports future student-to-student distillation experiments.</p>
 </section>
 <section id="models" class="level2">
 <h2 class="anchored" data-anchor-id="models">Models</h2>
 <section id="sequence-to-sequence-transformer" class="level3">
 <h3 class="anchored" data-anchor-id="sequence-to-sequence-transformer">Sequence-to-Sequence Transformer</h3>
-<p>Gur_slm_seq2seq.py implements an encoder-decoder Transformer baseline. It provides the conventional machine-translation setup: the encoder reads the source sentence and the autoregressive decoder generates the target sentence.</p>
+<p><code>Gur_slm_seq2seq.py</code> implements the encoder-decoder Transformer baseline. The encoder reads the source sentence, and the autoregressive decoder generates the translation.</p>
 </section>
 <section id="decoder-only-transformer" class="level3">
 <h3 class="anchored" data-anchor-id="decoder-only-transformer">Decoder-Only Transformer</h3>
-<p>gur_slm_decoder.py contains the main decoder-only training notebook. Translation direction is represented in the prompt, allowing one causal model to perform both English-to-Punjabi and Punjabi-to-English translation.</p>
+<p><code>gur_slm_decoder.py</code> contains the main decoder-only training workflow. The prompt specifies the translation direction, allowing one causal model to translate both English to Punjabi and Punjabi to English.</p>
 <p>The base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately <strong>58.1 million parameters</strong> and is published as <a href="https://huggingface.co/Ajaple/gur-slm-decoder-base">Ajaple/gur-slm-decoder-base</a>.</p>
 </section>
 </section>
 <section id="teacher-distillation" class="level2">
 <h2 class="anchored" data-anchor-id="teacher-distillation">Teacher Distillation</h2>
-<p>distillation.py implements the teacher-refinement stage. <a href="https://huggingface.co/sarvamai/sarvam-translate">Sarvam-Translate</a> is used as the English-to-Punjabi teacher because it supports Punjabi and produced stronger translations than the initial student during teacher qualification.</p>
-<p>The teacher and student use different tokenizers, so the main training path uses <strong>quality-gated sequence-level knowledge distillation</strong> rather than exact token-level KL divergence:</p>
+<p><code>distillation.py</code> implements the teacher-refinement stage. <a href="https://huggingface.co/sarvamai/sarvam-translate">Sarvam-Translate</a> serves as the English-to-Punjabi teacher because it supports Punjabi and outperformed the initial student during the project’s qualification checks.</p>
+<p>Because the teacher and student use different tokenizers, the main training path uses <strong>quality-gated sequence-level knowledge distillation</strong> instead of exact token-level KL divergence:</p>
 <ol type="1">
 <li>Generate Punjabi translations with the teacher.</li>
 <li>Reject outputs with script errors, English leakage, implausible length ratios, or other quality failures.</li>
@@ -496,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Fine-tune the decoder-only student with cross-entropy.</li>
 <li>Compare the original student, teacher, and distilled checkpoint.</li>
 </ol>
-<p>The notebook also includes a MiniLLM-inspired on-policy reverse-KL experiment. Because the vocabularies differ, this is treated as a sequence-level diagnostic and not claimed as exact token-level reverse KL. See <a href="https://arxiv.org/abs/2306.08543">MiniLLM: Knowledge Distillation of Large Language Models</a>.</p>
+<p>The workflow also includes an on-policy reverse-KL experiment inspired by <a href="https://arxiv.org/abs/2306.08543">MiniLLM: Knowledge Distillation of Large Language Models</a>. Because the vocabularies differ, the result is treated as a sequence-level diagnostic, not exact token-level reverse KL.</p>
 </section>
 <section id="evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
@@ -510,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 <li>A manually reviewed challenge set</li>
 <li><a href="https://huggingface.co/datasets/openlanguagedata/flores_plus">FLORES+</a> English (<code>eng_Latn</code>) to Punjabi (<code>pan_Guru</code>) evaluation</li>
 </ul>
-<p>FLORES+ is reserved for evaluation rather than training. Larger <code>dev</code> and <code>devtest</code> runs are still required before making broad generalization claims from the current small-cache distillation experiment.</p>
+<p>FLORES+ is reserved for evaluation. Full <code>dev</code> and <code>devtest</code> runs are still needed before drawing broad conclusions from the current small-cache distillation experiment.</p>
 <p>The original online data-analysis notebook is available on <a href="https://molab.marimo.io/notebooks/nb_7UA5TaVaoCqvAZ16d93KKL">marimo molab</a>.</p>
 </section>
 <section id="future-work" class="level2">
@@ -527,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-license">Data License</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" class="img-fluid figure-img"></a></p>
+<p><a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" class="img-fluid figure-img" alt="Creative Commons Attribution 4.0 license"></a></p>
 <figcaption>CC BY 4.0</figcaption>
 </figure>
 </div>
@@ -535,25 +360,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-</section>
 
 </main> <!-- /main -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -625,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Ajeets6\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/ajeets6\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -962,8 +772,38 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ajeet Singh</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Ajeets6">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

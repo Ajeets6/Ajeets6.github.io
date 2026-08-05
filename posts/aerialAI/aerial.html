@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery.">
 
-<title>aerial – Ajeet Singh</title>
+<title>Aerial AI – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,12 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3b56f18ea2d0dcd9bf905760c8de76c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-31e858ad9f2e4d2841475443b9d9d086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e4954fc46800205dab9e4c5c9533f224.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,399 +111,179 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-<style>@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Aerial AI – Ajeet Singh">
+<meta property="og:description" content="Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery.">
+<meta property="og:image" content="https://ajeets6.github.io/posts/aerialAI/aerial.png">
+<meta property="og:site_name" content="Ajeet Singh">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:alt" content="Aerial AI interface comparing satellite imagery with a semantic segmentation result">
+<meta name="twitter:title" content="Aerial AI – Ajeet Singh">
+<meta name="twitter:description" content="Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery.">
+<meta name="twitter:image" content="https://ajeets6.github.io/posts/aerialAI/aerial.png">
+<meta name="twitter:image-height" content="1080">
+<meta name="twitter:image-width" content="1920">
+<meta name="twitter:image:alt" content="Aerial AI interface comparing satellite imagery with a semantic segmentation result">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ajeets6.github.io/posts/aerialAI/aerial.html">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = true;
-    const darkModeDefault = authorPrefersDark;
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
-          <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#work"> 
+<span class="menu-text">Work</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#knowledge"> 
+<span class="menu-text">Knowledge</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html#experience"> 
+<span class="menu-text">Experience</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Ajeets6"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
-          <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/aerialAI/aerial.html">Aerial AI</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Posts</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/multi-modal-rag/rag.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Multimodal Chatbot</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/dashboard-llm/dash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DashboardLLM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/chip8-raylib/chip8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chip-8</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/aerialAI/aerial.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Aerial AI</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/GurmukhiSLM/gurmukhi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gurmukhi Small Language Model</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#aerial-ai" id="toc-aerial-ai" class="nav-link active" data-scroll-target="#aerial-ai">Aerial AI</a>
-  <ul class="collapse">
-  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
   <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
-  <li><a href="#architecture-brief" id="toc-architecture-brief" class="nav-link" data-scroll-target="#architecture-brief">Architecture (Brief)</a></li>
-  <li><a href="#app-screenshot" id="toc-app-screenshot" class="nav-link" data-scroll-target="#app-screenshot">App Screenshot</a></li>
-  <li><a href="#demo-video" id="toc-demo-video" class="nav-link" data-scroll-target="#demo-video">Demo Video</a></li>
-  <li><a href="#train-brief" id="toc-train-brief" class="nav-link" data-scroll-target="#train-brief">Train (Brief)</a></li>
-  <li><a href="#run-brief" id="toc-run-brief" class="nav-link" data-scroll-target="#run-brief">Run (Brief)</a></li>
-  </ul></li>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#inference-interface" id="toc-inference-interface" class="nav-link" data-scroll-target="#inference-interface">Inference Interface</a></li>
+  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
+  <li><a href="#train-the-models" id="toc-train-the-models" class="nav-link" data-scroll-target="#train-the-models">Train the Models</a></li>
+  <li><a href="#run-the-interface" id="toc-run-the-interface" class="nav-link" data-scroll-target="#run-the-interface">Run the Interface</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/aerialAI/aerial.html">Aerial AI</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Projects</a></li><li class="breadcrumb-item"><a href="../../posts/aerialAI/aerial.html">Aerial AI</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Aerial AI</h1>
+</div>
+
+<div>
+  <div class="description">
+    Semantic and instance segmentation for buildings, roads, water, and solar panels in aerial imagery.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
-<section id="aerial-ai" class="level1">
-<h1>Aerial AI</h1>
-<section id="project" class="level2">
-<h2 class="anchored" data-anchor-id="project">Project</h2>
-<p>Aerial AI is a dual-task segmentation project for aerial imagery: - Semantic segmentation: buildings, roads, water - Instance segmentation: solar panels - Web inference UI with Streamlit in app.py</p>
-</section>
+
+<p>Aerial AI identifies structures and land features in aerial imagery. It combines semantic segmentation for buildings, roads, and water with instance segmentation for individual solar panels, then exposes both tasks through a Streamlit inference interface.</p>
 <section id="datasets" class="level2">
 <h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
 <ul>
-<li>Aerial Segmentation (Kaggle): RGB aerial images + masks for semantic classes</li>
-<li>Solar Plants Brazil: TIFF imagery + binary masks for solar panel instances</li>
-<li>Indian Demo: sample aerial TIFF images for testing/inference</li>
+<li><strong>Aerial Segmentation (Kaggle):</strong> RGB aerial images and class masks for semantic segmentation</li>
+<li><strong>Solar Plants Brazil:</strong> TIFF imagery and binary masks for solar-panel instances</li>
+<li><strong>Indian demo set:</strong> Sample aerial TIFF images used for testing and inference</li>
 </ul>
 </section>
 <section id="models" class="level2">
 <h2 class="anchored" data-anchor-id="models">Models</h2>
 <ul>
-<li>Semantic model: SegFormer (<code>nvidia/segformer-b1-finetuned-cityscapes-1024-1024</code>)</li>
-<li>Instance model: Mask2Former (<code>facebook/mask2former-swin-base-coco-instance</code>)</li>
-<li>Fine-tuned outputs are stored under:
-<ul>
-<li>output/semantic/best_model</li>
-<li>output/instance/best_model</li>
-</ul></li>
+<li><strong>Semantic segmentation:</strong> SegFormer, initialised from <code>nvidia/segformer-b1-finetuned-cityscapes-1024-1024</code></li>
+<li><strong>Instance segmentation:</strong> Mask2Former, initialised from <code>facebook/mask2former-swin-base-coco-instance</code></li>
 </ul>
+<p>The best fine-tuned checkpoints are stored in <code>output/semantic/best_model</code> and <code>output/instance/best_model</code>.</p>
 </section>
-<section id="architecture-brief" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-brief">Architecture (Brief)</h2>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <ol type="1">
-<li>Data prep/download scripts -&gt; organized train/val folders</li>
-<li>Training scripts:
-<ul>
-<li>train_semantic.py (SegFormer)</li>
-<li>train_instance.py (Mask2Former)</li>
-</ul></li>
-<li>Inference/UI:
-<ul>
-<li>app.py loads best checkpoints and runs selected task</li>
-<li>overlay + basic stats shown in Streamlit</li>
-</ul></li>
+<li>Preparation scripts download and organise the data into training and validation sets.</li>
+<li><code>train_semantic.py</code> fine-tunes SegFormer for buildings, roads, and water.</li>
+<li><code>train_instance.py</code> fine-tunes Mask2Former for solar-panel instances.</li>
+<li><code>app.py</code> loads the selected checkpoint and runs inference.</li>
+<li>Streamlit displays the segmentation overlay and summary statistics.</li>
 </ol>
 </section>
-<section id="app-screenshot" class="level2">
-<h2 class="anchored" data-anchor-id="app-screenshot">App Screenshot</h2>
+<section id="inference-interface" class="level2">
+<h2 class="anchored" data-anchor-id="inference-interface">Inference Interface</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="aerial.png" class="img-fluid figure-img"></p>
+<p><img src="aerial.png" class="img-fluid figure-img" alt="Aerial AI interface comparing satellite imagery with a semantic segmentation result"></p>
 <figcaption>Aerial AI Streamlit inference interface showing segmentation overlays</figcaption>
 </figure>
 </div>
 </section>
-<section id="demo-video" class="level2">
-<h2 class="anchored" data-anchor-id="demo-video">Demo Video</h2>
+<section id="demo" class="level2">
+<h2 class="anchored" data-anchor-id="demo">Demo</h2>
 <video controls="" width="100%" poster="aerial.png">
 <source src="aerial.mp4" type="video/mp4">
-<p>Your browser does not support embedded videos. Download it here: <a href="aerial.mp4">aerial.mp4</a> </p>
+<p>Your browser does not support embedded video. <a href="aerial.mp4">Download the demo video.</a> </p>
 </video></section>
-<section id="train-brief" class="level2">
-<h2 class="anchored" data-anchor-id="train-brief">Train (Brief)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train both models (Windows)</span></span>
+<section id="train-the-models" class="level2">
+<h2 class="anchored" data-anchor-id="train-the-models">Train the Models</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train both models on Windows</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">train_all.bat</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or train individually</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> train_semantic.py <span class="at">--train_image_dir</span> ./data/aerial_segmentation/train/images <span class="at">--train_mask_dir</span> ./data/aerial_segmentation/train/masks <span class="at">--val_image_dir</span> ./data/aerial_segmentation/val/images <span class="at">--val_mask_dir</span> ./data/aerial_segmentation/val/masks</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> train_instance.py <span class="at">--train_image_dir</span> ./data/solar_panels/train/images <span class="at">--train_mask_dir</span> ./data/solar_panels/train/masks <span class="at">--val_image_dir</span> ./data/solar_panels/val/images <span class="at">--val_mask_dir</span> ./data/solar_panels/val/masks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="run-brief" class="level2">
-<h2 class="anchored" data-anchor-id="run-brief">Run (Brief)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch web app</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Source: <a href="https://github.com/Ajeets6/aerial_AI">aerial_AI</a></p>
+<section id="run-the-interface" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-interface">Run the Interface</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Source code: <a href="https://github.com/Ajeets6/aerial_AI">aerial_AI</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -576,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Ajeets6\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/ajeets6\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -916,8 +695,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ajeet Singh</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Ajeets6">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/ajeetsingh6">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:ajeetsingh6234@gmail.com">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
