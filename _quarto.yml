@@ -42,6 +42,7 @@ website:
           - file: posts/chip8-raylib/chip8.qmd
           - file: posts/aerialAI/aerial.md
           - file: posts/GurmukhiSLM/gurmukhi.md
+          - file: posts/DataExplorer/index.qmd
   page-footer:
     left: "© 2026 Ajeet Singh"
     right:

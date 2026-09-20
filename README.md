@@ -1,21 +1,15 @@
 # Ajeet Singh — Portfolio
 
-Personal portfolio built with Quarto and hosted on GitHub Pages.
+[ajeets6.github.io](https://ajeets6.github.io)
 
-**Live site:** [ajeets6.github.io](https://ajeets6.github.io)
-
-## Run locally
-
-Install [Quarto](https://quarto.org/), clone this repository, and run:
+Preview:
 
 ```sh
 quarto preview
 ```
 
-Build the site in `_site/`:
+Build:
 
 ```sh
 quarto render
 ```
-
-Push to `main` to deploy automatically through GitHub Actions.

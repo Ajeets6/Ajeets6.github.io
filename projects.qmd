@@ -13,6 +13,7 @@ listing:
     - posts/multi-modal-rag/rag.md
     - posts/dashboard-llm/dash.md
     - posts/chip8-raylib/chip8.qmd
+    - posts/DataExplorer/index.qmd
   template: project-bento.ejs.md
   sort: order
   sort-ui: false

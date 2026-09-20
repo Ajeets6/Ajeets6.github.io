@@ -67,7 +67,7 @@ rejects development identity headers.
 
 ## Evaluation dataset
 
-The reproducible [SEC Enterprise RAG Test Pack](datasets/sec_enterprise/README.md)
+The reproducible [SEC Enterprise RAG Test Pack](https://github.com/Ajeets6/DataExplorer/blob/master/datasets/sec_enterprise/README.md)
 combines Microsoft, Walmart, and Delta filings/XBRL with synthetic policies,
 stale versions, duplicate content, tenant boundaries, restricted test records,
 and prompt-injection fixtures. Generate the safe offline corpus with
