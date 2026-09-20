@@ -168,6 +168,132 @@
     ]
   },
   {
+    "objectID": "posts/DataExplorer/Data.html",
+    "href": "posts/DataExplorer/Data.html",
+    "title": "Data Explorer",
+    "section": "",
+    "text": "An open-source-first enterprise RAG platform for governed answers, business documents, and data-driven presentations. The build includes FastAPI, LangGraph, tenant-aware dense/sparse retrieval, citations, governed DOCX/PPTX publishing, Ollama/OpenAI/Anthropic adapters, JWT authentication, layered guardrails, and audited Text2SQL with independent human approval.\n\n\nPrerequisites: Python 3.11+ and a running Ollama instance.\nuv sync\nCopy-Item .env.example .env\nollama pull llama3.1:8b\nollama pull embeddinggemma\nuv run dataexplorer\nThe API is available at http://127.0.0.1:8000; OpenAPI is at /docs.\nStart the enterprise workspace in another terminal:\nuv run dataexplorer-ui\nThe workspace client is available at http://127.0.0.1:8501 and includes governed chat, knowledge ingestion, document/deck publishing, Text2SQL approvals, and evaluation. Start uv run dataexplorer-admin for the separate observability console at http://127.0.0.1:8502. It requires an observability-admins or platform-admins entitlement. docker compose up starts both UIs, the API, Ollama, PostgreSQL, Redis, and Qdrant.\nUser, tenant, and group claims are resolved by the API and are not editable in the workspace client. In development only, environment variables provide the identity headers; staging and production require validated JWT claims.\nLLM telemetry stores correlation ID, user, tenant, operation, provider, model, tokens, latency, grounding, retries, and estimated API cost—never prompt, response, retrieved passage, or document bodies. Provider/model rates come from the DATAEXPLORER_LLM_*_COST_PER_MILLION_USD JSON maps. Missing rates are shown as unpriced rather than assigned an invented cost.\nIngest a development document:\nInvoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/v1/documents `\n  -Headers @{\"X-User-ID\"=\"analyst-1\"; \"X-Tenant-ID\"=\"acme\"; \"X-Groups\"=\"finance\"} `\n  -ContentType application/json `\n  -Body '{\"document_id\":\"policy-1\",\"title\":\"Travel policy\",\"text\":\"Employees may claim approved rail travel.\",\"allowed_groups\":[\"finance\"]}'\nQuery it:\nInvoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/v1/query `\n  -Headers @{\"X-User-ID\"=\"analyst-1\"; \"X-Tenant-ID\"=\"acme\"; \"X-Groups\"=\"finance\"} `\n  -ContentType application/json `\n  -Body '{\"question\":\"What travel can employees claim?\"}'\nRun the isolated test suite with uv run pytest. Header-based identity is development-only. Staging and production configuration requires OIDC/JWT and rejects development identity headers.\n\n\n\nThe reproducible SEC Enterprise RAG Test Pack combines Microsoft, Walmart, and Delta filings/XBRL with synthetic policies, stale versions, duplicate content, tenant boundaries, restricted test records, and prompt-injection fixtures. Generate the safe offline corpus with uv run python scripts/build_sec_enterprise_dataset.py --offline, then ingest it with uv run python scripts/ingest_sec_enterprise_dataset.py after Ollama is ready. Live SEC downloads require a declared DATAEXPLORER_SEC_USER_AGENT containing your organization and operational contact, as required by SEC fair-access rules.\nSelect a model route with DATAEXPLORER_MODEL_PROVIDER=ollama|openai|anthropic|router. Managed providers are limited to public/internal content; confidential and restricted content fails closed unless an eligible private/local route exists. The OpenAI adapter uses Responses with storage disabled, and Claude generation delegates embeddings to the configured embedding provider.\nPublishing is a three-step API workflow: create /v1/artifacts, obtain an independent decision, then render. Artifact specifications require a source ID for every factual section, constrain filenames, retain approval metadata, and hash outputs. DOCX rendering is built in. PPTX rendering is enabled only when the configured Node and artifact-tool runtime paths are present.\n\n\n\n\nTenant and group authorization is applied before evidence reaches a model.\nHybrid dense/sparse retrieval uses RRF, absolute relevance, trust weighting, expiry checks, and a configurable lexical or FlashRank reranker.\nHigh-confidence document/query injection patterns are blocked, model output is citation-checked, and common PII and secrets are redacted.\nStaging and production require JWT issuer, audience, and JWKS settings. Request rate and token budgets use a replaceable policy component.\nSQL follows proposal, independent approval, and execution stages. SQLGlot AST validation permits one bounded SELECT over allowlisted tables, columns, and functions. The PostgreSQL adapter opens a read-only transaction, applies a timeout and tenant session context, checks plan cost, and caps rows.\n\n\n\n\nDevelopment defaults remain in memory. Production configuration refuses to start unless PostgreSQL persistence, Redis policy enforcement, Qdrant retrieval, JWT identity, and their required connection settings are configured. Qdrant uses dense/sparse named vectors with server-side RRF, tenant/ACL prefilters, and a defense-in-depth authorization check before evidence reaches a model. Redis enforces request and daily-token limits through one atomic script. PostgreSQL stores audit events, SQL approvals, and artifact approvals; apply migrations/001_governance.sql through the included worker job.\nThe Terraform module under infra/terraform provisions private networking, separate Cloud Run API/UI services and a worker job, Artifact Registry, versioned GCS, private Cloud SQL, TLS-enabled Memorystore, KMS, Secret Manager, monitoring, and budgets. Before the first deployment, create the remote-state bucket, copy terraform.tfvars.example, and add versions for the generated database, OpenAI, and Qdrant secrets. Cloud Build deploys immutable commit-tagged images; GitHub CI runs tests, container builds, Terraform formatting, and validation.\nThe API emits structured request logs, propagates correlation IDs, and exposes Prometheus-format counters and latency sums at /metrics. No prompt, evidence, or restricted document content is placed in those telemetry records."
+  },
+  {
+    "objectID": "posts/DataExplorer/Data.html#quick-start",
+    "href": "posts/DataExplorer/Data.html#quick-start",
+    "title": "Data Explorer",
+    "section": "",
+    "text": "Prerequisites: Python 3.11+ and a running Ollama instance.\nuv sync\nCopy-Item .env.example .env\nollama pull llama3.1:8b\nollama pull embeddinggemma\nuv run dataexplorer\nThe API is available at http://127.0.0.1:8000; OpenAPI is at /docs.\nStart the enterprise workspace in another terminal:\nuv run dataexplorer-ui\nThe workspace client is available at http://127.0.0.1:8501 and includes governed chat, knowledge ingestion, document/deck publishing, Text2SQL approvals, and evaluation. Start uv run dataexplorer-admin for the separate observability console at http://127.0.0.1:8502. It requires an observability-admins or platform-admins entitlement. docker compose up starts both UIs, the API, Ollama, PostgreSQL, Redis, and Qdrant.\nUser, tenant, and group claims are resolved by the API and are not editable in the workspace client. In development only, environment variables provide the identity headers; staging and production require validated JWT claims.\nLLM telemetry stores correlation ID, user, tenant, operation, provider, model, tokens, latency, grounding, retries, and estimated API cost—never prompt, response, retrieved passage, or document bodies. Provider/model rates come from the DATAEXPLORER_LLM_*_COST_PER_MILLION_USD JSON maps. Missing rates are shown as unpriced rather than assigned an invented cost.\nIngest a development document:\nInvoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/v1/documents `\n  -Headers @{\"X-User-ID\"=\"analyst-1\"; \"X-Tenant-ID\"=\"acme\"; \"X-Groups\"=\"finance\"} `\n  -ContentType application/json `\n  -Body '{\"document_id\":\"policy-1\",\"title\":\"Travel policy\",\"text\":\"Employees may claim approved rail travel.\",\"allowed_groups\":[\"finance\"]}'\nQuery it:\nInvoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/v1/query `\n  -Headers @{\"X-User-ID\"=\"analyst-1\"; \"X-Tenant-ID\"=\"acme\"; \"X-Groups\"=\"finance\"} `\n  -ContentType application/json `\n  -Body '{\"question\":\"What travel can employees claim?\"}'\nRun the isolated test suite with uv run pytest. Header-based identity is development-only. Staging and production configuration requires OIDC/JWT and rejects development identity headers."
+  },
+  {
+    "objectID": "posts/DataExplorer/Data.html#evaluation-dataset",
+    "href": "posts/DataExplorer/Data.html#evaluation-dataset",
+    "title": "Data Explorer",
+    "section": "",
+    "text": "The reproducible SEC Enterprise RAG Test Pack combines Microsoft, Walmart, and Delta filings/XBRL with synthetic policies, stale versions, duplicate content, tenant boundaries, restricted test records, and prompt-injection fixtures. Generate the safe offline corpus with uv run python scripts/build_sec_enterprise_dataset.py --offline, then ingest it with uv run python scripts/ingest_sec_enterprise_dataset.py after Ollama is ready. Live SEC downloads require a declared DATAEXPLORER_SEC_USER_AGENT containing your organization and operational contact, as required by SEC fair-access rules.\nSelect a model route with DATAEXPLORER_MODEL_PROVIDER=ollama|openai|anthropic|router. Managed providers are limited to public/internal content; confidential and restricted content fails closed unless an eligible private/local route exists. The OpenAI adapter uses Responses with storage disabled, and Claude generation delegates embeddings to the configured embedding provider.\nPublishing is a three-step API workflow: create /v1/artifacts, obtain an independent decision, then render. Artifact specifications require a source ID for every factual section, constrain filenames, retain approval metadata, and hash outputs. DOCX rendering is built in. PPTX rendering is enabled only when the configured Node and artifact-tool runtime paths are present."
+  },
+  {
+    "objectID": "posts/DataExplorer/Data.html#implemented-security-boundaries",
+    "href": "posts/DataExplorer/Data.html#implemented-security-boundaries",
+    "title": "Data Explorer",
+    "section": "",
+    "text": "Tenant and group authorization is applied before evidence reaches a model.\nHybrid dense/sparse retrieval uses RRF, absolute relevance, trust weighting, expiry checks, and a configurable lexical or FlashRank reranker.\nHigh-confidence document/query injection patterns are blocked, model output is citation-checked, and common PII and secrets are redacted.\nStaging and production require JWT issuer, audience, and JWKS settings. Request rate and token budgets use a replaceable policy component.\nSQL follows proposal, independent approval, and execution stages. SQLGlot AST validation permits one bounded SELECT over allowlisted tables, columns, and functions. The PostgreSQL adapter opens a read-only transaction, applies a timeout and tenant session context, checks plan cost, and caps rows."
+  },
+  {
+    "objectID": "posts/DataExplorer/Data.html#production-deployment",
+    "href": "posts/DataExplorer/Data.html#production-deployment",
+    "title": "Data Explorer",
+    "section": "",
+    "text": "Development defaults remain in memory. Production configuration refuses to start unless PostgreSQL persistence, Redis policy enforcement, Qdrant retrieval, JWT identity, and their required connection settings are configured. Qdrant uses dense/sparse named vectors with server-side RRF, tenant/ACL prefilters, and a defense-in-depth authorization check before evidence reaches a model. Redis enforces request and daily-token limits through one atomic script. PostgreSQL stores audit events, SQL approvals, and artifact approvals; apply migrations/001_governance.sql through the included worker job.\nThe Terraform module under infra/terraform provisions private networking, separate Cloud Run API/UI services and a worker job, Artifact Registry, versioned GCS, private Cloud SQL, TLS-enabled Memorystore, KMS, Secret Manager, monitoring, and budgets. Before the first deployment, create the remote-state bucket, copy terraform.tfvars.example, and add versions for the generated database, OpenAI, and Qdrant secrets. Cloud Build deploys immutable commit-tagged images; GitHub CI runs tests, container builds, Terraform formatting, and validation.\nThe API emits structured request logs, propagates correlation IDs, and exposes Prometheus-format counters and latency sums at /metrics. No prompt, evidence, or restricted document content is placed in those telemetry records."
+  },
+  {
+    "objectID": "posts/mango.html",
+    "href": "posts/mango.html",
+    "title": "Embedding Three.js in Quarto",
+    "section": "",
+    "text": "This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container’s dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene."
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html",
+    "href": "posts/DataExplorer/index.html",
+    "title": "DataExplorer",
+    "section": "",
+    "text": "View source\n  Run locally",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#from-retrieval-to-reviewed-work",
+    "href": "posts/DataExplorer/index.html#from-retrieval-to-reviewed-work",
+    "title": "DataExplorer",
+    "section": "From retrieval to reviewed work",
+    "text": "From retrieval to reviewed work\nAn answer is only part of an enterprise AI workflow. People also need to see its sources, respect document permissions, review proposed actions, and turn useful results into shareable work.\nDataExplorer brings these steps into a Python platform with a FastAPI backend and separate Streamlit workspaces for employees and administrators. It supports Ollama, OpenAI, and Anthropic, with model routing constrained by content classification.\n\nThe core design choice: access checks happen before evidence reaches the model. Publishing and SQL execution require independent approval.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#three-connected-workflows",
+    "href": "posts/DataExplorer/index.html#three-connected-workflows",
+    "title": "DataExplorer",
+    "section": "Three connected workflows",
+    "text": "Three connected workflows\n\nAsk questions with evidence\nUpload text or Markdown documents, explore the knowledge library, and ask questions grounded in permitted sources. Retrieval considers relevance, trust, and expiry; answers are checked for citations. Saved answers and source previews make it possible to revisit the evidence behind a response.\n\n\nTurn findings into reports\nCreate an artifact with source IDs for factual sections, send it for independent review, then render and download the approved result. Report revisions need a fresh decision while preserving the previous review. DOCX rendering is built in; PPTX requires a configured Node and artifact-tool runtime.\n\n\nAnalyse data with approval\nText2SQL works against configured schemas available to the caller’s groups. A proposed query must pass validation and independent approval before execution. The executor permits bounded, allowlisted SELECT queries and uses read-only transactions, tenant context, and resource limits.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#how-the-platform-fits-together",
+    "href": "posts/DataExplorer/index.html#how-the-platform-fits-together",
+    "title": "DataExplorer",
+    "section": "How the platform fits together",
+    "text": "How the platform fits together\n\n\nWorkspace\nEmployee pages for knowledge, answers, analyses, reports, and approvals. A separate admin console for observability.\n\n\nAPI and policy\nFastAPI validates identity and coordinates retrieval, model routing, citation checks, review decisions, and execution.\n\n\nModels and storage\nOllama, OpenAI, or Anthropic for generation. PostgreSQL, Redis, and Qdrant support the production deployment.\n\n\nThe separation keeps the user interface focused on work while the API enforces the rules. The same backend serves the employee workspace and administrative tools.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#engineering-decisions",
+    "href": "posts/DataExplorer/index.html#engineering-decisions",
+    "title": "DataExplorer",
+    "section": "Engineering decisions",
+    "text": "Engineering decisions\n\n\n\n\n\n\n\nConcern\nImplementation\n\n\n\n\nIdentity and access\nValidated JWT claims in staging and production; tenant and group checks before model access to evidence.\n\n\nModel routing\nManaged providers are limited to public/internal content. Confidential or restricted content requires an eligible private/local route.\n\n\nHuman review\nIndependent decisions gate artifact rendering and SQL execution. Revised reports return to review.\n\n\nGuardrails\nInjection-pattern checks, citation checks, and redaction of common PII and secrets.\n\n\nOperational visibility\nRequest traces, generation trends, audit search, quality checks, and cost coverage without logging prompt or document bodies.\n\n\n\nThe admin console distinguishes unavailable measurements from zero. Token and cost totals also separate individual attempts from request summaries, making retries and missing price information visible.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#evaluation-and-deployment",
+    "href": "posts/DataExplorer/index.html#evaluation-and-deployment",
+    "title": "DataExplorer",
+    "section": "Evaluation and deployment",
+    "text": "Evaluation and deployment\nThe repository includes a SEC Enterprise RAG Test Pack combining company filings with synthetic policy and security fixtures. An offline build path supports local evaluation; live SEC downloads require an identifying user agent with an operational contact.\nThe test suite covers retrieval quality, guardrails, providers, Text2SQL, artifacts, workspace behavior, APIs, and deployment configuration. Docker Compose starts the API, both interfaces, and supporting services. Terraform and Cloud Build configuration target Google Cloud, including Cloud Run.\nRun the test suite with uv run pytest. The repository includes the fixtures, deployment configuration, and implementation details.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
+    "objectID": "posts/DataExplorer/index.html#run-locally",
+    "href": "posts/DataExplorer/index.html#run-locally",
+    "title": "DataExplorer",
+    "section": "Run locally",
+    "text": "Run locally\nInstall Python 3.11+, uv, and Ollama, then start Ollama. In PowerShell:\ngit clone https://github.com/Ajeets6/DataExplorer.git\ncd DataExplorer\nuv sync\nCopy-Item .env.example .env\nollama pull llama3.1:8b\nollama pull embeddinggemma\nuv run dataexplorer\nThe API runs at http://127.0.0.1:8000, with interactive API documentation at /docs. Open a second terminal in the repository to start the employee workspace:\nuv run dataexplorer-ui\nVisit http://127.0.0.1:8501. The separate admin command, uv run dataexplorer-admin, serves port 8502 and requires the observability-admins or platform-admins group.\n\n\n\n\n\n\nNoteDevelopment and production\n\n\n\nDevelopment uses in-memory defaults, so workspace records last only for the running API process. Production requires persistent services, SQL migrations, and validated JWT identity. Text/Markdown uploads are currently limited to 1 MB. See the production setup guide for deployment and sign-in configuration.\n\n\nExplore the source on GitHub",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "DataExplorer"
+    ]
+  },
+  {
     "objectID": "posts/chip8-raylib/chip8.html",
     "href": "posts/chip8-raylib/chip8.html",
     "title": "Chip-8",
@@ -204,18 +330,11 @@
     ]
   },
   {
-    "objectID": "posts/mango.html",
-    "href": "posts/mango.html",
-    "title": "Embedding Three.js in Quarto",
-    "section": "",
-    "text": "This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container’s dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene."
-  },
-  {
     "objectID": "posts/GurmukhiSLM/gurmukhi.html",
     "href": "posts/GurmukhiSLM/gurmukhi.html",
     "title": "Gurmukhi Small Language Model",
     "section": "",
-    "text": "Gurmukhi language model lab with translation and quantization controls\nGurmukhi SLM explores bidirectional translation between English and Punjabi written in the Gurmukhi script. The project builds its corpus and tokenizer from scratch, compares sequence-to-sequence and decoder-only Transformer architectures, and improves the decoder-only model through teacher distillation.",
+    "text": "Gurmukhi language model lab with translation and quantization controls\nGurmukhi SLM is a 58.1M-parameter, bidirectional English-Punjabi translation model for Punjabi written in the Gurmukhi script. The project covers the complete path from corpus preparation and tokenizer training to teacher distillation, instruction fine-tuning, KV-cache ONNX export, INT8/INT4 quantization, and CPU evaluation on FLORES+.",
     "crumbs": [
       "Work",
       "Projects",
@@ -223,11 +342,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#project-pipeline",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#highlights",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#highlights",
     "title": "Gurmukhi Small Language Model",
-    "section": "Project Pipeline",
-    "text": "Project Pipeline\n\nCombine three English-Punjabi parallel corpora into one consistent schema.\nAudit and clean the combined corpus.\nTrain a shared 24,000-token bilingual BPE tokenizer.\nTrain a sequence-to-sequence Transformer baseline.\nTrain a modern decoder-only Transformer.\nDistil translation behavior from a stronger teacher into the decoder-only student.\nEvaluate the baseline, teacher, and distilled student with automated metrics and manual review.",
+    "section": "Highlights",
+    "text": "Highlights\n\nEnglish → Punjabi and Punjabi → English in one decoder-only model\nShared 24,000-token bilingual BPE vocabulary\nRMSNorm, rotary position embeddings, causal self-attention, and SwiGLU\nQuality-gated sequence-level distillation from Sarvam-Translate\nInstruction fine-tuning for natural translation requests\nOne ONNX interface for prompt prefill and cached token-by-token decoding\nDynamic per-channel INT8 and genuine blockwise weight-only INT4 exports\nFLORES+ evaluation for quality, latency, throughput, and script stability",
     "crumbs": [
       "Work",
       "Projects",
@@ -235,11 +354,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#dataset",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#dataset",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#model-variants",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#model-variants",
     "title": "Gurmukhi Small Language Model",
-    "section": "Dataset",
-    "text": "Dataset\nThe combined corpus contains three sources:\n\n\n\nSource\nDomain\nRows\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe legal-domain data comes from the Anuvaad Parallel Corpus. For every aligned sentence pair, the preparation script records its source, domain, language tags, text lengths, and a stable pair hash.\n\nCombined Corpus Summary\n\nExact duplicate pairs before cleaning: 2,513\nAverage English length: 24.26 words\nAverage Punjabi length: 25.97 words\nGeneral-domain rows: 341,612\nLegal-domain rows: 1,261,948\n\n\n\nCleaning\nThe pipeline maps all three datasets to a shared English-to-Punjabi schema, then applies the following checks:\n\nNormalize text to Unicode NFC and collapse repeated whitespace.\nRemove exact duplicate English-Punjabi pairs using the pair hash.\nReject punctuation-only and URL-only records.\nFilter extreme sentence lengths and strongly mismatched source/target length ratios.\nFlag very short records and rows containing URLs for review.\nRemove remaining URL and common web-page noise from the training split.\nRetain source and domain labels so performance can be analysed by corpus and domain.\n\nCorpus construction is implemented in prepare_parallel_corpus.py. The cleaning audit and visual analysis are in EDA.py.",
+    "section": "Model Variants",
+    "text": "Model Variants\n\n\n\n\n\n\n\n\n\n\nVariant\nFormat\nKV cache\nSize\nIntended use\n\n\n\n\nInstruction fine-tuned\nPyTorch FP32 checkpoint\nNo\n174.9 MiB\nContinued training and research\n\n\nCached FP32\nONNX\nFP32\n222.6 MiB\nReference cached inference\n\n\nCached INT8\nONNX, dynamic per-channel QInt8 weights\nFP32\n56.63 MiB\nFast CPU inference\n\n\nCached INT4\nONNX, symmetric blockwise weight-only 4-bit weights\nFP32\n35.46 MiB\nSmallest deployment model\n\n\n\nThe generated deployment bundle contains the cached FP32, INT8, and INT4 models alongside generation_config.json and tokenizer.json. Model binaries are excluded from Git and can be reproduced with the export workflow in the project repository.\nThe project publishes Hugging Face repositories for the base model, distilled model, and instruction fine-tuned model. Access to non-public repositories requires authorization from their owner.\n\nKV-cache precision: “INT8” and “INT4” describe quantized learned weights. The key/value cache inputs and outputs remain FP32 in both models.",
     "crumbs": [
       "Work",
       "Projects",
@@ -247,11 +366,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#tokenization",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#complete-training-pipeline",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#complete-training-pipeline",
     "title": "Gurmukhi Small Language Model",
-    "section": "Tokenization",
-    "text": "Tokenization\ntokenization.py trains a shared bilingual byte-pair encoding tokenizer with:\n\nA 24,000-token vocabulary\nUnicode NFC normalization\nMetaspace whitespace handling\nTranslation direction and control tokens\nOne vocabulary for English and Gurmukhi text\n\nA shared tokenizer lets both translation directions use the same vocabulary and supports future student-to-student distillation experiments.",
+    "section": "Complete Training Pipeline",
+    "text": "Complete Training Pipeline\n\n\n\n\n\n\n\n\n\nStage\nInput\nProcess\nOutput\n\n\n\n\n1\nAnuvaad judicial, pan_Guru, and trainclean corpora\nMerge, normalize Unicode and whitespace, deduplicate, and filter noise\nClean bilingual corpus with source and domain metadata\n\n\n2\nClean bilingual corpus\nTrain a shared 24,000-token BPE tokenizer\nBilingual vocabulary and control tokens\n\n\n3\nTokenized corpus\nTrain encoder-decoder baseline and decoder-only student\n58.1M-parameter base checkpoint\n\n\n4\nBase checkpoint, gold targets, and Sarvam-Translate outputs\nQuality-gate teacher outputs and perform sequence-level distillation\nDistilled student\n\n\n5\nDistilled student and bidirectional instruction data\nInstruction fine-tuning with target-only cross-entropy\nFine-tuned PyTorch checkpoint\n\n\n6\nFine-tuned checkpoint\nAdd explicit KV-cache attention and export ONNX\nCached FP32 model\n\n\n7\nCached FP32 model\nDynamic per-channel INT8 and blockwise symmetric INT4 quantization\nCached INT8 and INT4 models\n\n\n8\nQuantized models and FLORES+\nMeasure quality, script stability, latency, and throughput\nDeployment benchmark\n\n\n\nThe stages are implemented in the repository’s corpus preparation, EDA, tokenization, decoder training, distillation, fine-tuning, export, and benchmark workflows.",
     "crumbs": [
       "Work",
       "Projects",
@@ -259,11 +378,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#models",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#models",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#model-architecture",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#model-architecture",
     "title": "Gurmukhi Small Language Model",
-    "section": "Models",
-    "text": "Models\n\nSequence-to-Sequence Transformer\nGur_slm_seq2seq.py implements the encoder-decoder Transformer baseline. The encoder reads the source sentence, and the autoregressive decoder generates the translation.\n\n\nDecoder-Only Transformer\ngur_slm_decoder.py contains the main decoder-only training workflow. The prompt specifies the translation direction, allowing one causal model to translate both English to Punjabi and Punjabi to English.\nThe base decoder uses RMSNorm, rotary position embeddings, SwiGLU feed-forward layers, tied token embeddings, mixed-precision training, gradient clipping, and checkpoint resume support. The current base checkpoint has approximately 58.1 million parameters and is published as Ajaple/gur-slm-decoder-base.",
+    "section": "Model Architecture",
+    "text": "Model Architecture\nThe exported models preserve the instruction-fine-tuned decoder architecture and add explicit per-layer key/value cache inputs and outputs.\n\nThe translation prompt supplies target-language, domain, and style control tokens.\nThe shared 24,000-token BPE tokenizer converts the prompt to token IDs.\nA tied 24,000 × 512 embedding maps the IDs into the model hidden space.\nEight decoder blocks apply pre-norm RMSNorm, causal self-attention with RoPE, a residual connection, SwiGLU feed-forward processing, and a second residual connection.\nEach attention layer consumes its previous key/value tensors and returns updated cache tensors.\nFinal RMSNorm and the tied language-model head produce newest-token logits.\nGreedy decoding selects the next token and repeats until EOS or the generation limit.\n\n\n\n\nProperty\nValue\n\n\n\n\nParameters\n58,139,136\n\n\nVocabulary\n24,000\n\n\nContext length\n256 tokens\n\n\nDecoder layers\n8\n\n\nHidden size\n512\n\n\nAttention heads\n8\n\n\nHead dimension\n64\n\n\nFeed-forward size\n2,048\n\n\nPositional encoding\nRoPE, base 10,000\n\n\nNormalization\nPre-norm RMSNorm\n\n\nFeed-forward activation\nSwiGLU / SiLU gate\n\n\nEmbedding/output weights\nTied\n\n\n\n\nKV-Cache Inference\n\n\n\n\n\n\n\n\n\nStep\nApplication\nTokenizer\nCached ONNX model\n\n\n\n\n1\nFormat the complete translation prompt\nEncode it as input_ids [1, prompt_length]\n—\n\n\n2\nSend the prompt IDs and 16 zero-length FP32 caches\n—\nPrefill the prompt and return newest-token logits plus 16 present caches\n\n\n3\nSelect the next token\n—\n—\n\n\n4\nSend one token with the previous layer caches\n—\nReturn newest-token logits and extended caches\n\n\n5\nRepeat steps 3–4 until EOS or max_new_tokens\n—\nReuse the cached prefix without recomputing it\n\n\n6\nSend the generated token IDs for decoding\nConvert IDs to text\n—\n\n\n\nThere are two cache tensors—key and value—for each of the eight layers. Each tensor has shape [1, 8, sequence_length, 64]. Prefill consumes the full prompt with empty caches; subsequent calls consume one token and reuse the returned caches, avoiding recomputation of the complete prefix.",
     "crumbs": [
       "Work",
       "Projects",
@@ -271,11 +390,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#teacher-distillation",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#data-and-tokenization",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#data-and-tokenization",
     "title": "Gurmukhi Small Language Model",
-    "section": "Teacher Distillation",
-    "text": "Teacher Distillation\ndistillation.py implements the teacher-refinement stage. Sarvam-Translate serves as the English-to-Punjabi teacher because it supports Punjabi and outperformed the initial student during the project’s qualification checks.\nBecause the teacher and student use different tokenizers, the main training path uses quality-gated sequence-level knowledge distillation instead of exact token-level KL divergence:\n\nGenerate Punjabi translations with the teacher.\nReject outputs with script errors, English leakage, implausible length ratios, or other quality failures.\nMix accepted teacher targets with gold parallel-corpus targets.\nFine-tune the decoder-only student with cross-entropy.\nCompare the original student, teacher, and distilled checkpoint.\n\nThe workflow also includes an on-policy reverse-KL experiment inspired by MiniLLM: Knowledge Distillation of Large Language Models. Because the vocabularies differ, the result is treated as a sequence-level diagnostic, not exact token-level reverse KL.",
+    "section": "Data and Tokenization",
+    "text": "Data and Tokenization\n\n\n\nSource\nDomain\nSentence pairs\n\n\n\n\njudicial\nLegal\n1,261,948\n\n\npan_Guru\nGeneral\n85,907\n\n\ntrainclean\nGeneral\n255,705\n\n\nTotal\n\n1,603,560\n\n\n\nThe judicial subset comes from the Anuvaad Parallel Corpus. Before cleaning, the combined data contains 2,513 exact duplicate pairs. The pipeline normalizes Unicode and whitespace, removes duplicate or invalid pairs, filters extreme lengths and source/target ratios, and retains corpus/domain provenance.\nThe tokenizer workflow trains one 24k BPE vocabulary for English and Gurmukhi. Its control tokens encode target language, domain, and style. The inference prompt is:\n&lt;2{target}&gt; &lt;domain&gt; &lt;natural&gt; {source text}\\n\nExamples:\n&lt;2pa&gt; &lt;general&gt; &lt;natural&gt; How are you?\n&lt;2en&gt; &lt;legal&gt; &lt;natural&gt; ਇਹ ਸਮਝੌਤਾ ਪੰਜ ਸਾਲਾਂ ਲਈ ਲਾਗੂ ਰਹੇਗਾ।",
     "crumbs": [
       "Work",
       "Projects",
@@ -283,11 +402,11 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#evaluation",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#distillation-and-instruction-fine-tuning",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#distillation-and-instruction-fine-tuning",
     "title": "Gurmukhi Small Language Model",
-    "section": "Evaluation",
-    "text": "Evaluation\nEvaluation combines corpus metrics with targeted failure checks:\n\nBLEU and chrF through SacreBLEU\nGurmukhi script error rate\nEnglish leakage rate\nInstruction leakage rate\nSide-by-side translation inspection\nA manually reviewed challenge set\nFLORES+ English (eng_Latn) to Punjabi (pan_Guru) evaluation\n\nFLORES+ is reserved for evaluation. Full dev and devtest runs are still needed before drawing broad conclusions from the current small-cache distillation experiment.\nThe original online data-analysis notebook is available on marimo molab.",
+    "section": "Distillation and Instruction Fine-Tuning",
+    "text": "Distillation and Instruction Fine-Tuning\nThe student and teacher use different tokenizers, so the project uses quality-gated sequence-level knowledge distillation, not token-aligned KL divergence. Teacher translations are rejected when they show script errors, English leakage, implausible length ratios, or invalid output, and accepted targets are mixed with gold corpus targets.\nThe distilled model is then trained in both translation directions using wrappers such as translate:, Translate:, Translate this:, and Translate only this:. The saved checkpoint records:\n\n\n\nFine-tuning field\nValue\n\n\n\n\nOptimizer steps\n2,001\n\n\nAugmented training examples\n186,832\n\n\nInitial validation loss\n1.1610\n\n\nFinal validation loss\n0.7909\n\n\nObjective\nTarget-only cross-entropy",
     "crumbs": [
       "Work",
       "Projects",
@@ -295,11 +414,35 @@
     ]
   },
   {
-    "objectID": "posts/GurmukhiSLM/gurmukhi.html#future-work",
-    "href": "posts/GurmukhiSLM/gurmukhi.html#future-work",
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#int8-and-int4-export",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#int8-and-int4-export",
     "title": "Gurmukhi Small Language Model",
-    "section": "Future Work",
-    "text": "Future Work\n\nRun full FLORES+ dev and devtest evaluations for the base and distilled models.\nQuantize the refined model to 8-bit and 4-bit and measure quality, memory use, and latency.\nInvestigate quantization-aware 1.58-bit and 1-bit model variants rather than treating them as simple post-training conversions.\nExport the best practical checkpoint to a mobile-compatible runtime.\nTest translation quality, peak memory, startup time, and tokens per second on real mobile hardware.",
+    "section": "INT8 and INT4 Export",
+    "text": "INT8 and INT4 Export\nThe export workflow reconstructs the trained model with cache-aware attention and produces one ONNX graph that supports both prefill and decode.\n\nINT8: ONNX Runtime dynamic quantization, signed QInt8, per-channel weights.\nINT4: ONNX Runtime MatMulNBits, symmetric weight-only quantization, 32-value blocks, QOperator format, and quantized MatMul/Gather constants.\nUnquantized state: activations and KV caches remain FP32.\nGeneration contract: greedy decoding, up to 96 new tokens by default.\n\nThe FP32 source graph is exported at opset 20. ONNX Runtime upgrades the native INT4 graph to opset 21.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#flores-results",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#flores-results",
+    "title": "Gurmukhi Small Language Model",
+    "section": "FLORES+ Results",
+    "text": "FLORES+ Results\nThe following results come from 900 aligned rows of the local FLORES+ dev split, six ONNX Runtime CPU threads, greedy decoding, and a 96-token generation limit. Latency is hardware-dependent; the quality scores are the more useful model comparison, and performance should be rerun on the intended deployment device.\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nDirection\nBLEU\nchrF++\nScript error\nFirst token\nMean latency\nThroughput\n\n\n\n\nINT8\nEnglish → Punjabi\n22.15\n46.27\n0.00%\n5.14 ms\n70.99 ms\n436.45 tok/s\n\n\nINT8\nPunjabi → English\n23.34\n50.79\n0.00%\n5.33 ms\n72.84 ms\n431.52 tok/s\n\n\nINT4\nEnglish → Punjabi\n22.91\n46.95\n0.00%\n7.19 ms\n51.32 ms\n598.88 tok/s\n\n\nINT4\nPunjabi → English\n24.39\n51.16\n0.22%\n7.53 ms\n53.82 ms\n583.13 tok/s\n\n\n\nThe machine-readable benchmark summary and reproduction commands are available in the Gurmukhi SLM repository.",
+    "crumbs": [
+      "Work",
+      "Projects",
+      "Gurmukhi Small Language Model"
+    ]
+  },
+  {
+    "objectID": "posts/GurmukhiSLM/gurmukhi.html#limitations-and-next-steps",
+    "href": "posts/GurmukhiSLM/gurmukhi.html#limitations-and-next-steps",
+    "title": "Gurmukhi Small Language Model",
+    "section": "Limitations and Next Steps",
+    "text": "Limitations and Next Steps\n\nThe model is specialized for English-Punjabi translation, not general-purpose chat.\nThe 256-token context limits long-document translation.\nFLORES+ results should be extended to the complete dev and devtest sets before broad generalization claims.\nINT4 kernel performance depends on ONNX Runtime, CPU instruction support, and the target device.\nMobile validation should measure peak memory, startup time, thermal behavior, and sustained tokens per second on real hardware.\n\nThe original online data-analysis notebook is available on marimo molab.",
     "crumbs": [
       "Work",
       "Projects",
@@ -311,7 +454,7 @@
     "href": "posts/GurmukhiSLM/gurmukhi.html#data-license",
     "title": "Gurmukhi Small Language Model",
     "section": "Data License",
-    "text": "Data License\n\n\n\nCC BY 4.0\n\n\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets and teacher checkpoints retain their own licenses and terms; review them before redistributing derived artifacts.",
+    "text": "Data License\nThe corpus work is licensed under a Creative Commons Attribution 4.0 International License. Individual source datasets, model checkpoints, and teacher models retain their own licenses and terms; review them before redistributing derived artifacts.",
     "crumbs": [
       "Work",
       "Projects",

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
+<meta name="description" content="Cited answers, reviewed reports, and approved SQL analysis in one enterprise AI workspace.">
 
-<title>Embedding Three.js in Quarto – Ajeet Singh</title>
+<title>DataExplorer – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,26 +27,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b15ecc0bcbd84fac5d50d6bdca35134f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/GurmukhiSLM/gurmukhi.html" rel="prev">
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b15ecc0bcbd84fac5d50d6bdca35134f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,24 +113,29 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Embedding Three.js in Quarto – Ajeet Singh">
-<meta property="og:description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="dataexplorer.css">
+<meta property="og:title" content="DataExplorer – Ajeet Singh">
+<meta property="og:description" content="Cited answers, reviewed reports, and approved SQL analysis in one enterprise AI workspace.">
+<meta property="og:image" content="https://ajeets6.github.io/posts/DataExplorer/thumbnail.jpg">
 <meta property="og:site_name" content="Ajeet Singh">
-<meta name="twitter:title" content="Embedding Three.js in Quarto – Ajeet Singh">
-<meta name="twitter:description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
-<meta name="twitter:card" content="summary">
-<link rel="canonical" href="https://ajeets6.github.io/posts/mango.html">
+<meta property="og:image:alt" content="DataExplorer Overview showing workspace totals, navigation, and actions for questions, knowledge, and reports">
+<meta name="twitter:title" content="DataExplorer – Ajeet Singh">
+<meta name="twitter:description" content="Cited answers, reviewed reports, and approved SQL analysis in one enterprise AI workspace.">
+<meta name="twitter:image" content="https://ajeets6.github.io/posts/DataExplorer/thumbnail.jpg">
+<meta name="twitter:image:alt" content="DataExplorer Overview showing workspace totals, navigation, and actions for questions, knowledge, and reports">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ajeets6.github.io/posts/DataExplorer/">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed dataexplorer-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
@@ -105,19 +146,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#work"> 
+    <a class="nav-link" href="../../index.html#work"> 
 <span class="menu-text">Work</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#knowledge"> 
+    <a class="nav-link" href="../../index.html#knowledge"> 
 <span class="menu-text">Knowledge</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#experience"> 
+    <a class="nav-link" href="../../index.html#experience"> 
 <span class="menu-text">Experience</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
@@ -135,20 +176,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#from-retrieval-to-reviewed-work" id="toc-from-retrieval-to-reviewed-work" class="nav-link active" data-scroll-target="#from-retrieval-to-reviewed-work">From retrieval to reviewed work</a></li>
+  <li><a href="#three-connected-workflows" id="toc-three-connected-workflows" class="nav-link" data-scroll-target="#three-connected-workflows">Three connected workflows</a>
+  <ul class="collapse">
+  <li><a href="#ask-questions-with-evidence" id="toc-ask-questions-with-evidence" class="nav-link" data-scroll-target="#ask-questions-with-evidence">Ask questions with evidence</a></li>
+  <li><a href="#turn-findings-into-reports" id="toc-turn-findings-into-reports" class="nav-link" data-scroll-target="#turn-findings-into-reports">Turn findings into reports</a></li>
+  <li><a href="#analyse-data-with-approval" id="toc-analyse-data-with-approval" class="nav-link" data-scroll-target="#analyse-data-with-approval">Analyse data with approval</a></li>
+  </ul></li>
+  <li><a href="#how-the-platform-fits-together" id="toc-how-the-platform-fits-together" class="nav-link" data-scroll-target="#how-the-platform-fits-together">How the platform fits together</a></li>
+  <li><a href="#engineering-decisions" id="toc-engineering-decisions" class="nav-link" data-scroll-target="#engineering-decisions">Engineering decisions</a></li>
+  <li><a href="#evaluation-and-deployment" id="toc-evaluation-and-deployment" class="nav-link" data-scroll-target="#evaluation-and-deployment">Evaluation and deployment</a></li>
+  <li><a href="#run-locally" id="toc-run-locally" class="nav-link" data-scroll-target="#run-locally">Run locally</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/multi-modal-rag/rag.html">Projects</a></li><li class="breadcrumb-item"><a href="../../posts/DataExplorer/index.html">DataExplorer</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Embedding Three.js in Quarto</h1>
+<h1 class="title">DataExplorer</h1>
 </div>
 
 <div>
   <div class="description">
-    A minimal example of rendering an animated Three.js scene inside a Quarto page.
+    Cited answers, reviewed reports, and approved SQL analysis in one enterprise AI workspace.
   </div>
 </div>
 
@@ -165,41 +222,131 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container’s dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene.</p>
-<!-- Container for the Three.js scene -->
-<div id="three-container" style="width: 100%; height: 400px;">
-
+<div class="de-actions">
+  <a class="portfolio-button primary" href="https://github.com/Ajeets6/DataExplorer">View source</a>
+  <a class="portfolio-button" href="#run-locally">Run locally</a>
 </div>
-<script>
-  // Create the scene, camera, and renderer.
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer();
+<figure class="de-cover figure">
+  <img src="thumbnail.jpg" alt="DataExplorer Overview showing workspace totals, navigation, and actions for questions, knowledge, and reports" width="1083" height="920" fetchpriority="high" class="figure-img">
+  <figcaption>The DataExplorer Overview page in a fresh local development workspace.</figcaption>
+</figure>
+<section id="from-retrieval-to-reviewed-work" class="level2">
+<h2 class="anchored" data-anchor-id="from-retrieval-to-reviewed-work">From retrieval to reviewed work</h2>
+<p>An answer is only part of an enterprise AI workflow. People also need to see its sources, respect document permissions, review proposed actions, and turn useful results into shareable work.</p>
+<p>DataExplorer brings these steps into a Python platform with a FastAPI backend and separate Streamlit workspaces for employees and administrators. It supports Ollama, OpenAI, and Anthropic, with model routing constrained by content classification.</p>
+<div class="de-highlight">
+<p><strong>The core design choice:</strong> access checks happen before evidence reaches the model. Publishing and SQL execution require independent approval.</p>
+</div>
+</section>
+<section id="three-connected-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="three-connected-workflows">Three connected workflows</h2>
+<section id="ask-questions-with-evidence" class="level3">
+<h3 class="anchored" data-anchor-id="ask-questions-with-evidence">Ask questions with evidence</h3>
+<p>Upload text or Markdown documents, explore the knowledge library, and ask questions grounded in permitted sources. Retrieval considers relevance, trust, and expiry; answers are checked for citations. Saved answers and source previews make it possible to revisit the evidence behind a response.</p>
+</section>
+<section id="turn-findings-into-reports" class="level3">
+<h3 class="anchored" data-anchor-id="turn-findings-into-reports">Turn findings into reports</h3>
+<p>Create an artifact with source IDs for factual sections, send it for independent review, then render and download the approved result. Report revisions need a fresh decision while preserving the previous review. DOCX rendering is built in; PPTX requires a configured Node and artifact-tool runtime.</p>
+</section>
+<section id="analyse-data-with-approval" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-data-with-approval">Analyse data with approval</h3>
+<p>Text2SQL works against configured schemas available to the caller’s groups. A proposed query must pass validation and independent approval before execution. The executor permits bounded, allowlisted <code>SELECT</code> queries and uses read-only transactions, tenant context, and resource limits.</p>
+</section>
+</section>
+<section id="how-the-platform-fits-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-platform-fits-together">How the platform fits together</h2>
+<div class="de-architecture">
+<div class="de-layer">
+<p><strong>Workspace</strong></p>
+<p>Employee pages for knowledge, answers, analyses, reports, and approvals. A separate admin console for observability.</p>
+</div>
+<div class="de-layer">
+<p><strong>API and policy</strong></p>
+<p>FastAPI validates identity and coordinates retrieval, model routing, citation checks, review decisions, and execution.</p>
+</div>
+<div class="de-layer">
+<p><strong>Models and storage</strong></p>
+<p>Ollama, OpenAI, or Anthropic for generation. PostgreSQL, Redis, and Qdrant support the production deployment.</p>
+</div>
+</div>
+<p>The separation keeps the user interface focused on work while the API enforces the rules. The same backend serves the employee workspace and administrative tools.</p>
+</section>
+<section id="engineering-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="engineering-decisions">Engineering decisions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concern</th>
+<th style="text-align: left;">Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Identity and access</td>
+<td style="text-align: left;">Validated JWT claims in staging and production; tenant and group checks before model access to evidence.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Model routing</td>
+<td style="text-align: left;">Managed providers are limited to public/internal content. Confidential or restricted content requires an eligible private/local route.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Human review</td>
+<td style="text-align: left;">Independent decisions gate artifact rendering and SQL execution. Revised reports return to review.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guardrails</td>
+<td style="text-align: left;">Injection-pattern checks, citation checks, and redaction of common PII and secrets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Operational visibility</td>
+<td style="text-align: left;">Request traces, generation trends, audit search, quality checks, and cost coverage without logging prompt or document bodies.</td>
+</tr>
+</tbody>
+</table>
+<p>The admin console distinguishes unavailable measurements from zero. Token and cost totals also separate individual attempts from request summaries, making retries and missing price information visible.</p>
+</section>
+<section id="evaluation-and-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-and-deployment">Evaluation and deployment</h2>
+<p>The repository includes a <strong>SEC Enterprise RAG Test Pack</strong> combining company filings with synthetic policy and security fixtures. An offline build path supports local evaluation; live SEC downloads require an identifying user agent with an operational contact.</p>
+<p>The test suite covers retrieval quality, guardrails, providers, Text2SQL, artifacts, workspace behavior, APIs, and deployment configuration. Docker Compose starts the API, both interfaces, and supporting services. Terraform and Cloud Build configuration target Google Cloud, including Cloud Run.</p>
+<p>Run the test suite with <code>uv run pytest</code>. The <a href="https://github.com/Ajeets6/DataExplorer">repository</a> includes the fixtures, deployment configuration, and implementation details.</p>
+</section>
+<section id="run-locally" class="level2">
+<h2 class="anchored" data-anchor-id="run-locally">Run locally</h2>
+<p>Install <strong>Python 3.11+</strong>, <strong>uv</strong>, and <strong>Ollama</strong>, then start Ollama. In PowerShell:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>Ajeets6<span class="op">/</span>DataExplorer<span class="op">.</span><span class="fu">git</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> DataExplorer</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>uv sync</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Copy-Item</span> <span class="op">.</span><span class="fu">env</span><span class="op">.</span><span class="fu">example</span> <span class="op">.</span><span class="fu">env</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ollama pull llama3<span class="op">.</span><span class="dv">1</span><span class="op">:</span>8b</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ollama pull embeddinggemma</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>uv run dataexplorer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The API runs at <code>http://127.0.0.1:8000</code>, with interactive API documentation at <code>/docs</code>. Open a second terminal in the repository to start the employee workspace:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uv run dataexplorer-ui</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Visit <code>http://127.0.0.1:8501</code>. The separate admin command, <code>uv run dataexplorer-admin</code>, serves port <code>8502</code> and requires the <code>observability-admins</code> or <code>platform-admins</code> group.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Development and production">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Development and production
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Development uses in-memory defaults, so workspace records last only for the running API process. Production requires persistent services, SQL migrations, and validated JWT identity. Text/Markdown uploads are currently limited to 1 MB. See the <a href="https://github.com/Ajeets6/DataExplorer/blob/master/docs/PRODUCTION_SETUP.md">production setup guide</a> for deployment and sign-in configuration.</p>
+</div>
+</div>
+<p><a href="https://github.com/Ajeets6/DataExplorer" class="portfolio-button">Explore the source on GitHub</a></p>
 
-  const container = document.getElementById('three-container');
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  container.appendChild(renderer.domElement);
 
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshNormalMaterial();
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-
-  camera.position.z = 3;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-  animate();
-</script>
-
-
+</section>
 
 </main> <!-- /main -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -600,6 +747,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/GurmukhiSLM/gurmukhi.html" class="pagination-link" aria-label="Gurmukhi Small Language Model">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Gurmukhi Small Language Model</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -634,5 +790,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

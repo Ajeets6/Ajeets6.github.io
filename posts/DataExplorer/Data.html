@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
 
-<title>Embedding Three.js in Quarto – Ajeet Singh</title>
+<title>data – Ajeet Singh</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,26 +26,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b15ecc0bcbd84fac5d50d6bdca35134f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-01a4444eaf4a0e6bfee71e028a7c840d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b15ecc0bcbd84fac5d50d6bdca35134f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,14 +111,14 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Embedding Three.js in Quarto – Ajeet Singh">
-<meta property="og:description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Ajeet Singh">
+<meta property="og:description" content="AI and software engineer building retrieval, computer vision, and systems software.">
 <meta property="og:site_name" content="Ajeet Singh">
-<meta name="twitter:title" content="Embedding Three.js in Quarto – Ajeet Singh">
-<meta name="twitter:description" content="A minimal example of rendering an animated Three.js scene inside a Quarto page.">
+<meta name="twitter:title" content="Ajeet Singh">
+<meta name="twitter:description" content="AI and software engineer building retrieval, computer vision, and systems software.">
 <meta name="twitter:card" content="summary">
-<link rel="canonical" href="https://ajeets6.github.io/posts/mango.html">
+<link rel="canonical" href="https://ajeets6.github.io/posts/DataExplorer/Data.html">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -94,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ajeet Singh</span>
     </a>
   </div>
@@ -105,19 +139,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#work"> 
+    <a class="nav-link" href="../../index.html#work"> 
 <span class="menu-text">Work</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#knowledge"> 
+    <a class="nav-link" href="../../index.html#knowledge"> 
 <span class="menu-text">Knowledge</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../index.html#experience"> 
+    <a class="nav-link" href="../../index.html#experience"> 
 <span class="menu-text">Experience</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
@@ -135,71 +169,83 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-explorer" id="toc-data-explorer" class="nav-link active" data-scroll-target="#data-explorer">Data Explorer</a>
+  <ul class="collapse">
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick start</a></li>
+  <li><a href="#evaluation-dataset" id="toc-evaluation-dataset" class="nav-link" data-scroll-target="#evaluation-dataset">Evaluation dataset</a></li>
+  <li><a href="#implemented-security-boundaries" id="toc-implemented-security-boundaries" class="nav-link" data-scroll-target="#implemented-security-boundaries">Implemented security boundaries</a></li>
+  <li><a href="#production-deployment" id="toc-production-deployment" class="nav-link" data-scroll-target="#production-deployment">Production deployment</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Embedding Three.js in Quarto</h1>
-</div>
-
-<div>
-  <div class="description">
-    A minimal example of rendering an animated Three.js scene inside a Quarto page.
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
+<section id="data-explorer" class="level1">
+<h1>Data Explorer</h1>
+<p>An open-source-first enterprise RAG platform for governed answers, business documents, and data-driven presentations. The build includes FastAPI, LangGraph, tenant-aware dense/sparse retrieval, citations, governed DOCX/PPTX publishing, Ollama/OpenAI/Anthropic adapters, JWT authentication, layered guardrails, and audited Text2SQL with independent human approval.</p>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
+<p>Prerequisites: Python 3.11+ and a running Ollama instance.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uv sync</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Copy-Item</span> <span class="op">.</span><span class="fu">env</span><span class="op">.</span><span class="fu">example</span> <span class="op">.</span><span class="fu">env</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ollama pull llama3<span class="op">.</span><span class="dv">1</span><span class="op">:</span>8b</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ollama pull embeddinggemma</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>uv run dataexplorer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The API is available at <code>http://127.0.0.1:8000</code>; OpenAPI is at <code>/docs</code>.</p>
+<p>Start the enterprise workspace in another terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uv run dataexplorer-ui</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The workspace client is available at <code>http://127.0.0.1:8501</code> and includes governed chat, knowledge ingestion, document/deck publishing, Text2SQL approvals, and evaluation. Start <code>uv run dataexplorer-admin</code> for the separate observability console at <code>http://127.0.0.1:8502</code>. It requires an <code>observability-admins</code> or <code>platform-admins</code> entitlement. <code>docker compose up</code> starts both UIs, the API, Ollama, PostgreSQL, Redis, and Qdrant.</p>
+<p>User, tenant, and group claims are resolved by the API and are not editable in the workspace client. In development only, environment variables provide the identity headers; staging and production require validated JWT claims.</p>
+<p>LLM telemetry stores correlation ID, user, tenant, operation, provider, model, tokens, latency, grounding, retries, and estimated API cost—never prompt, response, retrieved passage, or document bodies. Provider/model rates come from the <code>DATAEXPLORER_LLM_*_COST_PER_MILLION_USD</code> JSON maps. Missing rates are shown as unpriced rather than assigned an invented cost.</p>
+<p>Ingest a development document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Invoke-RestMethod</span> <span class="op">-</span>Method Post <span class="op">-</span>Uri http<span class="op">://</span><span class="dv">127.0</span><span class="op">.</span><span class="dv">0.1</span><span class="op">:</span><span class="dv">8000</span><span class="op">/</span>v1<span class="op">/</span>documents `</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Headers @<span class="op">{</span><span class="st">"X-User-ID"</span><span class="op">=</span><span class="st">"analyst-1"</span><span class="op">;</span> <span class="st">"X-Tenant-ID"</span><span class="op">=</span><span class="st">"acme"</span><span class="op">;</span> <span class="st">"X-Groups"</span><span class="op">=</span><span class="st">"finance"</span><span class="op">}</span> `</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>ContentType application<span class="op">/</span>json `</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Body <span class="st">'{"document_id":"policy-1","title":"Travel policy","text":"Employees may claim approved rail travel.","allowed_groups":["finance"]}'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Query it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Invoke-RestMethod</span> <span class="op">-</span>Method Post <span class="op">-</span>Uri http<span class="op">://</span><span class="dv">127.0</span><span class="op">.</span><span class="dv">0.1</span><span class="op">:</span><span class="dv">8000</span><span class="op">/</span>v1<span class="op">/</span>query `</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Headers @<span class="op">{</span><span class="st">"X-User-ID"</span><span class="op">=</span><span class="st">"analyst-1"</span><span class="op">;</span> <span class="st">"X-Tenant-ID"</span><span class="op">=</span><span class="st">"acme"</span><span class="op">;</span> <span class="st">"X-Groups"</span><span class="op">=</span><span class="st">"finance"</span><span class="op">}</span> `</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>ContentType application<span class="op">/</span>json `</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Body <span class="st">'{"question":"What travel can employees claim?"}'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run the isolated test suite with <code>uv run pytest</code>. Header-based identity is development-only. Staging and production configuration requires OIDC/JWT and rejects development identity headers.</p>
+</section>
+<section id="evaluation-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-dataset">Evaluation dataset</h2>
+<p>The reproducible <a href="https://github.com/Ajeets6/DataExplorer/blob/master/datasets/sec_enterprise/README.md">SEC Enterprise RAG Test Pack</a> combines Microsoft, Walmart, and Delta filings/XBRL with synthetic policies, stale versions, duplicate content, tenant boundaries, restricted test records, and prompt-injection fixtures. Generate the safe offline corpus with <code>uv run python scripts/build_sec_enterprise_dataset.py --offline</code>, then ingest it with <code>uv run python scripts/ingest_sec_enterprise_dataset.py</code> after Ollama is ready. Live SEC downloads require a declared <code>DATAEXPLORER_SEC_USER_AGENT</code> containing your organization and operational contact, as required by SEC fair-access rules.</p>
+<p>Select a model route with <code>DATAEXPLORER_MODEL_PROVIDER=ollama|openai|anthropic|router</code>. Managed providers are limited to public/internal content; confidential and restricted content fails closed unless an eligible private/local route exists. The OpenAI adapter uses Responses with storage disabled, and Claude generation delegates embeddings to the configured embedding provider.</p>
+<p>Publishing is a three-step API workflow: create <code>/v1/artifacts</code>, obtain an independent decision, then render. Artifact specifications require a source ID for every factual section, constrain filenames, retain approval metadata, and hash outputs. DOCX rendering is built in. PPTX rendering is enabled only when the configured Node and artifact-tool runtime paths are present.</p>
+</section>
+<section id="implemented-security-boundaries" class="level2">
+<h2 class="anchored" data-anchor-id="implemented-security-boundaries">Implemented security boundaries</h2>
+<ul>
+<li>Tenant and group authorization is applied before evidence reaches a model.</li>
+<li>Hybrid dense/sparse retrieval uses RRF, absolute relevance, trust weighting, expiry checks, and a configurable lexical or FlashRank reranker.</li>
+<li>High-confidence document/query injection patterns are blocked, model output is citation-checked, and common PII and secrets are redacted.</li>
+<li>Staging and production require JWT issuer, audience, and JWKS settings. Request rate and token budgets use a replaceable policy component.</li>
+<li>SQL follows proposal, independent approval, and execution stages. SQLGlot AST validation permits one bounded <code>SELECT</code> over allowlisted tables, columns, and functions. The PostgreSQL adapter opens a read-only transaction, applies a timeout and tenant session context, checks plan cost, and caps rows.</li>
+</ul>
+</section>
+<section id="production-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="production-deployment">Production deployment</h2>
+<p>Development defaults remain in memory. Production configuration refuses to start unless PostgreSQL persistence, Redis policy enforcement, Qdrant retrieval, JWT identity, and their required connection settings are configured. Qdrant uses dense/sparse named vectors with server-side RRF, tenant/ACL prefilters, and a defense-in-depth authorization check before evidence reaches a model. Redis enforces request and daily-token limits through one atomic script. PostgreSQL stores audit events, SQL approvals, and artifact approvals; apply <code>migrations/001_governance.sql</code> through the included worker job.</p>
+<p>The Terraform module under <code>infra/terraform</code> provisions private networking, separate Cloud Run API/UI services and a worker job, Artifact Registry, versioned GCS, private Cloud SQL, TLS-enabled Memorystore, KMS, Secret Manager, monitoring, and budgets. Before the first deployment, create the remote-state bucket, copy <code>terraform.tfvars.example</code>, and add versions for the generated database, OpenAI, and Qdrant secrets. Cloud Build deploys immutable commit-tagged images; GitHub CI runs tests, container builds, Terraform formatting, and validation.</p>
+<p>The API emits structured request logs, propagates correlation IDs, and exposes Prometheus-format counters and latency sums at <code>/metrics</code>. No prompt, evidence, or restricted document content is placed in those telemetry records.</p>
 
 
-<p>This example embeds a small Three.js scene directly in a Quarto document. The renderer uses the page container’s dimensions, while a request-animation-frame loop rotates a mesh and redraws the scene.</p>
-<!-- Container for the Three.js scene -->
-<div id="three-container" style="width: 100%; height: 400px;">
-
-</div>
-<script>
-  // Create the scene, camera, and renderer.
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer();
-
-  const container = document.getElementById('three-container');
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  container.appendChild(renderer.domElement);
-
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshNormalMaterial();
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-
-  camera.position.z = 3;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-  animate();
-</script>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.min.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -634,5 +680,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

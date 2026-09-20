@@ -1,22 +1,24 @@
 [
   {
-    "listing": "/projects.html",
-    "items": [
-      "/posts/aerialAI/aerial.html",
-      "/posts/GurmukhiSLM/gurmukhi.html",
-      "/posts/multi-modal-rag/rag.html",
-      "/posts/dashboard-llm/dash.html",
-      "/posts/chip8-raylib/chip8.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/posts/aerialAI/aerial.html",
       "/posts/GurmukhiSLM/gurmukhi.html",
       "/posts/multi-modal-rag/rag.html",
       "/posts/dashboard-llm/dash.html",
-      "/posts/chip8-raylib/chip8.html"
+      "/posts/chip8-raylib/chip8.html",
+      "/posts/DataExplorer/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/posts/aerialAI/aerial.html",
+      "/posts/GurmukhiSLM/gurmukhi.html",
+      "/posts/multi-modal-rag/rag.html",
+      "/posts/dashboard-llm/dash.html",
+      "/posts/chip8-raylib/chip8.html",
+      "/posts/DataExplorer/index.html"
     ]
   }
 ]
