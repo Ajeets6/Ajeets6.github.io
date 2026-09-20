@@ -1,13 +1,15 @@
-# Ajeets6.github.io
+# Ajeet Singh — Portfolio
 
-Portfolio website built with Quarto.
+[ajeets6.github.io](https://ajeets6.github.io)
 
-## About Me
+Preview:
 
-I am an AI engineering student who enjoys building practical AI and web projects.
+```sh
+quarto preview
+```
 
-## Stack Used
+Build:
 
-- Quarto
-- Markdown
-- HTML/CSS
+```sh
+quarto render
+```

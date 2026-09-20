@@ -15,6 +15,7 @@ listing:
     - posts/multi-modal-rag/rag.md
     - posts/dashboard-llm/dash.md
     - posts/chip8-raylib/chip8.qmd
+    - posts/DataExplorer/index.qmd
   template: project-bento.ejs.md
   sort: order
   sort-ui: false
@@ -47,7 +48,7 @@ listing:
     <div class="site-shell">
       <header class="home-section-head">
         <h2 id="work-title">Selected <span class="accent-line">work</span></h2>
-        <p>Five projects across applied AI, computer vision, data tools, and low-level systems.</p>
+        <p>Six projects across applied AI, computer vision, data tools, and low-level systems.</p>
       </header>
 ```
 

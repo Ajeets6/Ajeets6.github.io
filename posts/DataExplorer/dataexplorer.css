@@ -1,0 +1,63 @@
+/* Scoped additions to the portfolio's existing article theme. */
+.dataexplorer-page .quarto-title-block .quarto-title h1.title {
+  font-size: clamp(2.35rem, 6.5vw, 5.6rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.de-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 1.5rem 2rem;
+}
+
+.de-cover img {
+  display: block;
+  height: auto;
+}
+
+.de-cover figcaption {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.de-highlight {
+  margin-block: 2rem;
+  padding: 1.2rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  background: var(--graphite);
+}
+
+.de-highlight p:last-child,
+.de-layer p:last-child {
+  margin-bottom: 0;
+}
+
+.de-architecture {
+  margin-block: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.de-layer {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-block: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.de-layer > p:first-child {
+  color: var(--link-color, #ff755f);
+}
+
+@media (max-width: 767.98px) {
+  .de-layer {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .dataexplorer-page th,
+  .dataexplorer-page td {
+    overflow-wrap: anywhere;
+  }
+}
